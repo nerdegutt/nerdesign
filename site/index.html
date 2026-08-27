@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nerdesign · Nerdesign</title>
+<script>try{var t=localStorage.getItem('nd-theme');if(t&&t!=='auto')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="dist/nd-fonts.css">
+<link rel="stylesheet" href="dist/nd.css">
+<link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body data-nd-version="1.0.0">
+<a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
+<div class="site-version-banner" id="version-banner" hidden></div>
+<header class="site-header">
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.0</small></a>
+  <nav class="site-nav" aria-label="Hovedmeny">
+    <a href="index.html" aria-current="page">Om</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="komponenter.html">Komponenter</a>
+    <a href="eksempler.html">Eksempler</a>
+    <a href="tilgjengelighet.html">Tilgjengelighet</a>
+    <a href="versjoner.html">Versjoner</a>
+  </nav>
+  <div id="theme" class="site-theme"></div>
+</header>
+<main id="innhold" class="nd-page nd-page--wide">
+<header class="nd-header">
+  <p class="nd-kicker">Helgerød gård · Jeløya</p>
+  <h1>Nerdesign</h1>
+  <p class="nd-subtitle">Ett visuelt språk for alt som skrives ut og alt som lyser</p>
+</header>
+<figure class="nd-hero"><img src="examples/img/tunet-kveld.jpg" alt="Gårdstunet på Helgerød gård en sommerkveld, med tente lykter og den røde sidebygningen" width="1400" height="1050"><figcaption class="nd-caption">Helgerød gård, Jeløya – tunet en sommerkveld.</figcaption></figure>
+<p class="nd-lead">Nerdesign er et lite designsystem for en gammel gård med ny teknologi inni. Det gir dokumenter som skal skrives ut og dashboards som skal leses i mørket samme rolige uttrykk – og det samme regelverket for lesbarhet.</p>
+
+<h2>Tankegangen</h2>
+<div class="two">
+  <div>
+    <h3>Ett system, to lys</h3>
+    <p>Lys og mørk er ikke to design, men ett sett roller med to verdisett. Papir er alltid lyst. Skjermen følger systemet ditt, eller en bryter. Alt som er farge er definert som en <em>rolle</em> – bakgrunn, flate, strek, tekst, aksent – og komponentene bruker bare rollene.</p>
+    <h3>Herregården først</h3>
+    <p>Serif i alle tekster, én teglrød aksent, kremhvitt papir, dempede streker. Ornamentikken er sparsom og alltid den samme: det lille røde kvadratet foran en overskrift, en sperret overtittel, en tynn strek under.</p>
+  </div>
+  <div>
+    <h3>Tall er data</h3>
+    <p>I dashboards settes tall og akser i monospace med tabulære siffer, så kolonner står rett og verdier kan sammenlignes med øyet. I dokumenter beholder tallene serifen, men får tabulær spatiering.</p>
+    <h3>Lesbart for alle, alltid</h3>
+    <p>Hvert fargepar i systemet er kontrollert mot WCAG 2.2 AA i begge temaer, seriepaletten er testet for fargesyn, og alle grafer skal kunne leses som tabell. Det er ikke et tillegg, det er en del av definisjonen.</p>
+  </div>
+</div>
+
+<h2>Hva systemet består av</h2>
+<dl class="nd-keyfacts nd-keyfacts--4">
+  <div><dt>Grunnlag</dt><dd><a href="grunnlag.html">Farger, typografi, layout</a></dd></div>
+  <div><dt>Komponenter</dt><dd><a href="komponenter.html">Dokument og dashboard</a></dd></div>
+  <div><dt>Leveranse</dt><dd><a href="kom-i-gang.html">Én CSS-fil, ett ECharts-tema</a></dd></div>
+  <div><dt>Tilgjengelighet</dt><dd><a href="tilgjengelighet.html">Kontrast, tastatur, print</a></dd></div>
+</dl>
+
+<h2>Navnet</h2>
+<p class="nd-measure">Nerdesign er laget for Helgerød gård – en av de eldste bosetningene på Jeløya – og alt det lager har prefikset <code>nd-</code>. Det er bygget for én gård og én husholdning, men det er offentlig, og alt i det kan brukes fritt.</p>
+
+</main>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.0</footer>
+<script>
+  // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
+  (async () => {
+    try {
+      const mine = document.body.dataset.ndVersion;
+      const base = location.pathname.match(//vd+.d+.d+//) ? '../' : './';
+      const r = await fetch(base + 'versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const { latest } = await r.json();
+      if (!latest || latest === mine) return;
+      const b = document.getElementById('version-banner');
+      b.innerHTML = mine.endsWith('-dev')
+        ? 'Du ser utviklingsversjonen. Siste utgitte versjon er <a href="' + base + '">v' + latest + '</a>.'
+        : 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="' + base + '">v' + latest + '</a>.';
+      b.hidden = false;
+    } catch {}
+  })();
+</script>
+<script type="module">
+  import { ndTheme } from './dist/nd-theme.js';
+  import { ndLightbox } from './dist/nd-lightbox.js';
+  ndTheme.init(); ndTheme.mount(document.getElementById('theme'));
+  ndLightbox();
+</script>
+
+</body>
+</html>

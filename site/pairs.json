@@ -1,0 +1,26 @@
+{
+  "_comment": "Semantic token pairs that must meet WCAG contrast in BOTH themes. kind: text (4.5:1), large (3:1), graphic (3:1). Checked by tools/contrast.mjs and shown live on the website.",
+  "pairs": [
+    { "fg": "--nd-text", "bg": "--nd-bg", "kind": "text" },
+    { "fg": "--nd-text", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-text", "bg": "--nd-surface-raised", "kind": "text" },
+    { "fg": "--nd-text-muted", "bg": "--nd-bg", "kind": "text" },
+    { "fg": "--nd-text-muted", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-accent-text", "bg": "--nd-bg", "kind": "text" },
+    { "fg": "--nd-accent-text", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-link", "bg": "--nd-bg", "kind": "text" },
+    { "fg": "--nd-link", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-text-inverse", "bg": "--nd-accent", "kind": "text" },
+    { "fg": "--nd-accent", "bg": "--nd-bg", "kind": "graphic" },
+    { "fg": "--nd-accent", "bg": "--nd-surface", "kind": "graphic" },
+    { "fg": "--nd-focus", "bg": "--nd-bg", "kind": "graphic" },
+    { "fg": "--nd-focus", "bg": "--nd-surface", "kind": "graphic" },
+    { "fg": "--nd-line", "bg": "--nd-bg", "kind": "decorative" },
+    { "fg": "--nd-ok", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-warn", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-error", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-info", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-chart-text", "bg": "--nd-surface", "kind": "text" },
+    { "fg": "--nd-chart-axis", "bg": "--nd-surface", "kind": "decorative" }
+  ]
+}

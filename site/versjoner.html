@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Versjoner · Nerdesign</title>
+<script>try{var t=localStorage.getItem('nd-theme');if(t&&t!=='auto')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="dist/nd-fonts.css">
+<link rel="stylesheet" href="dist/nd.css">
+<link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body data-nd-version="1.0.0">
+<a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
+<div class="site-version-banner" id="version-banner" hidden></div>
+<header class="site-header">
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.0</small></a>
+  <nav class="site-nav" aria-label="Hovedmeny">
+    <a href="index.html">Om</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="komponenter.html">Komponenter</a>
+    <a href="eksempler.html">Eksempler</a>
+    <a href="tilgjengelighet.html">Tilgjengelighet</a>
+    <a href="versjoner.html" aria-current="page">Versjoner</a>
+  </nav>
+  <div id="theme" class="site-theme"></div>
+</header>
+<main id="innhold" class="nd-page nd-page--wide">
+<header class="nd-header">
+  <p class="nd-kicker">Nerdesign · versjoner</p>
+  <h1>Versjoner</h1>
+  <p class="nd-subtitle">Hver utgivelse er frosset med sitt eget nettsted og sine egne filer</p>
+</header>
+<p class="nd-lead">Prosjekter låser seg til én versjon og kopierer filene inn. Denne siden viser hva som endret seg, og lenker til nettstedet slik det var for hver versjon – nyttig når et prosjekt ligger noen versjoner bak.</p>
+
+
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.0 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-08-27</small></h2>
+  <ul class="nd-list"></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.0/">Se nettstedet for v1.0.0</a><a class="nd-button" href="v1.0.0/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.0">GitHub-release</a></p>
+</section>
+</main>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.0</footer>
+<script>
+  // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
+  (async () => {
+    try {
+      const mine = document.body.dataset.ndVersion;
+      const base = location.pathname.match(//vd+.d+.d+//) ? '../' : './';
+      const r = await fetch(base + 'versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const { latest } = await r.json();
+      if (!latest || latest === mine) return;
+      const b = document.getElementById('version-banner');
+      b.innerHTML = mine.endsWith('-dev')
+        ? 'Du ser utviklingsversjonen. Siste utgitte versjon er <a href="' + base + '">v' + latest + '</a>.'
+        : 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="' + base + '">v' + latest + '</a>.';
+      b.hidden = false;
+    } catch {}
+  })();
+</script>
+<script type="module">
+  import { ndTheme } from './dist/nd-theme.js';
+  import { ndLightbox } from './dist/nd-lightbox.js';
+  ndTheme.init(); ndTheme.mount(document.getElementById('theme'));
+  ndLightbox();
+</script>
+
+</body>
+</html>

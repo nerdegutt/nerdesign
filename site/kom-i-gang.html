@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kom i gang · Nerdesign</title>
+<script>try{var t=localStorage.getItem('nd-theme');if(t&&t!=='auto')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="dist/nd-fonts.css">
+<link rel="stylesheet" href="dist/nd.css">
+<link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body data-nd-version="1.0.0">
+<a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
+<div class="site-version-banner" id="version-banner" hidden></div>
+<header class="site-header">
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.0</small></a>
+  <nav class="site-nav" aria-label="Hovedmeny">
+    <a href="index.html">Om</a>
+    <a href="kom-i-gang.html" aria-current="page">Kom i gang</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="komponenter.html">Komponenter</a>
+    <a href="eksempler.html">Eksempler</a>
+    <a href="tilgjengelighet.html">Tilgjengelighet</a>
+    <a href="versjoner.html">Versjoner</a>
+  </nav>
+  <div id="theme" class="site-theme"></div>
+</header>
+<main id="innhold" class="nd-page nd-page--wide">
+<header class="nd-header">
+  <p class="nd-kicker">Nerdesign · leveranse</p>
+  <h1>Kom i gang</h1>
+  <p class="nd-subtitle">Én CSS-fil, en fontfil og et lite ECharts-tema – ingen byggsteg</p>
+</header>
+
+<h2>Filene</h2>
+<table class="nd-table">
+  <thead><tr><th>Fil</th><th>Innhold</th><th>Når</th></tr></thead>
+  <tbody>
+    <tr><td><code>nd.css</code></td><td>Tokens (lys, mørk, print), basestiler, layout og alle komponenter</td><td>Alltid</td></tr>
+    <tr><td><code>nd-fonts.css</code> + <code>fonts/</code></td><td>JetBrains Mono (OFL) for tall og grafer</td><td>Dashboards og nettsider. Énfils-dokumenter lar den være og bruker systemets monospace</td></tr>
+    <tr><td><code>nd-theme.js</code></td><td>Valgfri bryter auto / lyst / mørkt</td><td>Når siden skal ha en tema-bryter</td></tr>
+    <tr><td><code>nd-echarts.js</code></td><td>ECharts-tema og option-hjelpere som leser tokens ved kjøring, datatabell, temabytte</td><td>Dashboards med grafer (ECharts leveres ikke – ta den fra npm eller CDN)</td></tr>
+    <tr><td><code>nd-lightbox.js</code> + <code>vendor/photoswipe/</code></td><td>Lysboks for alle bilder (PhotoSwipe 5, MIT)</td><td>Sider med bilder</td></tr>
+  </tbody>
+</table>
+
+<h2>Nettside eller dashboard</h2>
+<p>Kopier filene inn i prosjektet (for eksempel i en mappe <code>nd/</code>) og lenk dem som statiske filer. Ikke rediger kopiene – hent en ny versjon når systemet oppdateres. Første linje i hver fil sier hvilken versjon du har.</p>
+<pre class="code">&lt;script&gt;try{var t=localStorage.getItem('nd-theme');if(t&amp;&amp;t!=='auto')document.documentElement.dataset.theme=t}catch(e){}&lt;/script&gt;
+&lt;link rel="stylesheet" href="nd/nd-fonts.css"&gt;
+&lt;link rel="stylesheet" href="nd/nd.css"&gt;
+
+&lt;script type="module"&gt;
+  import { ndTheme } from './nd/nd-theme.js';
+  ndTheme.init();                                   // følger lagret valg
+  ndTheme.mount(document.querySelector('#tema'));   // valgfri bryter
+&lt;/script&gt;</pre>
+<p>Den første <code>&lt;script&gt;</code>-linjen hindrer et lyst glimt før stilarket lastes hos dem som har valgt mørkt.</p>
+
+<h2>Énfils-dokument</h2>
+<p>Dokumenter som skal skrives ut eller sendes som én fil limer hele <code>nd.css</code> inn i <code>&lt;style&gt;</code>. Versjonslinjen følger med. Legg dokumentets egne regler – kolonnebredder, spesielle marger – i en egen <code>&lt;style&gt;</code> under.</p>
+<pre class="code">&lt;!doctype html&gt;
+&lt;html lang="nb"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Kursoversikt&lt;/title&gt;
+  &lt;style&gt;/* Nerdesign v0.0.1 – … */ … innholdet i nd.css … &lt;/style&gt;
+  &lt;style&gt;/* dokumentets egne regler */&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;section class="nd-sheet"&gt;
+    &lt;header class="nd-header"&gt;
+      &lt;p class="nd-kicker"&gt;Gården · Kursoversikt&lt;/p&gt;
+      &lt;h1&gt;Vaskerom&lt;/h1&gt;
+      &lt;p class="nd-subtitle"&gt;Sikringsskap · kurs 1–13&lt;/p&gt;
+    &lt;/header&gt;
+    …
+  &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<h2>Bilder i lysboks</h2>
+<p>Ett kall gjør alle bilder i gallerier, kort, hero og to-kolonner klikkbare. Lenk også PhotoSwipe-stilarket.</p>
+<pre class="code">&lt;link rel="stylesheet" href="nd/vendor/photoswipe/photoswipe.min.css"&gt;
+&lt;script type="module"&gt;
+  import { ndLightbox } from './nd/nd-lightbox.js';
+  ndLightbox();   // data-full="stor.jpg" på &lt;img&gt; gir egen fullversjon; data-nd-zoom="false" unntar
+&lt;/script&gt;</pre>
+
+<h2>Grafer</h2>
+<p>Last ECharts selv (den er ikke en del av Nerdesign), så gjør <code>nd.mount</code> resten: tema fra tokens, nytt tegn ved temabytte, redusert bevegelse, aria og datatabell.</p>
+<pre class="code">&lt;script src="vendor/echarts.min.js"&gt;&lt;/script&gt;
+&lt;script type="module"&gt;
+  import * as nd from './nd/nd-echarts.js';
+  nd.wireDataTables();
+  nd.mount(echarts, document.getElementById('c1'), (t) =&gt; ({
+    ...nd.base(t), xAxis: nd.timeAxis(t), yAxis: nd.valueAxis(t, 'kW'),
+    series: [{ type: 'line', name: 'Hovedhuset', data }],
+  }), { table: () =&gt; ({ headers: ['Tid', 'kW'], numeric: [1], rows }) });
+&lt;/script&gt;</pre>
+<p>Se <a href="komponenter.html#chart">graf-komponenten</a> for markupen rundt.</p>
+
+<h2>Tema</h2>
+<p>Uten noe mer følger siden systeminnstillingen. <code>&lt;html data-theme="dark"&gt;</code> eller <code>"light"</code> tvinger et tema; det er det bryteren i <code>nd-theme.js</code> gjør. Utskrift er alltid lys på hvitt, uansett tema på skjermen.</p>
+
+<h2>Regler som gjør at det holder seg pent</h2>
+<ul class="nd-list">
+  <li>Bruk rollene (<code>--nd-text</code>, <code>--nd-surface</code>), aldri primitivene (<code>--nd-earth-900</code>).</li>
+  <li>Én <code>h1</code> per dokument, <code>h2</code> med kvadratet for hver del, <code>h3</code> sparsomt.</li>
+  <li>Tall i dashboards får <code>.nd-numeric</code>. Tall i dokumenter får det ikke.</li>
+  <li>Hver graf har en datatabell. Hver tomverdi (<code>–</code>) har en tekst for skjermlesere.</li>
+  <li>Test utskriften. Sideskift skjer der <code>.nd-sheet</code> slutter – ikke la nettleseren velge.</li>
+</ul>
+
+</main>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.0</footer>
+<script>
+  // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
+  (async () => {
+    try {
+      const mine = document.body.dataset.ndVersion;
+      const base = location.pathname.match(//vd+.d+.d+//) ? '../' : './';
+      const r = await fetch(base + 'versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const { latest } = await r.json();
+      if (!latest || latest === mine) return;
+      const b = document.getElementById('version-banner');
+      b.innerHTML = mine.endsWith('-dev')
+        ? 'Du ser utviklingsversjonen. Siste utgitte versjon er <a href="' + base + '">v' + latest + '</a>.'
+        : 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="' + base + '">v' + latest + '</a>.';
+      b.hidden = false;
+    } catch {}
+  })();
+</script>
+<script type="module">
+  import { ndTheme } from './dist/nd-theme.js';
+  import { ndLightbox } from './dist/nd-lightbox.js';
+  ndTheme.init(); ndTheme.mount(document.getElementById('theme'));
+  ndLightbox();
+</script>
+
+</body>
+</html>

@@ -9,6 +9,13 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+## v1.0.3 – 2026-08-27
+
+- Nytt mørkt tema: mørke fliser (`#0b0c0e`) på en litt lysere side (`#151719`), så grafene ligger på den mørkeste flaten. Nøytrale gråtoner i stedet for brune.
+- Ny seriepalett i mørkt tema med større avstand mellom fargene (turkis, lilla, tegl, blå, sjøgrønn, oker, rose, oliven), validert for fargesyn mot den nye flaten.
+- Kald, ettoners rampe for varmekart og andre mengdeframstillinger i mørkt tema.
+- Lysere statusfarger og aksent i mørkt tema. Lyst tema, papir og typografi er uendret.
+
 ## v1.0.2 – 2026-08-27
 
 - `[hidden]` skjuler alltid elementet. Uten dette ble paneler med `display: flex`/`grid` (som `.nd-chart` og `.nd-charts`) stående synlige selv med `hidden` satt.

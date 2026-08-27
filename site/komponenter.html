@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.0">
+<body data-nd-version="1.0.1">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.0</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.1</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -31,9 +31,9 @@
 <header class="nd-header">
   <p class="nd-kicker">Nerdesign · komponenter</p>
   <h1>Komponenter</h1>
-  <p class="nd-subtitle">Klasser og markup-mønstre – kopier det du trenger</p>
+  <p class="nd-subtitle">Klasser og markup – kopier det du trenger</p>
 </header>
-<p class="nd-lead">En komponent i Nerdesign er en CSS-klasse og et dokumentert HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
+<p class="nd-lead">En komponent er en CSS-klasse og et HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
 <ul class="toc nd-list">
   <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#form">Skjema</a></li>
 </ul>
@@ -223,7 +223,7 @@
 &lt;/div&gt;</pre>
 
 <h3 id="chart">Graf med datatabell</h3>
-<p><code>section.nd-chart</code> med <code>.nd-chart-header</code> (tittel med kvadrat), <code>.nd-chart-canvas</code> (ECharts tegner her; <code>role="img"</code>, <code>tabindex</code> og <code>aria-label</code> settes av <code>nd.mount</code>), en <code>.nd-chart-footer</code> med <code>.nd-datatable-toggle</code>, og <code>.nd-datatable</code> som fylles fra de samme dataene. Tabellen er ikke valgfri – den er slik grafen leses uten syn, og slik den skrives ut.</p>
+<p><code>section.nd-chart</code> med <code>.nd-chart-header</code> (tittel med kvadrat), <code>.nd-chart-canvas</code> (ECharts tegner her; <code>role="img"</code>, <code>tabindex</code> og <code>aria-label</code> settes av <code>nd.mount</code>), en <code>.nd-chart-footer</code> med <code>.nd-datatable-toggle</code>, og <code>.nd-datatable</code> som fylles fra de samme dataene. Tabellen er obligatorisk: det er slik grafen leses med skjermleser, og slik den skrives ut.</p>
 <pre class="code">&lt;section class="nd-chart" aria-labelledby="c1-h"&gt;
   &lt;div class="nd-chart-header"&gt;&lt;h2 class="nd-chart-title" id="c1-h"&gt;Forbruk siste 7 dager&lt;/h2&gt;&lt;p class="nd-freshness"&gt;kW per time&lt;/p&gt;&lt;/div&gt;
   &lt;div class="nd-chart-canvas" id="c1" aria-label="Linjediagram: effekt per time siste sju dager"&gt;&lt;/div&gt;
@@ -262,20 +262,18 @@
 </div>
 
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.0</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.1</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {
     try {
+      if (!location.pathname.match(//vd+.d+.d+//)) return;   // only frozen snapshots get a banner
       const mine = document.body.dataset.ndVersion;
-      const base = location.pathname.match(//vd+.d+.d+//) ? '../' : './';
-      const r = await fetch(base + 'versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const r = await fetch('../versions.json', { cache: 'no-store' }); if (!r.ok) return;
       const { latest } = await r.json();
       if (!latest || latest === mine) return;
       const b = document.getElementById('version-banner');
-      b.innerHTML = mine.endsWith('-dev')
-        ? 'Du ser utviklingsversjonen. Siste utgitte versjon er <a href="' + base + '">v' + latest + '</a>.'
-        : 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="' + base + '">v' + latest + '</a>.';
+      b.innerHTML = 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="../">v' + latest + '</a>.';
       b.hidden = false;
     } catch {}
   })();

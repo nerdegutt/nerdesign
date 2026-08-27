@@ -7,13 +7,6 @@
 .site-nav a { color: var(--nd-text-muted); text-decoration: none; padding: 0.3rem 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover { color: var(--nd-text); }
 .site-nav a[aria-current="page"] { color: var(--nd-text); border-bottom-color: var(--nd-accent); }
-.site-theme fieldset { border: 1px solid var(--nd-line); border-radius: var(--nd-radius); padding: 0; margin: 0; display: inline-flex; overflow: hidden; }
-.site-theme label { position: relative; display: inline-flex; }
-.site-theme input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-.site-theme span { padding: 0.3rem 0.8rem; font-size: var(--nd-size-sm); color: var(--nd-text-muted); border-left: 1px solid var(--nd-line); min-height: 32px; display: inline-flex; align-items: center; }
-.site-theme label:first-of-type span { border-left: 0; }
-.site-theme input:checked + span { background: var(--nd-surface); color: var(--nd-text); }
-.site-theme input:focus-visible + span { outline: 2px solid var(--nd-focus); outline-offset: -2px; }
 .nd-page--wide > .nd-header { padding-top: var(--nd-space-7); }
 
 /* pattern-book helpers */

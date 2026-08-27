@@ -23,7 +23,7 @@ This places `nd.css`, `nd-echarts.js`, `nd-theme.js` (and optionally
 <link rel="stylesheet" href="nd/nd-fonts.css">
 <link rel="stylesheet" href="nd/nd.css">
 <script type="module">
-  import * as hg from './nd/nd-echarts.js';
+  import * as nd from './nd/nd-echarts.js';
 </script>
 ```
 

@@ -1,4 +1,4 @@
-/* Nerdesign v1.0.0 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
+/* Nerdesign v1.0.1 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
 
 /* ===== tokens/primitives.css ===== */
 /* Layer 1 – primitive palette. Material names from the farm, with lightness
@@ -638,6 +638,15 @@ a.nd-zoom:focus-visible { outline-offset: 3px; }
 .nd-status::before { content: ""; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--nd-text-muted); }
 .nd-status--ok::before { background: var(--nd-ok); } .nd-status--warn::before { background: var(--nd-warn); } .nd-status--error::before { background: var(--nd-error); } .nd-status--info::before { background: var(--nd-info); }
 .nd-freshness { color: var(--nd-text-muted); font-size: var(--nd-size-sm); font-style: italic; margin: 0; }
+
+/* theme toggle rendered by nd-theme.js: a segmented radio group */
+.nd-theme-toggle fieldset { border: 1px solid var(--nd-line); border-radius: var(--nd-radius); padding: 0; margin: 0; display: inline-flex; overflow: hidden; background: var(--nd-bg); }
+.nd-theme-toggle label { position: relative; display: inline-flex; }
+.nd-theme-toggle input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.nd-theme-toggle span { padding: 0 0.8rem; min-height: 32px; display: inline-flex; align-items: center; font-size: var(--nd-size-sm); color: var(--nd-text-muted); border-left: 1px solid var(--nd-line); }
+.nd-theme-toggle label:first-of-type span { border-left: 0; }
+.nd-theme-toggle input:checked + span { background: var(--nd-surface); color: var(--nd-text); }
+.nd-theme-toggle input:focus-visible + span { outline: 2px solid var(--nd-focus); outline-offset: -2px; }
 
 /* ===== components/dashboard/stat.css ===== */
 /* Stat tile: label · value (+unit) · sub. Values in the numeric face. */

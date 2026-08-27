@@ -9,6 +9,12 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+## v1.0.1 – 2026-08-27
+
+- Temabryteren fra `nd-theme.js` har nå stil i `nd.css` (segmentert gruppe), ikke bare på nettstedet.
+- Releasen inkluderer `vendor.zip` (PhotoSwipe), og `copy-to.sh --release` pakker den ut.
+- Nettstedet: nøktern tekst; ingen dev-merking.
+
 ## v1.0.0 – 2026-08-27
 
 - Tokens i to lag: lyst tema (den opprinnelige dokumentpaletten) og mørkt tema, datapaletter validert for fargesyn og kontrast i begge.

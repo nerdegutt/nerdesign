@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.0">
+<body data-nd-version="1.0.1">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.0</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.1</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html" aria-current="page">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -31,53 +31,44 @@
 <header class="nd-header">
   <p class="nd-kicker">Helgerød gård · Jeløya</p>
   <h1>Nerdesign</h1>
-  <p class="nd-subtitle">Ett visuelt språk for alt som skrives ut og alt som lyser</p>
+  <p class="nd-subtitle">Designsystem for dokumenter og dashboards</p>
 </header>
-<figure class="nd-hero"><img src="examples/img/tunet-kveld.jpg" alt="Gårdstunet på Helgerød gård en sommerkveld, med tente lykter og den røde sidebygningen" width="1400" height="1050"><figcaption class="nd-caption">Helgerød gård, Jeløya – tunet en sommerkveld.</figcaption></figure>
-<p class="nd-lead">Nerdesign er et lite designsystem for en gammel gård med ny teknologi inni. Det gir dokumenter som skal skrives ut og dashboards som skal leses i mørket samme rolige uttrykk – og det samme regelverket for lesbarhet.</p>
+<figure class="nd-hero"><img src="examples/img/tunet-kveld.jpg" alt="Gårdstunet på Helgerød gård en sommerkveld, med tente lykter og den røde sidebygningen" width="1400" height="1050"><figcaption class="nd-caption">Helgerød gård, Jeløya.</figcaption></figure>
+<p class="nd-lead">Nerdesign er én CSS-fil med tokens og komponenter, et ECharts-tema og noen små JS-hjelpere. Det brukes til utskriftsvennlige dokumenter og smarthus-dashboards, i lyst og mørkt tema, og oppfyller WCAG 2.2 AA.</p>
 
-<h2>Tankegangen</h2>
-<div class="two">
-  <div>
-    <h3>Ett system, to lys</h3>
-    <p>Lys og mørk er ikke to design, men ett sett roller med to verdisett. Papir er alltid lyst. Skjermen følger systemet ditt, eller en bryter. Alt som er farge er definert som en <em>rolle</em> – bakgrunn, flate, strek, tekst, aksent – og komponentene bruker bare rollene.</p>
-    <h3>Herregården først</h3>
-    <p>Serif i alle tekster, én teglrød aksent, kremhvitt papir, dempede streker. Ornamentikken er sparsom og alltid den samme: det lille røde kvadratet foran en overskrift, en sperret overtittel, en tynn strek under.</p>
-  </div>
-  <div>
-    <h3>Tall er data</h3>
-    <p>I dashboards settes tall og akser i monospace med tabulære siffer, så kolonner står rett og verdier kan sammenlignes med øyet. I dokumenter beholder tallene serifen, men får tabulær spatiering.</p>
-    <h3>Lesbart for alle, alltid</h3>
-    <p>Hvert fargepar i systemet er kontrollert mot WCAG 2.2 AA i begge temaer, seriepaletten er testet for fargesyn, og alle grafer skal kunne leses som tabell. Det er ikke et tillegg, det er en del av definisjonen.</p>
-  </div>
-</div>
+<h2>Slik fungerer det</h2>
+<ul class="nd-list">
+  <li>Farger er definert som roller (<code>--nd-bg</code>, <code>--nd-surface</code>, <code>--nd-line</code>, <code>--nd-text</code>, <code>--nd-accent</code>). Komponentene bruker bare rollene.</li>
+  <li>Lyst og mørkt tema er to verdisett for de samme rollene. Skjermen følger systeminnstillingen eller en bryter. Utskrift bruker alltid de lyse verdiene.</li>
+  <li>Tekst settes i systemets serif (Iowan Old Style / Palatino / Georgia). Tall i dashboards settes i JetBrains Mono med tabulære siffer.</li>
+  <li>Hvert fargepar er kontrastsjekket mot WCAG AA i begge temaer. Seriefargene er testet for fargesyn. Hver graf har en datatabell.</li>
+  <li>Ingen byggsteg for den som bruker det: kopier filene inn i prosjektet, eller lim CSS-en inn i et énfils-dokument.</li>
+</ul>
 
-<h2>Hva systemet består av</h2>
+<h2>Innhold</h2>
 <dl class="nd-keyfacts nd-keyfacts--4">
   <div><dt>Grunnlag</dt><dd><a href="grunnlag.html">Farger, typografi, layout</a></dd></div>
   <div><dt>Komponenter</dt><dd><a href="komponenter.html">Dokument og dashboard</a></dd></div>
-  <div><dt>Leveranse</dt><dd><a href="kom-i-gang.html">Én CSS-fil, ett ECharts-tema</a></dd></div>
+  <div><dt>Kom i gang</dt><dd><a href="kom-i-gang.html">Filer og oppsett</a></dd></div>
   <div><dt>Tilgjengelighet</dt><dd><a href="tilgjengelighet.html">Kontrast, tastatur, print</a></dd></div>
 </dl>
 
-<h2>Navnet</h2>
-<p class="nd-measure">Nerdesign er laget for Helgerød gård – en av de eldste bosetningene på Jeløya – og alt det lager har prefikset <code>nd-</code>. Det er bygget for én gård og én husholdning, men det er offentlig, og alt i det kan brukes fritt.</p>
+<h2>Navn og lisens</h2>
+<p class="nd-measure">Laget for Helgerød gård på Jeløya. Prefikset på alle klasser og tokens er <code>nd-</code>. Koden er MIT-lisensiert; JetBrains Mono og PhotoSwipe følger sine egne åpne lisenser.</p>
 
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.0</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.1</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {
     try {
+      if (!location.pathname.match(//vd+.d+.d+//)) return;   // only frozen snapshots get a banner
       const mine = document.body.dataset.ndVersion;
-      const base = location.pathname.match(//vd+.d+.d+//) ? '../' : './';
-      const r = await fetch(base + 'versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const r = await fetch('../versions.json', { cache: 'no-store' }); if (!r.ok) return;
       const { latest } = await r.json();
       if (!latest || latest === mine) return;
       const b = document.getElementById('version-banner');
-      b.innerHTML = mine.endsWith('-dev')
-        ? 'Du ser utviklingsversjonen. Siste utgitte versjon er <a href="' + base + '">v' + latest + '</a>.'
-        : 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="' + base + '">v' + latest + '</a>.';
+      b.innerHTML = 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="../">v' + latest + '</a>.';
       b.hidden = false;
     } catch {}
   })();

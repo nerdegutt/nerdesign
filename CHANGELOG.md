@@ -9,6 +9,10 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+## v1.0.2 – 2026-08-27
+
+- `[hidden]` skjuler alltid elementet. Uten dette ble paneler med `display: flex`/`grid` (som `.nd-chart` og `.nd-charts`) stående synlige selv med `hidden` satt.
+
 ## v1.0.1 – 2026-08-27
 
 - Temabryteren fra `nd-theme.js` har nå stil i `nd.css` (segmentert gruppe), ikke bare på nettstedet.

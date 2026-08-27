@@ -1,4 +1,4 @@
-/* Nerdesign v1.0.1 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
+/* Nerdesign v1.0.2 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
 
 /* ===== tokens/primitives.css ===== */
 /* Layer 1 – primitive palette. Material names from the farm, with lightness
@@ -324,6 +324,8 @@ body {
   line-height: var(--nd-leading);
 }
 img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+/* the hidden attribute must win over any display rule a page adds */
+[hidden] { display: none !important; }
 button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ===== base/typography.css ===== */

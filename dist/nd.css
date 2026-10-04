@@ -1,4 +1,4 @@
-/* Nerdesign v1.0.3 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
+/* Nerdesign v1.0.4 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
 
 /* ===== tokens/primitives.css ===== */
 /* Layer 1 – primitive palette. Material names from the farm, with lightness
@@ -116,6 +116,10 @@
   --nd-shadow: 0 1px 0 rgba(43, 38, 32, 0.04), 0 8px 24px rgba(43, 38, 32, 0.08);
 }
 
+/* The toggle picked light: pin native controls to light even when the OS is
+   dark (the dark blocks set color-scheme: dark). */
+:root[data-theme="light"] { color-scheme: light; }
+
 /* ===== tokens/data.css ===== */
 /* Data-visualisation tokens, light theme. Categorical series in FIXED order
    (never cycled; a 9th series folds into «Annet»), a one-hue sequential ramp,
@@ -175,6 +179,7 @@
     /* -- tokens/semantic.dark.css -- */
     /* Dark theme – DECLARATIONS ONLY. Dark tiles on a slightly lighter page, so
        charts sit on the darkest surface and read as the content. */
+    color-scheme: dark; /* native controls (checkboxes, scrollbars) follow the dark theme */
     --nd-bg: var(--nd-ink-900);
     --nd-surface: var(--nd-ink-950);
     --nd-surface-raised: var(--nd-ink-800);
@@ -225,6 +230,7 @@
     /* -- tokens/semantic.dark.css -- */
     /* Dark theme – DECLARATIONS ONLY. Dark tiles on a slightly lighter page, so
        charts sit on the darkest surface and read as the content. */
+    color-scheme: dark; /* native controls (checkboxes, scrollbars) follow the dark theme */
     --nd-bg: var(--nd-ink-900);
     --nd-surface: var(--nd-ink-950);
     --nd-surface-raised: var(--nd-ink-800);

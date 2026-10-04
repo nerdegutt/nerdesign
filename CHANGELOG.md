@@ -9,6 +9,14 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+## v1.0.4 – 2026-10-04
+
+- Avkrysningsbokser, rullefelt og andre skjemaelementer følger nå temaet siden viser. Før fulgte de operativsystemet når temavelgeren var satt til Lyst eller Mørkt, så et lyst tema på en mørk Mac fikk svarte avkrysningsbokser.
+
+- Versjoner-siden viser igjen punktene fra CHANGELOG. De var tomme fordi seksjonene ble lest med en regex som stoppet på første linjeskift.
+
+- `tools/dev-server.mjs`: felles lokal server for prosjektene (serverer `public/` eller rota, svarer på `/api/config` fra `.env`). Erstatter to nesten like kopier.
+
 ## v1.0.3 – 2026-08-27
 
 - Nytt mørkt tema: mørke fliser (`#0b0c0e`) på en litt lysere side (`#151719`), så grafene ligger på den mørkeste flaten. Nøytrale gråtoner i stedet for brune.

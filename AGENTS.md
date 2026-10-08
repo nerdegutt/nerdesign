@@ -20,8 +20,6 @@ The website is the app `nerdesign` in Dokploy on the family home server (project
 - `Dockerfile` + `Caddyfile` serve `nettsted/` on port 3000 with `/healthz`. Nothing is built on the server.
 - `nettsted/` is the published site, committed. Only `tools/deploy.sh` writes to it. Never edit it by hand.
 - A push to `main` deploys. Ask Erlend before deploying or changing anything in Dokploy.
-- **Status: DNS for offline.no still points to Domeneshop**, so `tools/deploy.sh` also rsyncs `nettsted/` to
-  `www/offline.no/nerdesign/` on the web host. Remove that block when the switch is done.
 
 ## Conventions (non-negotiable)
 

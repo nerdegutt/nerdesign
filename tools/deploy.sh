@@ -27,10 +27,5 @@ else
   git -C "$here" commit -qm "Nettsted: ${release:-$(git -C "$here" rev-parse --short HEAD)}"
 fi
 git -C "$here" push -q --follow-tags
-
-# Until the switch: DNS for offline.no still points to the Domeneshop web host, so the live site is
-# https://offline.no/nerdesign/ there. Mirror nettsted/ to it as well. Delete this block after the switch.
-rsync -az --delete --exclude '.DS_Store' "$dest" offline@login.domeneshop.no:www/offline.no/nerdesign/
-echo "Also mirrored to https://offline.no/nerdesign/ (Domeneshop, until the switch)"
 echo "Pushed – Dokploy deploys https://nerdesign.offline.no/${release:+ (snapshot /${release}/)}"
 echo "Check in a minute or two: curl -s https://nerdesign.offline.no/dist/nd.css | grep -o 'Nerdesign v[0-9][^ <]*' | head -1"

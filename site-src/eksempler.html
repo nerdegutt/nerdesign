@@ -1,0 +1,31 @@
+<header class="nd-header">
+  <p class="nd-kicker">Nerdesign · eksempler</p>
+  <h1>Eksempler</h1>
+  <p class="nd-subtitle">Hele dokumenter bygget med systemet, med fiktivt innhold</p>
+</header>
+<p class="nd-lead">Hvert eksempel er én HTML-fil som lenker til <code>nd.css</code>. Åpne dem, bytt tema, og skriv dem ut – utskriften er alltid lys på hvitt, og sideskiftene er der arkene slutter.</p>
+
+<div class="nd-grid" style="--nd-min: 280px;">
+  <figure class="nd-figure-card">
+    <a href="examples/dashboard.html" data-nd-zoom="false"><img src="examples/img/dashboard.png" alt="Skjermbilde av dashboard-eksempelet i mørkt tema" data-nd-zoom="false"></a>
+    <figcaption><strong>Dashboard</strong>Nøkkeltall og fem grafer med ekte ECharts – linje, stolper, divergerende, varmekart, pH med målområde. Hver graf har datatabell. Bytt tema og se grafene følge.<br><a href="examples/dashboard.html">Åpne</a></figcaption>
+  </figure>
+  <figure class="nd-figure-card">
+    <img src="examples/img/circuit-overview.png" alt="Første side av kursoversikten" data-nd-zoom="false">
+    <figcaption><strong>Kursoversikt</strong>Fire sikringsskap, ett ark hver. <code>.nd-sheet</code>, <code>.nd-table--compact</code>, <code>.nd-footnote</code>.<br><a href="examples/circuit-overview.html">Åpne</a> · <a href="examples/circuit-overview.pdf">PDF</a></figcaption>
+  </figure>
+  <figure class="nd-figure-card">
+    <img src="examples/img/handout-sheet.png" alt="Utdelingsarket, én A4-side" data-nd-zoom="false">
+    <figcaption><strong>Utdelingsark</strong>Et prospekt på nøyaktig én side med QR-felt limt til bunnen. <code>.nd-sheet--fixed</code>, <code>.nd-keyfacts</code>, <code>.nd-qr</code>.<br><a href="examples/handout-sheet.html">Åpne</a> · <a href="examples/handout-sheet.pdf">PDF</a></figcaption>
+  </figure>
+  <figure class="nd-figure-card">
+    <img src="examples/img/label-sheet.png" alt="Etikettark med 24 etiketter" data-nd-zoom="false">
+    <figcaption><strong>Etikettark</strong>24 klistrelapper til sikringsskap og teknisk rom. <code>.nd-label-sheet</code>, <code>.nd-label</code>.<br><a href="examples/label-sheet.html">Åpne</a> · <a href="examples/label-sheet.pdf">PDF</a></figcaption>
+  </figure>
+</div>
+
+<h2>Slik lages PDF-ene</h2>
+<p>PDF-ene er skrevet ut med headless Chrome fra HTML-en, uten annen behandling. Kommandoen i repoet (<code>npm run test:print</code>) gjør det samme og feiler hvis sideantallet endrer seg .</p>
+<pre class="code">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --print-to-pdf=kursoversikt.pdf --no-pdf-header-footer \
+  examples/circuit-overview.html</pre>

@@ -1,0 +1,10 @@
+/* Lightbox: zoom affordance and PhotoSwipe caption in the system's voice. PhotoSwipe's own CSS ships in vendor/photoswipe/photoswipe.min.css. */
+a.nd-zoom { display: block; cursor: zoom-in; }
+a.nd-zoom:focus-visible { outline-offset: 3px; }
+.pswp__nd-caption {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+  max-width: min(90%, var(--nd-measure)); padding: 0.45rem 1.1rem; border-radius: 4px; text-align: center;
+  background: rgba(20, 15, 10, 0.72); color: #fff;
+  font-family: var(--nd-font-text); font-style: italic; font-size: 0.95rem; line-height: 1.4;
+}
+.pswp__nd-caption:empty { display: none; }

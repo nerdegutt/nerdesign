@@ -1,0 +1,11 @@
+node_modules/
+test/screenshots/*
+!test/screenshots/approved/
+!test/screenshots/approved/**
+test-results/
+playwright-report/
+.DS_Store
+site/
+design/*.html
+!design/*.dc.html
+/examples/vendor/

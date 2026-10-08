@@ -1,0 +1,10 @@
+/* Forms: login and settings. Native controls, themed. */
+.nd-form { display: flex; flex-direction: column; gap: var(--nd-space-4); max-width: 24rem; }
+.nd-field { display: flex; flex-direction: column; gap: var(--nd-space-1); }
+.nd-field label { font-size: var(--nd-size-sm); color: var(--nd-text-muted); }
+.nd-field input, .nd-field select, .nd-field textarea { min-height: 40px; padding: 0 var(--nd-space-3); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface); color: var(--nd-text); width: 100%; }
+.nd-field textarea { padding: var(--nd-space-2) var(--nd-space-3); min-height: 6rem; }
+.nd-field input:focus-visible, .nd-field select:focus-visible, .nd-field textarea:focus-visible { border-color: var(--nd-focus); }
+.nd-field-hint { font-size: var(--nd-size-xs); color: var(--nd-text-muted); margin: 0; }
+.nd-form-error { color: var(--nd-error); font-size: var(--nd-size-sm); margin: 0; }
+.nd-form-error:empty { display: none; }

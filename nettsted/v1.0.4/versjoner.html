@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Versjoner · Nerdesign</title>
+<script>try{var t=localStorage.getItem('nd-theme');if(t&&t!=='auto')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="dist/nd-fonts.css">
+<link rel="stylesheet" href="dist/nd.css">
+<link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body data-nd-version="1.0.4">
+<a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
+<div class="site-version-banner" id="version-banner" hidden></div>
+<header class="site-header">
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.4</small></a>
+  <nav class="site-nav" aria-label="Hovedmeny">
+    <a href="index.html">Om</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="komponenter.html">Komponenter</a>
+    <a href="eksempler.html">Eksempler</a>
+    <a href="tilgjengelighet.html">Tilgjengelighet</a>
+    <a href="versjoner.html" aria-current="page">Versjoner</a>
+  </nav>
+  <div id="theme" class="site-theme"></div>
+</header>
+<main id="innhold" class="nd-page nd-page--wide">
+<header class="nd-header">
+  <p class="nd-kicker">Nerdesign · versjoner</p>
+  <h1>Versjoner</h1>
+  <p class="nd-subtitle">Utgivelser, endringer og frosne kopier av nettstedet</p>
+</header>
+<p class="nd-lead">Prosjekter låser seg til én versjon. Hver utgivelse har egne filer og en frossen kopi av nettstedet, lenket under.</p>
+
+
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.4 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-10-04</small></h2>
+  <ul class="nd-list"><li>Avkrysningsbokser, rullefelt og andre skjemaelementer følger nå temaet siden viser. Før fulgte de operativsystemet når temavelgeren var satt til Lyst eller Mørkt, så et lyst tema på en mørk Mac fikk svarte avkrysningsbokser.</li><li>Versjoner-siden viser igjen punktene fra CHANGELOG. De var tomme fordi seksjonene ble lest med en regex som stoppet på første linjeskift.</li><li><code>tools/dev-server.mjs</code>: felles lokal server for prosjektene (serverer <code>public/</code> eller rota, svarer på <code>/api/config</code> fra <code>.env</code>). Erstatter to nesten like kopier.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.4/">Se nettstedet for v1.0.4</a><a class="nd-button" href="v1.0.4/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.4">GitHub-release</a></p>
+</section>
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.3 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-08-27</small></h2>
+  <ul class="nd-list"><li>Nytt mørkt tema: mørke fliser (<code>#0b0c0e</code>) på en litt lysere side (<code>#151719</code>), så grafene ligger på den mørkeste flaten. Nøytrale gråtoner i stedet for brune.</li><li>Ny seriepalett i mørkt tema med større avstand mellom fargene (turkis, lilla, tegl, blå, sjøgrønn, oker, rose, oliven), validert for fargesyn mot den nye flaten.</li><li>Kald, ettoners rampe for varmekart og andre mengdeframstillinger i mørkt tema.</li><li>Lysere statusfarger og aksent i mørkt tema. Lyst tema, papir og typografi er uendret.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.3/">Se nettstedet for v1.0.3</a><a class="nd-button" href="v1.0.3/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.3">GitHub-release</a></p>
+</section>
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.2 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-08-27</small></h2>
+  <ul class="nd-list"><li><code>[hidden]</code> skjuler alltid elementet. Uten dette ble paneler med <code>display: flex</code>/<code>grid</code> (som <code>.nd-chart</code> og <code>.nd-charts</code>) stående synlige selv med <code>hidden</code> satt.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.2/">Se nettstedet for v1.0.2</a><a class="nd-button" href="v1.0.2/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.2">GitHub-release</a></p>
+</section>
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.1 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-08-27</small></h2>
+  <ul class="nd-list"><li>Temabryteren fra <code>nd-theme.js</code> har nå stil i <code>nd.css</code> (segmentert gruppe), ikke bare på nettstedet.</li><li>Releasen inkluderer <code>vendor.zip</code> (PhotoSwipe), og <code>copy-to.sh --release</code> pakker den ut.</li><li>Nettstedet: nøktern tekst; ingen dev-merking.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.1/">Se nettstedet for v1.0.1</a><a class="nd-button" href="v1.0.1/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.1">GitHub-release</a></p>
+</section>
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.0 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-08-27</small></h2>
+  <ul class="nd-list"><li>Tokens i to lag: lyst tema (den opprinnelige dokumentpaletten) og mørkt tema, datapaletter validert for fargesyn og kontrast i begge.</li><li>Typografi, tilgjengelighetsbase og layout-primitiver (<code>.nd-page</code>, <code>.nd-grid</code>, <code>.nd-keyfacts</code>, <code>.nd-sheet</code>, <code>.nd-label-sheet</code>).</li><li>Dokumentkomponenter: dokumenthode, nøkkelfakta, tabell, bilder og kort, galleri, merknad, kontakt, kolofon, fotnote, ark (A4/A5/fast), etiketter.</li><li>Dashboardkomponenter: toppstripe, periodevelger, knapper, nøkkeltall, graf med datatabell, status, ferskhet, skjema.</li><li><code>nd-echarts.js</code>: ECharts-tema fra tokens, option-hjelpere, <code>mount</code> med temabytte, redusert bevegelse, aria og datatabell.</li><li><code>nd-lightbox.js</code>: PhotoSwipe for alle bilder, uten endringer i markup.</li><li>Selvhostet JetBrains Mono (OFL) via <code>nd-fonts.css</code>; <code>nd-theme.js</code> for auto/lyst/mørkt.</li><li>Print: alltid lyst på hvitt; faste ark og etikettark er alltid papir, også på skjerm i mørkt tema.</li><li>Nettsted med Om, Kom i gang, Grunnlag, Komponenter, Eksempler, Tilgjengelighet og Versjoner; fire eksempler med PDF.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.0/">Se nettstedet for v1.0.0</a><a class="nd-button" href="v1.0.0/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.0">GitHub-release</a></p>
+</section>
+</main>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.4</footer>
+<script>
+  // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
+  (async () => {
+    try {
+      if (!location.pathname.match(//vd+.d+.d+//)) return;   // only frozen snapshots get a banner
+      const mine = document.body.dataset.ndVersion;
+      const r = await fetch('../versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const { latest } = await r.json();
+      if (!latest || latest === mine) return;
+      const b = document.getElementById('version-banner');
+      b.innerHTML = 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="../">v' + latest + '</a>.';
+      b.hidden = false;
+    } catch {}
+  })();
+</script>
+<script type="module">
+  import { ndTheme } from './dist/nd-theme.js';
+  import { ndLightbox } from './dist/nd-lightbox.js';
+  ndTheme.init(); ndTheme.mount(document.getElementById('theme'));
+  ndLightbox();
+</script>
+
+</body>
+</html>

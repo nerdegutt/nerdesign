@@ -1,0 +1,22 @@
+/* Tables – white surface, caps headers, right-aligned last column, tfoot rule. */
+.nd-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--nd-space-5) 0;
+  background: var(--nd-surface);
+  border: 1px solid var(--nd-line);
+  border-radius: var(--nd-radius);
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+.nd-table th, .nd-table td { text-align: left; padding: 0.55rem 1.1rem; border-bottom: 1px solid var(--nd-line); vertical-align: top; }
+.nd-table th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: var(--nd-tracking-caps); color: var(--nd-text-muted); font-weight: 600; white-space: nowrap; }
+.nd-table tr:last-child td { border-bottom: none; }
+.nd-table tfoot td { font-weight: 600; border-top: 2px solid var(--nd-line); }
+.nd-table--end .nd-table-end, .nd-table--end td:last-child, .nd-table--end th:last-child { text-align: right; }
+.nd-table .nd-num { text-align: right; white-space: nowrap; }
+.nd-table .nd-key { font-weight: 600; white-space: nowrap; }
+.nd-table caption { text-align: left; font-style: italic; color: var(--nd-text-muted); padding: 0 0 var(--nd-space-2); caption-side: top; }
+/* compact variant for dense sheets */
+.nd-table--compact th, .nd-table--compact td { padding: 0.5rem 0.8rem; }
+.nd-sheet .nd-table { border: 0; border-radius: 0; background: transparent; margin: 0 0 var(--nd-space-4); }

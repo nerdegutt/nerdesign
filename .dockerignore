@@ -1,0 +1,5 @@
+# Bare det publiserte nettstedet kommer med i imaget.
+*
+!Caddyfile
+!nettsted
+**/.DS_Store

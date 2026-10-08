@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Typografi · tre kandidater</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+  <style>
+    html, body { margin: 0; background: #ebe6dc; }
+    * { box-sizing: border-box; }
+    a { color: inherit; } a:hover { color: inherit; }
+    
+  .board { width: 1440px; min-height: 100vh; padding: 36px 40px 40px; display: flex; flex-direction: column; gap: 28px; }
+  .head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .head .name { font-size: 40px; line-height: 1.05; margin: 0 0 6px; font-weight: 500; }
+  .head .tag { font-size: 19px; font-style: italic; margin: 0 0 14px; opacity: 0.8; }
+  .head dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 6px 14px; font-size: 15px; line-height: 1.45; }
+  .head dt { font-weight: 600; } .head dd { margin: 0; }
+  .pair { display: grid; grid-template-columns: 600px 1fr; gap: 32px; align-items: stretch; }
+  .sheet { padding: 44px 48px; min-height: 700px; display: flex; flex-direction: column; gap: 0; box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 10px 30px rgba(0,0,0,.10); }
+  .sheet .colophon { margin-top: auto; }
+  .dash { padding: 24px; min-height: 700px; display: flex; flex-direction: column; gap: 20px; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .segmented { display: flex; gap: 0; }
+  .segmented button { min-height: 34px; padding: 0 14px; border: 1px solid transparent; background: transparent; color: inherit; cursor: default; font: inherit; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .stat { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; }
+  .stat .label { font-size: 12px; } .stat .value { font-size: 34px; line-height: 1; } .stat .value small { font-size: 15px; } .stat .sub { font-size: 12px; opacity: 0.8; }
+  .panel { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .chart-head h3 { margin: 0; font-size: 16px; font-weight: 600; } .fresh { font-size: 12px; opacity: 0.75; }
+  .chart-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .legend { list-style: none; margin: 0; padding: 0; display: flex; gap: 18px; font-size: 12px; }
+  .legend li { display: flex; align-items: center; gap: 8px; } .legend i { width: 14px; height: 4px; border-radius: 2px; display: inline-block; }
+  .btn { min-height: 32px; padding: 0 14px; font: inherit; font-size: 13px; cursor: default; }
+  .palette { display: flex; flex-direction: column; gap: 10px; }
+  .prow { display: flex; align-items: flex-end; gap: 8px; padding: 12px 14px; }
+  .pl { width: 48px; font-size: 12px; font-weight: 600; align-self: center; }
+  .sw { display: flex; flex-direction: column; gap: 4px; font-size: 10px; width: 66px; }
+  .sw i { display: block; height: 30px; border-radius: 3px; } .sw code { font-size: 9px; opacity: 0.7; font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .gap { width: 12px; } .pv { margin-left: auto; font-size: 11px; opacity: 0.8; max-width: 200px; text-align: right; align-self: center; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; } th, td { text-align: left; padding: 7px 10px; vertical-align: top; } .num { text-align: right; }
+  .keyfacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; } .keyfacts div { display: flex; flex-direction: column; gap: 4px; } .keyfacts dt { font-size: 11px; } .keyfacts dd { margin: 0; font-size: 22px; }
+
+  .board { background: #ebe6dc; color: #2b2620; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; min-height: 100vh; }
+  .thead .name { font-size: 34px; margin: 0 0 6px; font-weight: 500; } .thead p { margin: 0; font-style: italic; opacity: 0.8; font-size: 17px; }
+  .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .col h2 { font-size: 15px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 0.1em; color: #8e3b2f; }
+  .sample { background: #faf7f2; padding: 32px 30px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.10); min-height: 470px; }
+  .k { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; color: #8e3b2f; }
+  .h1 { margin: 0; font-size: 40px; line-height: 1.05; font-weight: 500; }
+  .body { margin: 0; font-size: 16px; line-height: 1.55; }
+  .nums { margin: 6px 0; font-size: 20px; font-variant-numeric: tabular-nums; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; } th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #6f6659; font-weight: 500; padding: 6px 8px; border-bottom: 1px solid #e5ddd0; } td { padding: 6px 8px; border-bottom: 1px solid #e5ddd0; }
+  .note { margin: 0; font-size: 14px; line-height: 1.45; opacity: 0.85; }
+  
+  </style>
+</helmet>
+<div class="board">
+  <div class="thead"><p class="name">Typografi · tre kandidater</p><p>Samme tekst og tall i tre parkombinasjoner. Alternativ 1 og 2 bruker systemfonter for tekst (ingen filer å frakte); alternativ 3 legger til én selvhostet serif med mer karakter. Tall er alltid i monospace med tabulære siffer.</p></div>
+  <div class="cols">
+    
+  <section class="col">
+    <h2>1 · Systemserif + JetBrains Mono</h2>
+    <div class="sample" style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">
+      <p class="k" style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Helgerød gård · Hovedhuset</p>
+      <p class="h1">Kursoversikt</p>
+      <p class="body">Sjøvær på Jeløya gir økt forbruk i fjøset – særlig når varmepumpa går for fullt i februar. Oversikten under viser kursene i hovedhuset, sortert etter nummer.</p>
+      <p class="nums" style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">3,8 kW · 1 234,5 kWh · 27,4 °C · 0,84 kr</p>
+      <table style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;"><thead><tr><th style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Nr</th><th style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Kurs</th><th style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Sikring</th></tr></thead>
+      <tbody><tr><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">1</td><td>Kjøkken stikk</td><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr><tr><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">2</td><td>Stue lys</td><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">10 A</td></tr><tr><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">3</td><td>Bad gulvvarme</td><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr><tr><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">4</td><td>Vaskerom</td><td style="font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr></tbody></table>
+    </div>
+    <p class="note">Iowan Old Style/Palatino for tekst, JetBrains Mono for tall. Kontinuitet med dagens dashboards. Monoen er tydelig «kode»-preget – skarp, litt kald mot serifen.</p>
+  </section>
+    
+  <section class="col">
+    <h2>2 · Systemserif + IBM Plex Mono</h2>
+    <div class="sample" style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">
+      <p class="k" style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Helgerød gård · Hovedhuset</p>
+      <p class="h1">Kursoversikt</p>
+      <p class="body">Sjøvær på Jeløya gir økt forbruk i fjøset – særlig når varmepumpa går for fullt i februar. Oversikten under viser kursene i hovedhuset, sortert etter nummer.</p>
+      <p class="nums" style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">3,8 kW · 1 234,5 kWh · 27,4 °C · 0,84 kr</p>
+      <table style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;"><thead><tr><th style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Nr</th><th style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Kurs</th><th style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Sikring</th></tr></thead>
+      <tbody><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">1</td><td>Kjøkken stikk</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">2</td><td>Stue lys</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">10 A</td></tr><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">3</td><td>Bad gulvvarme</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">4</td><td>Vaskerom</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr></tbody></table>
+    </div>
+    <p class="note">Samme serif, IBM Plex Mono for tall. Plex har varmere, mer humanistiske former som sitter bedre sammen med Palatino. Begge er OFL og kan selvhostes.</p>
+  </section>
+    
+  <section class="col">
+    <h2>3 · EB Garamond + IBM Plex Mono</h2>
+    <div class="sample" style="font-family: 'EB Garamond', 'Iowan Old Style', Palatino, Georgia, serif;">
+      <p class="k" style="font-family: 'EB Garamond', 'Iowan Old Style', Palatino, Georgia, serif;">Helgerød gård · Hovedhuset</p>
+      <p class="h1">Kursoversikt</p>
+      <p class="body">Sjøvær på Jeløya gir økt forbruk i fjøset – særlig når varmepumpa går for fullt i februar. Oversikten under viser kursene i hovedhuset, sortert etter nummer.</p>
+      <p class="nums" style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">3,8 kW · 1 234,5 kWh · 27,4 °C · 0,84 kr</p>
+      <table style="font-family: 'EB Garamond', 'Iowan Old Style', Palatino, Georgia, serif;"><thead><tr><th style="font-family: 'EB Garamond', 'Iowan Old Style', Palatino, Georgia, serif;">Nr</th><th style="font-family: 'EB Garamond', 'Iowan Old Style', Palatino, Georgia, serif;">Kurs</th><th style="font-family: 'EB Garamond', 'Iowan Old Style', Palatino, Georgia, serif;">Sikring</th></tr></thead>
+      <tbody><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">1</td><td>Kjøkken stikk</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">2</td><td>Stue lys</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">10 A</td></tr><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">3</td><td>Bad gulvvarme</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr><tr><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">4</td><td>Vaskerom</td><td style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;">16 A</td></tr></tbody></table>
+    </div>
+    <p class="note">EB Garamond (OFL) for tekst og titler – tydeligere karakter og eldre, «arkiv»-aktig preg. Koster én selvhostet fontfamilie (≈ 4 filer). Mindre x-høyde: trenger litt større grunnstørrelse.</p>
+  </section>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

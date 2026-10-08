@@ -1,0 +1,23 @@
+{
+  "name": "nerdesign",
+  "version": "1.0.4",
+  "description": "Nerdesign – a small design system made for Helgerød gård. Tokens, CSS components and an ECharts theme for printable documents and dashboards.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:nerdegutt/nerdesign",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "contrast": "node tools/contrast.mjs",
+    "palette": "node tools/palette.mjs",
+    "test": "playwright test",
+    "test:print": "playwright test test/print.spec.mjs",
+    "copy": "tools/copy-to.sh",
+    "deploy": "tools/deploy.sh"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.62.1",
+    "echarts": "^6.1.0"
+  }
+}

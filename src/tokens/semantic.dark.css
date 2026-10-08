@@ -1,0 +1,26 @@
+/* Dark theme – DECLARATIONS ONLY. Dark tiles on a slightly lighter page, so
+   charts sit on the darkest surface and read as the content. */
+color-scheme: dark; /* native controls (checkboxes, scrollbars) follow the dark theme */
+--nd-bg: var(--nd-ink-900);
+--nd-surface: var(--nd-ink-950);
+--nd-surface-raised: var(--nd-ink-800);
+--nd-line: var(--nd-ink-700);
+--nd-line-faint: var(--nd-ink-850);
+--nd-text: var(--nd-ink-100);
+--nd-text-muted: var(--nd-ink-300);
+--nd-text-inverse: var(--nd-ink-950);
+--nd-text-empty: var(--nd-ink-700);
+--nd-accent: var(--nd-brick-400);
+--nd-accent-text: var(--nd-brick-350);
+--nd-link: var(--nd-brick-300);
+--nd-focus: var(--nd-brick-300);
+--nd-ok: var(--nd-green-400);
+--nd-warn: var(--nd-amber-400);
+--nd-error: var(--nd-red-400);
+--nd-info: var(--nd-slate-400);
+--nd-chart-text: var(--nd-ink-300);
+--nd-chart-axis: var(--nd-ink-700);
+--nd-chart-grid: var(--nd-ink-850);
+--nd-chart-tooltip-bg: var(--nd-ink-800);
+--nd-chart-tooltip-line: var(--nd-ink-700);
+--nd-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.45);

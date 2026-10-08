@@ -1,11 +1,11 @@
 # Nerdesign
 
-A small personal design system for [Helgerød gård](https://offline.no/nerdesign/) –
+A small personal design system for [Helgerød gård](https://nerdesign.offline.no/) –
 tokens, CSS components, print styles and an ECharts theme that work in both light
 and dark mode and meet WCAG 2.2 AA. Used for printable documents and smart-home
 dashboards alike.
 
-- Pattern book: https://offline.no/nerdesign/
+- Pattern book: https://nerdesign.offline.no/
 - Source: `src/` · Built output: `dist/` (committed)
 
 ## Use it in a project
@@ -37,4 +37,4 @@ npm install && npx playwright install chromium
 npm run build && npm test
 ```
 
-See `CLAUDE.md` for conventions.
+See `AGENTS.md` for conventions.

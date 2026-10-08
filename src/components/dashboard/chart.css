@@ -1,0 +1,25 @@
+/* Chart panel: header, canvas, footer with legend/table toggle, data table. */
+.nd-chart { background: var(--nd-surface); border: 1px solid var(--nd-line); border-radius: 8px; padding: var(--nd-space-4) var(--nd-space-5) var(--nd-space-4); display: flex; flex-direction: column; gap: var(--nd-space-3); container-type: inline-size; }
+.nd-chart-header { display: flex; align-items: baseline; justify-content: space-between; gap: var(--nd-space-3); flex-wrap: wrap; }
+.nd-chart-title { font-size: var(--nd-size-md); font-weight: 500; margin: 0; padding: 0; border: 0; display: flex; align-items: center; gap: 0.55em; }
+.nd-chart-title::before { content: ""; display: inline-block; width: 0.5em; height: 0.5em; background: var(--nd-accent); border-radius: var(--nd-radius-sm); }
+.nd-chart-canvas { width: 100%; height: var(--nd-chart-height, 260px); }
+.nd-chart-canvas:focus-visible { outline-offset: 4px; }
+.nd-chart-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--nd-space-3); flex-wrap: wrap; }
+.nd-charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(var(--nd-min, 420px), 100%), 1fr)); gap: var(--nd-space-4); }
+.nd-chart--wide { grid-column: 1 / -1; }
+
+/* data table behind every chart */
+.nd-datatable-toggle { margin-left: auto; }
+.nd-datatable { max-height: 16rem; overflow: auto; border: 1px solid var(--nd-line); border-radius: var(--nd-radius); }
+.nd-datatable[hidden] { display: none; }
+.nd-datatable table { width: 100%; border-collapse: collapse; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.nd-datatable caption { text-align: left; padding: 0.5rem 0.7rem; color: var(--nd-text-muted); font-style: italic; }
+.nd-datatable th { position: sticky; top: 0; background: var(--nd-surface-raised); text-align: left; padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--nd-line); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: var(--nd-tracking-caps); color: var(--nd-text-muted); }
+.nd-datatable td { padding: 0.3rem 0.7rem; border-bottom: 1px solid var(--nd-line-faint); }
+.nd-datatable td.nd-num, .nd-datatable th.nd-num { text-align: right; font-family: var(--nd-font-numeric); }
+.nd-datatable tr:last-child td { border-bottom: 0; }
+/* the ECharts legend is drawn on the canvas; this is for hand-made legends */
+.nd-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--nd-space-2) var(--nd-space-4); font-size: var(--nd-size-sm); color: var(--nd-text-muted); }
+.nd-legend li { display: inline-flex; align-items: center; gap: 0.5em; }
+.nd-legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; background: var(--nd-series-1); }

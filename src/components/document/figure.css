@@ -1,0 +1,14 @@
+/* Images: hero, figure cards, gallery. */
+.nd-hero img { width: 100%; border-radius: var(--nd-radius); }
+.nd-figure-card { margin: 0; background: var(--nd-surface); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); overflow: hidden; }
+.nd-figure-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.nd-figure-card figcaption { padding: 0.9rem 1.1rem 1.1rem; font-size: 0.95rem; }
+.nd-figure-card figcaption strong { display: block; margin-bottom: 0.2rem; }
+.nd-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: var(--nd-space-4); margin: var(--nd-space-5) 0; }
+.nd-gallery figure { margin: 0; }
+/* odd count: the last image spans the row instead of standing alone */
+.nd-gallery figure:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.nd-gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--nd-radius); }
+.nd-gallery figcaption { font-size: 0.85rem; color: var(--nd-text-muted); font-style: italic; margin-top: 0.3rem; }
+@media (max-width: 540px) { .nd-gallery { grid-template-columns: 1fr; } }
+.nd-two-col img { width: 100%; border-radius: var(--nd-radius); }

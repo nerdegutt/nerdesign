@@ -1,0 +1,39 @@
+/* Dashboard chrome: top bar, panel, segmented control, buttons, status. */
+.nd-topbar { display: flex; align-items: center; justify-content: space-between; gap: var(--nd-space-4); flex-wrap: wrap; padding: var(--nd-space-4) 0 var(--nd-space-5); }
+.nd-brand { font-size: var(--nd-size-xl); font-weight: 500; margin: 0; }
+.nd-brand span { color: var(--nd-text-muted); font-style: italic; font-size: var(--nd-size-md); font-weight: 400; }
+.nd-topbar-actions { display: flex; align-items: center; gap: var(--nd-space-3); flex-wrap: wrap; }
+
+.nd-panel { background: var(--nd-surface); border: 1px solid var(--nd-line); border-radius: 8px; padding: var(--nd-space-5); container-type: inline-size; }
+.nd-panel > :first-child { margin-top: 0; }
+
+/* segmented control – a group of buttons where one is current */
+.nd-segmented { display: inline-flex; border: 1px solid var(--nd-line); border-radius: var(--nd-radius); overflow: hidden; background: var(--nd-bg); }
+.nd-segmented button { min-height: 34px; padding: 0 var(--nd-space-4); border: 0; border-left: 1px solid var(--nd-line); background: transparent; color: var(--nd-text-muted); font-size: var(--nd-size-sm); cursor: pointer; }
+.nd-segmented button:first-child { border-left: 0; }
+.nd-segmented button:hover { color: var(--nd-text); }
+.nd-segmented button[aria-current="true"], .nd-segmented button[aria-pressed="true"] { background: var(--nd-surface); color: var(--nd-text); box-shadow: inset 0 -2px 0 var(--nd-accent); }
+.nd-segmented button:focus-visible { outline-offset: -2px; border-radius: 0; }
+
+.nd-button { display: inline-flex; align-items: center; justify-content: center; gap: var(--nd-space-2); min-height: 32px; padding: 0 var(--nd-space-4); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface); color: var(--nd-text); font-size: var(--nd-size-sm); text-decoration: none; cursor: pointer; }
+.nd-button:hover { border-color: var(--nd-text-muted); }
+.nd-button--primary { background: var(--nd-accent); border-color: var(--nd-accent); color: var(--nd-text-inverse); }
+.nd-button--primary:hover { filter: brightness(0.94); }
+.nd-button--quiet { background: transparent; border-color: transparent; color: var(--nd-accent-text); }
+.nd-button--quiet:hover { border-color: var(--nd-line); }
+.nd-button[disabled] { opacity: 0.55; cursor: default; }
+
+/* status: a dot plus a word – never colour alone */
+.nd-status { display: inline-flex; align-items: center; gap: 0.45em; font-size: var(--nd-size-sm); }
+.nd-status::before { content: ""; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--nd-text-muted); }
+.nd-status--ok::before { background: var(--nd-ok); } .nd-status--warn::before { background: var(--nd-warn); } .nd-status--error::before { background: var(--nd-error); } .nd-status--info::before { background: var(--nd-info); }
+.nd-freshness { color: var(--nd-text-muted); font-size: var(--nd-size-sm); font-style: italic; margin: 0; }
+
+/* theme toggle rendered by nd-theme.js: a segmented radio group */
+.nd-theme-toggle fieldset { border: 1px solid var(--nd-line); border-radius: var(--nd-radius); padding: 0; margin: 0; display: inline-flex; overflow: hidden; background: var(--nd-bg); }
+.nd-theme-toggle label { position: relative; display: inline-flex; }
+.nd-theme-toggle input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.nd-theme-toggle span { padding: 0 0.8rem; min-height: 32px; display: inline-flex; align-items: center; font-size: var(--nd-size-sm); color: var(--nd-text-muted); border-left: 1px solid var(--nd-line); }
+.nd-theme-toggle label:first-of-type span { border-left: 0; }
+.nd-theme-toggle input:checked + span { background: var(--nd-surface); color: var(--nd-text); }
+.nd-theme-toggle input:focus-visible + span { outline: 2px solid var(--nd-focus); outline-offset: -2px; }

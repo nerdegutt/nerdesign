@@ -1,0 +1,27 @@
+<header class="nd-header">
+  <p class="nd-kicker">Helgerød gård · Jeløya</p>
+  <h1>Nerdesign</h1>
+  <p class="nd-subtitle">Designsystem for dokumenter og dashboards</p>
+</header>
+<figure class="nd-hero"><img src="examples/img/tunet-kveld.jpg" alt="Gårdstunet på Helgerød gård en sommerkveld, med tente lykter og den røde sidebygningen" width="1400" height="1050"><figcaption class="nd-caption">Helgerød gård, Jeløya.</figcaption></figure>
+<p class="nd-lead">Nerdesign er én CSS-fil med tokens og komponenter, et ECharts-tema og noen små JS-hjelpere. Det brukes til utskriftsvennlige dokumenter og smarthus-dashboards, i lyst og mørkt tema, og oppfyller WCAG 2.2 AA.</p>
+
+<h2>Slik fungerer det</h2>
+<ul class="nd-list">
+  <li>Farger er definert som roller (<code>--nd-bg</code>, <code>--nd-surface</code>, <code>--nd-line</code>, <code>--nd-text</code>, <code>--nd-accent</code>). Komponentene bruker bare rollene.</li>
+  <li>Lyst og mørkt tema er to verdisett for de samme rollene. Skjermen følger systeminnstillingen eller en bryter. Utskrift bruker alltid de lyse verdiene.</li>
+  <li>Tekst settes i systemets serif (Iowan Old Style / Palatino / Georgia). Tall i dashboards settes i JetBrains Mono med tabulære siffer.</li>
+  <li>Hvert fargepar er kontrastsjekket mot WCAG AA i begge temaer. Seriefargene er testet for fargesyn. Hver graf har en datatabell.</li>
+  <li>Ingen byggsteg for den som bruker det: kopier filene inn i prosjektet, eller lim CSS-en inn i et énfils-dokument.</li>
+</ul>
+
+<h2>Innhold</h2>
+<dl class="nd-keyfacts nd-keyfacts--4">
+  <div><dt>Grunnlag</dt><dd><a href="grunnlag.html">Farger, typografi, layout</a></dd></div>
+  <div><dt>Komponenter</dt><dd><a href="komponenter.html">Dokument og dashboard</a></dd></div>
+  <div><dt>Kom i gang</dt><dd><a href="kom-i-gang.html">Filer og oppsett</a></dd></div>
+  <div><dt>Tilgjengelighet</dt><dd><a href="tilgjengelighet.html">Kontrast, tastatur, print</a></dd></div>
+</dl>
+
+<h2>Navn og lisens</h2>
+<p class="nd-measure">Laget for Helgerød gård på Jeløya. Prefikset på alle klasser og tokens er <code>nd-</code>. Koden er MIT-lisensiert; JetBrains Mono og PhotoSwipe følger sine egne åpne lisenser.</p>

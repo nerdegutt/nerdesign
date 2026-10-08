@@ -1,0 +1,28 @@
+/* Data-visualisation tokens, light theme. Categorical series in FIXED order
+   (never cycled; a 9th series folds into «Annet»), a one-hue sequential ramp,
+   a diverging pair with a neutral midpoint. Validated with the dataviz palette
+   validator on the light surface (worst adjacent CVD ΔE 11.2). */
+:root {
+  --nd-series-1: var(--nd-brick-500);
+  --nd-series-2: var(--nd-olive-600);
+  --nd-series-3: var(--nd-plum-600);
+  --nd-series-4: var(--nd-sea-600);
+  --nd-series-5: var(--nd-rose-600);
+  --nd-series-6: var(--nd-teal-600);
+  --nd-series-7: var(--nd-ochre-600);
+  --nd-series-8: var(--nd-slate-600);
+
+  /* sequential – brick, light → dark */
+  --nd-seq-100: #de9589;
+  --nd-seq-200: #c87a6d;
+  --nd-seq-300: #b25f52;
+  --nd-seq-400: #9c4438;
+  --nd-seq-500: #7e3126;
+  --nd-seq-600: #652118;
+  --nd-seq-700: #49150f;
+
+  /* diverging – brick ↔ slate with a neutral midpoint */
+  --nd-div-neg: var(--nd-brick-600);
+  --nd-div-mid: #d6cfc4;
+  --nd-div-pos: var(--nd-slate-600);
+}

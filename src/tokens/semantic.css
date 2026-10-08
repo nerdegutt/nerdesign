@@ -1,0 +1,71 @@
+/* Layer 2 – semantic roles, light theme. Dark values live in semantic.dark.css
+   (declarations only; the build wraps them under both dark selectors).
+   Components use ONLY these. */
+:root {
+  color-scheme: light dark;
+
+  /* surfaces */
+  --nd-bg: var(--nd-cream-50);
+  --nd-surface: var(--nd-cream-0);
+  --nd-surface-raised: var(--nd-cream-0);
+  --nd-line: var(--nd-cream-200);
+  --nd-line-faint: #f0eae1;
+
+  /* text */
+  --nd-text: var(--nd-earth-900);
+  --nd-text-muted: var(--nd-earth-500);
+  --nd-text-inverse: var(--nd-cream-50);
+  --nd-text-empty: var(--nd-cream-200);   /* decorative dash for "no value" – pair with a text alternative */
+
+  /* accent */
+  --nd-accent: var(--nd-brick-600);
+  --nd-accent-text: var(--nd-brick-600);
+  --nd-link: var(--nd-brick-600);
+  --nd-focus: var(--nd-brick-600);
+
+  /* status – always paired with an icon or word, never colour alone */
+  --nd-ok: var(--nd-green-600);
+  --nd-warn: var(--nd-amber-600);
+  --nd-error: var(--nd-red-600);
+  --nd-info: var(--nd-slate-600);
+
+  /* chart chrome */
+  --nd-chart-text: var(--nd-earth-500);
+  --nd-chart-axis: var(--nd-cream-200);
+  --nd-chart-grid: var(--nd-line-faint);
+  --nd-chart-tooltip-bg: var(--nd-cream-0);
+  --nd-chart-tooltip-line: var(--nd-cream-200);
+
+  /* typography */
+  --nd-font-text: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --nd-font-numeric: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --nd-size-xs: 0.78rem;
+  --nd-size-sm: 0.9rem;
+  --nd-size-md: 1rem;
+  --nd-size-lg: 1.15rem;
+  --nd-size-xl: 1.5rem;
+  --nd-size-2xl: 2.2rem;
+  --nd-size-display: clamp(1.9rem, 4.5vw, 3rem);
+  --nd-leading: 1.6;
+  --nd-tracking-caps: 0.12em;
+  --nd-tracking-kicker: 0.22em;
+
+  /* shape and space */
+  --nd-radius: 6px;
+  --nd-radius-sm: 1px;
+  --nd-space-1: 0.25rem;
+  --nd-space-2: 0.5rem;
+  --nd-space-3: 0.75rem;
+  --nd-space-4: 1rem;
+  --nd-space-5: 1.5rem;
+  --nd-space-6: 2rem;
+  --nd-space-7: 3rem;
+  --nd-space-8: 4rem;
+  --nd-measure: 42em;
+  --nd-page-width: 960px;
+  --nd-shadow: 0 1px 0 rgba(43, 38, 32, 0.04), 0 8px 24px rgba(43, 38, 32, 0.08);
+}
+
+/* The toggle picked light: pin native controls to light even when the OS is
+   dark (the dark blocks set color-scheme: dark). */
+:root[data-theme="light"] { color-scheme: light; }

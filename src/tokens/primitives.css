@@ -1,0 +1,45 @@
+/* Layer 1 – primitive palette. Material names from the farm, with lightness
+   steps (higher = darker). Components never use these directly; semantic.css
+   maps them onto roles. Light values are the original document palette;
+   dark values come from direction A «Linolje» (checkpoint 1). */
+:root {
+  /* cream – paper and surfaces */
+  --nd-cream-0: #ffffff;
+  --nd-cream-50: #faf7f2;
+  --nd-cream-100: #f1e9dc;
+  --nd-cream-200: #e5ddd0;
+  /* earth – warm neutrals from muted text to the dark background */
+  --nd-earth-300: #b2a99d;
+  --nd-earth-500: #6f6659;
+  --nd-earth-700: #3e3631;
+  --nd-earth-800: #342c25;
+  --nd-earth-900: #2b2620;
+  --nd-earth-950: #1d1713;
+  /* ink – neutral surfaces for the dark theme */
+  --nd-ink-100: #e9ebee;
+  --nd-ink-300: #a4a8ad;
+  --nd-ink-700: #2c3033;
+  --nd-ink-800: #1c1f22;
+  --nd-ink-850: #17191c;
+  --nd-ink-900: #151719;
+  --nd-ink-950: #0b0c0e;
+  /* brick – the one accent */
+  --nd-brick-300: #e9a184;
+  --nd-brick-350: #e08a6a;
+  --nd-brick-400: #d9724f;
+  --nd-brick-500: #c4685a;
+  --nd-brick-600: #8e3b2f;
+  --nd-brick-700: #6e2c23;
+  /* series hues (light step 600 / dark step 400) */
+  --nd-ochre-400: #a67110;  --nd-ochre-600: #7e5403;
+  --nd-olive-400: #778a2d;  --nd-olive-600: #4c5a01;
+  --nd-sea-400: #249c74;    --nd-sea-600: #008a63;
+  --nd-teal-400: #03a1b5;   --nd-teal-600: #0897a9;
+  --nd-slate-400: #6d9fe8;  --nd-slate-600: #3d73b6;
+  --nd-plum-400: #987aca;   --nd-plum-600: #5d408a;
+  --nd-rose-400: #bc6a9a;   --nd-rose-600: #823564;
+  /* status hues */
+  --nd-green-400: #5cbe84;  --nd-green-600: #2e7d4a;
+  --nd-amber-400: #d9a53a;  --nd-amber-600: #8a5f00;
+  --nd-red-400: #ea7a6e;    --nd-red-600: #b3261e;
+}

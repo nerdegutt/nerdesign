@@ -1,0 +1,67 @@
+/* Print – always last in the build so these overrides win over both dark
+   selectors. Print is the light theme on white paper. */
+@page { size: A4 portrait; margin: 14mm 16mm; }
+@page a5 { size: A5 portrait; margin: 11mm 12mm; }
+@page fixed { margin: 0; }
+
+@media print {
+  /* must out-rank the generated dark blocks: same specificity as :root:not([data-theme="light"]), and later in the file */
+  :root, :root:not([data-theme="light"]), :root[data-theme="dark"] {
+    --nd-bg: #ffffff;
+    --nd-surface: #ffffff;
+    --nd-surface-raised: #ffffff;
+    --nd-line: var(--nd-cream-200);
+    --nd-line-faint: #f0eae1;
+    --nd-text: var(--nd-earth-900);
+    --nd-text-muted: var(--nd-earth-500);
+    --nd-text-inverse: #ffffff;
+    --nd-text-empty: var(--nd-cream-200);
+    --nd-accent: var(--nd-brick-600);
+    --nd-accent-text: var(--nd-brick-600);
+    --nd-link: var(--nd-brick-600);
+    --nd-shadow: none;
+    color-scheme: light;
+  }
+  body { font-size: 11pt; line-height: 1.45; }
+  .nd-header { padding: 0 0 1rem; }
+  .nd-page { max-width: none; padding: 0; }
+  .nd-hero img { max-height: 9cm; object-fit: cover; }
+  .nd-lead { margin: 1rem auto; font-size: 12pt; }
+  h2 { margin: 1.2rem 0 0.5rem; break-after: avoid; page-break-after: avoid; }
+  h3, h4 { break-after: avoid; }
+  .nd-table th, .nd-table td { padding: 0.3rem 1.1rem; }
+  .nd-table tr { break-inside: avoid; }
+  .nd-list li { margin-bottom: 0.15rem; }
+  .nd-keyfacts, .nd-figure-card, .nd-table, .nd-gallery figure, .nd-two-col, .nd-contact, .nd-note, .nd-label { break-inside: avoid; page-break-inside: avoid; }
+  /* grid dividers are background showing through a 1px gap – force the cells white too */
+  .nd-keyfacts, .nd-keyfacts > div, .nd-contact, .nd-contact > div { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .nd-keyfacts { grid-template-columns: repeat(3, 1fr); }
+  .nd-keyfacts--2 { grid-template-columns: repeat(2, 1fr); }
+  .nd-keyfacts--4 { grid-template-columns: repeat(4, 1fr); }
+  .nd-grid { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .nd-gallery { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .nd-gallery img { aspect-ratio: 3 / 2; }
+  /* three columns: the last image spans only when it starts a row */
+  .nd-gallery figure:last-child:nth-child(odd) { grid-column: auto; }
+  .nd-gallery figure:last-child:nth-child(3n+1) { grid-column: 1 / -1; }
+  .nd-gallery figure:last-child:nth-child(3n+1) img { aspect-ratio: 16 / 9; }
+  a { color: inherit; text-decoration: none; }
+  .nd-colophon { padding: 1rem 0 0; }
+
+  /* sheets: one per page */
+  .nd-sheet { max-width: none; margin: 0; border: none; border-radius: 0; padding: 0; break-after: page; page-break-after: always; font-size: 11pt; line-height: 1.4; }
+  .nd-sheet:last-child, .nd-sheet--last { break-after: auto; page-break-after: auto; }
+  .nd-sheet h1 { font-size: 22pt; }
+  .nd-sheet .nd-table th, .nd-sheet .nd-table td { padding: 0.32rem 0.7rem; }
+  .nd-sheet--a5 { page: a5; }
+  .nd-sheet--fixed { page: fixed; width: 210mm; height: 296mm; padding: 11mm 14mm 9mm; margin: 0; }
+  .nd-sheet--fixed.nd-sheet--a5 { width: 148mm; height: 209mm; padding: 9mm 11mm 8mm; }
+  .nd-label-sheet { page: fixed; margin: 0 auto; background: transparent; break-after: page; }
+  .nd-label { border-color: transparent; }
+
+  /* interface that has no meaning on paper */
+  .nd-skip-link, .nd-theme-toggle, .nd-segmented, .nd-button, .nd-datatable-toggle, .nd-no-print { display: none !important; }
+  .nd-datatable { display: block !important; }
+  .nd-print-only { display: revert !important; }
+}
+.nd-print-only { display: none; }

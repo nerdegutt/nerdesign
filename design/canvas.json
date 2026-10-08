@@ -1,0 +1,63 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "Oversikt",
+      "x": 0,
+      "y": 0,
+      "w": 560,
+      "h": 1180
+    },
+    {
+      "file": "Reference.dc.html",
+      "title": "Referanse · dagens uttrykk",
+      "x": 640,
+      "y": 0,
+      "w": 1440,
+      "h": 1100
+    },
+    {
+      "file": "DirectionA.dc.html",
+      "title": "Retning A · Linolje",
+      "x": 0,
+      "y": 1320,
+      "w": 1440,
+      "h": 1340
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "Retning B · Arkivet",
+      "x": 1520,
+      "y": 1320,
+      "w": 1440,
+      "h": 1340
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "Retning C · Jeløya",
+      "x": 0,
+      "y": 2800,
+      "w": 1440,
+      "h": 1440
+    },
+    {
+      "file": "DirectionD.dc.html",
+      "title": "Retning D · Nytt i gammelt",
+      "x": 1520,
+      "y": 2800,
+      "w": 1440,
+      "h": 1440
+    },
+    {
+      "file": "Typography.dc.html",
+      "title": "Typografi · tre kandidater",
+      "x": 0,
+      "y": 4380,
+      "w": 1440,
+      "h": 860
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

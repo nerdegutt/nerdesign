@@ -1,0 +1,45 @@
+<header class="nd-header">
+  <p class="nd-kicker">Nerdesign · tilgjengelighet</p>
+  <h1>Tilgjengelighet</h1>
+  <p class="nd-subtitle">WCAG 2.2 AA, kontrollert automatisk</p>
+</header>
+<p class="nd-lead">Alle fargepar sjekkes mot WCAG AA i begge temaer, alle sider kjøres gjennom axe-core, og utskrift verifiseres som PDF. Under står hva systemet gjør selv, og hva du må gjøre i hvert dokument.</p>
+
+<h2>Kontrast, levende</h2>
+<p>Tabellen under leser fargene fra stilarket i temaet du ser nå og regner ut kontrast etter WCAG 2.x. Tekst krever 4,5:1, store overskrifter og grafikk 3:1. Bytt tema øverst for å se det andre settet. Den samme sjekken kjøres automatisk i repoet på hvert par i begge temaer.</p>
+<table class="nd-table pairs" id="pairs">
+  <thead><tr><th>Forgrunn</th><th>Bakgrunn</th><th>Krav</th><th>Kontrast</th><th>Vurdering</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<h2>Det systemet gjør for deg</h2>
+<ul class="nd-list">
+  <li><strong>Synlig fokus</strong> på alt som kan få tastaturfokus: 2 px ring i aksentfargen, med avstand.</li>
+  <li><strong>Hopp-lenke</strong> (<code>.nd-skip-link</code>) som blir synlig ved fokus.</li>
+  <li><strong>Skjult tekst</strong> (<code>.nd-sr-only</code>) for det som bare skal leses opp – som «ikke oppgitt» bak en tankestrek.</li>
+  <li><strong>Redusert bevegelse</strong>: alle animasjoner slås av når brukeren har bedt om det. Grafer tegnes uten animasjon.</li>
+  <li><strong>Tvungne farger</strong> (høykontrastmodus i Windows): ornamentene tegnes i tekstfargen så de ikke forsvinner.</li>
+  <li><strong>Print er lyst</strong> uansett tema på skjermen – og streker i rutenett tvinges til å skrives ut.</li>
+  <li><strong>Målstørrelser</strong>: knapper og velgere er minst 32 px høye (kravet er 24 × 24).</li>
+</ul>
+
+<h2>Det du må gjøre selv</h2>
+<ul class="nd-list">
+  <li>Skriv <code>alt</code>-tekst som beskriver bildet på norsk – ikke filnavnet.</li>
+  <li>Bruk <code>&lt;th&gt;</code> og gjerne <code>&lt;caption&gt;</code> i tabeller. <code>scope</code> når hodet ikke er åpenbart.</li>
+  <li>Én <code>h1</code>, deretter <code>h2</code> og <code>h3</code> i rekkefølge – ikke hopp over nivåer for å få mindre skrift.</li>
+  <li>Hver graf får en datatabell. Hver farge i en graf får et navn i legenden.</li>
+  <li>Statusfarge kommer aldri alene: «Frakoblet» står med ord, ikke bare rødt.</li>
+  <li>Sett <code>lang="nb"</code> på dokumentet.</li>
+</ul>
+
+<h2>Verifikasjon i repoet</h2>
+<table class="nd-table">
+  <thead><tr><th>Kommando</th><th>Sjekker</th></tr></thead>
+  <tbody>
+    <tr><td><code>npm run contrast</code></td><td>Alle fargepar i begge temaer mot WCAG AA – feiler bygget hvis ett par stryker</td></tr>
+    <tr><td><code>npm run palette</code></td><td>Seriefarger (fargesyn, kontrast, avstand), sekvensiell og divergerende rampe i begge temaer</td></tr>
+    <tr><td><code>npm test</code></td><td>axe-core på alle sider i begge temaer, skjermbilder, tvungne farger, redusert bevegelse</td></tr>
+    <tr><td><code>npm run test:print</code></td><td>PDF av eksemplene med riktig sideantall</td></tr>
+  </tbody>
+</table>

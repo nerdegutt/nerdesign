@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Retning A · Linolje</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+  <style>
+    html, body { margin: 0; background: #ebe6dc; }
+    * { box-sizing: border-box; }
+    a { color: inherit; } a:hover { color: inherit; }
+    
+  .board { width: 1440px; min-height: 100vh; padding: 36px 40px 40px; display: flex; flex-direction: column; gap: 28px; }
+  .head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .head .name { font-size: 40px; line-height: 1.05; margin: 0 0 6px; font-weight: 500; }
+  .head .tag { font-size: 19px; font-style: italic; margin: 0 0 14px; opacity: 0.8; }
+  .head dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 6px 14px; font-size: 15px; line-height: 1.45; }
+  .head dt { font-weight: 600; } .head dd { margin: 0; }
+  .pair { display: grid; grid-template-columns: 600px 1fr; gap: 32px; align-items: stretch; }
+  .sheet { padding: 44px 48px; min-height: 700px; display: flex; flex-direction: column; gap: 0; box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 10px 30px rgba(0,0,0,.10); }
+  .sheet .colophon { margin-top: auto; }
+  .dash { padding: 24px; min-height: 700px; display: flex; flex-direction: column; gap: 20px; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .segmented { display: flex; gap: 0; }
+  .segmented button { min-height: 34px; padding: 0 14px; border: 1px solid transparent; background: transparent; color: inherit; cursor: default; font: inherit; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .stat { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; }
+  .stat .label { font-size: 12px; } .stat .value { font-size: 34px; line-height: 1; } .stat .value small { font-size: 15px; } .stat .sub { font-size: 12px; opacity: 0.8; }
+  .panel { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .chart-head h3 { margin: 0; font-size: 16px; font-weight: 600; } .fresh { font-size: 12px; opacity: 0.75; }
+  .chart-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .legend { list-style: none; margin: 0; padding: 0; display: flex; gap: 18px; font-size: 12px; }
+  .legend li { display: flex; align-items: center; gap: 8px; } .legend i { width: 14px; height: 4px; border-radius: 2px; display: inline-block; }
+  .btn { min-height: 32px; padding: 0 14px; font: inherit; font-size: 13px; cursor: default; }
+  .palette { display: flex; flex-direction: column; gap: 10px; }
+  .prow { display: flex; align-items: flex-end; gap: 8px; padding: 12px 14px; }
+  .pl { width: 48px; font-size: 12px; font-weight: 600; align-self: center; }
+  .sw { display: flex; flex-direction: column; gap: 4px; font-size: 10px; width: 66px; }
+  .sw i { display: block; height: 30px; border-radius: 3px; } .sw code { font-size: 9px; opacity: 0.7; font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .gap { width: 12px; } .pv { margin-left: auto; font-size: 11px; opacity: 0.8; max-width: 200px; text-align: right; align-self: center; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; } th, td { text-align: left; padding: 7px 10px; vertical-align: top; } .num { text-align: right; }
+  .keyfacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; } .keyfacts div { display: flex; flex-direction: column; gap: 4px; } .keyfacts dt { font-size: 11px; } .keyfacts dd { margin: 0; font-size: 22px; }
+
+  .sheet { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; line-height: 1.5; }
+  .kicker { text-transform: uppercase; letter-spacing: 0.22em; font-size: 12px; color: #7d3226; margin: 0 0 12px; }
+  .sheet h1 { font-size: 40px; font-weight: 500; margin: 0 0 6px; letter-spacing: 0.01em; }
+  .subtitle { font-style: italic; color: #6a6154; margin: 0 0 28px; font-size: 16px; }
+  .keyfacts { gap: 1px; background: #e5ddd0; border: 1px solid #e5ddd0; border-radius: 6px; overflow: hidden; margin-bottom: 30px; }
+  .keyfacts div { background: #ffffff; padding: 12px 14px; } .keyfacts dt { text-transform: uppercase; letter-spacing: 0.12em; color: #6a6154; } .keyfacts dd { font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 20px; }
+  .sheet h2 { font-size: 22px; font-weight: 500; margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid #e5ddd0; display: flex; align-items: center; gap: 10px; }
+  .sheet h2::before { content: ""; width: 0.5em; height: 0.5em; background: #8e3b2f; border-radius: 1px; display: inline-block; }
+  .sheet table { background: #ffffff; border: 1px solid #e5ddd0; border-radius: 6px; overflow: hidden; }
+  .sheet th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #6a6154; font-weight: 500; border-bottom: 1px solid #e5ddd0; }
+  .sheet td { border-bottom: 1px solid #e5ddd0; } .sheet tr:last-child td { border-bottom: 0; } .sheet .num { font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 13px; } .empty { color: #e5ddd0; }
+  .note { font-size: 14px; color: #6a6154; font-style: italic; margin: 16px 0 0; }
+  .colophon { font-size: 12px; color: #6a6154; font-style: italic; border-top: 1px solid #e5ddd0; padding-top: 10px; text-align: center; }
+  .dash { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; border-radius: 8px; }
+  .brand { font-size: 22px; font-weight: 500; } .brand span { color: #b2a99d; font-style: italic; font-size: 16px; }
+  .segmented { border: 1px solid #3e3631; border-radius: 6px; overflow: hidden; } .segmented button { font-size: 13px; color: #b2a99d; } .segmented .active { background: #29231d; color: #f1e9dc; }
+  .stat, .panel { background: #29231d; border: 1px solid #3e3631; border-radius: 8px; }
+  .stat .label { text-transform: uppercase; letter-spacing: 0.12em; color: #b2a99d; } .stat .value { font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; } .stat .value small { color: #b2a99d; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; } .stat .sub { color: #b2a99d; }
+  .chart-head h3 { font-weight: 500; display: flex; align-items: center; gap: 10px; } .chart-head h3::before { content: ""; width: 0.5em; height: 0.5em; background: #d57358; border-radius: 1px; }
+  .fresh, .legend { color: #b2a99d; } .btn { background: transparent; color: #eb9070; border: 1px solid #3e3631; border-radius: 6px; }
+  
+  </style>
+</helmet>
+<div class="board" style="background: #ebe6dc; color: #2b2620; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;">
+  
+<div class="head">
+  <div><p class="name">Retning A · Linolje</p><p class="tag">Materialene – malte paneler, tegl, jord og mose</p></div>
+  <dl><dt>Hvorfor</dt><dd>Gården som materiale: malte paneler, tegl og jord. Varm, rolig og nær det du allerede liker – men bygget som ett system med en mørk variant som er «samme hus etter mørkets frembrudd».</dd><dt>Avveining</dt><dd>Minst overraskende. Dark mode blir varm brun heller enn nøytral, som kan kjennes tung på store skjermflater.</dd><dt>Typografi</dt><dd>Iowan Old Style/Palatino for alt; IBM Plex Mono for tall. Sperret overtittel, rødt kvadrat foran h2, 1 px streker.</dd></dl>
+</div>
+  <div class="pair">
+<section class="sheet" style="background: #faf7f2; color: #2b2620;">
+  <p class="kicker">Helgerød gård · Hovedhuset</p>
+  <h1>Kursoversikt</h1>
+  <p class="subtitle">Sikringsskap 1 · kjeller · oppdatert august 2026</p>
+  <dl class="keyfacts">
+    <div><dt>Hovedsikring</dt><dd>63 A</dd></div>
+    <div><dt>Kurser</dt><dd>14</dd></div>
+    <div><dt>Jordfeilbryter</dt><dd>30 mA</dd></div>
+  </dl>
+  <h2>Kurser</h2>
+  <table>
+    <thead><tr><th>Nr</th><th>Kurs</th><th>Sikring</th><th>Kar.</th><th>Rom</th></tr></thead>
+    <tbody><tr><td class="num">1</td><td>Kjøkken stikk</td><td class="num">16 A</td><td>B</td><td>Kjøkken</td></tr><tr><td class="num">2</td><td>Stue lys</td><td class="num">10 A</td><td>B</td><td>Stue, hall</td></tr><tr><td class="num">3</td><td>Bad gulvvarme</td><td class="num">16 A</td><td>C</td><td>Bad 1. etg.</td></tr><tr><td class="num">4</td><td>Vaskerom</td><td class="num">16 A</td><td>B</td><td>Vaskerom</td></tr><tr><td class="num">5</td><td>Varmepumpe</td><td class="num">20 A</td><td>C</td><td>Teknisk rom</td></tr><tr><td class="num">6</td><td>Ladeboks</td><td class="num">32 A</td><td>C</td><td>Gårdsplass</td></tr><tr><td class="num">7</td><td>Utelys tun</td><td class="num">10 A</td><td>B</td><td>Tun, innkjørsel</td></tr><tr><td class="num">8</td><td>Reserve</td><td class="empty" class="num">–</td><td class="empty">–</td><td class="empty">–</td></tr></tbody>
+  </table>
+  <p class="note">Kurs 5 og 6 er reservert varmepumpe og ladeboks – ikke flytt disse uten elektriker.</p>
+  <footer class="colophon">Helgerød gård · Jeløya · side 1 av 2</footer>
+</section>
+<section class="dash" style="background: #1d1713; color: #f1e9dc;">
+  <header class="topbar">
+    <div class="brand">Helgerød <span>· Hovedhuset</span></div>
+    <nav class="segmented" aria-label="Periode"><button>24 t</button><button class="active" aria-current="true">7 d</button><button>28 d</button><button>1 år</button></nav>
+  </header>
+  <div class="stats">
+    <div class="stat"><span class="label">Effekt nå</span><span class="value">3,8 <small>kW</small></span><span class="sub">Snitt 7 d · 2,9 kW</span></div>
+    <div class="stat"><span class="label">Innetemperatur</span><span class="value">21,4 <small>°C</small></span><span class="sub">Mål 21 °C</span></div>
+    <div class="stat"><span class="label">Strømpris nå</span><span class="value">0,84 <small>kr/kWh</small></span><span class="sub">Lav · neste time 0,91</span></div>
+  </div>
+  <div class="panel chart">
+    <div class="chart-head"><h3>Forbruk siste 7 dager</h3><span class="fresh">Oppdatert for 4 min siden</span></div>
+    <svg viewBox="0 0 620 220" width="100%" role="img" aria-label="Forbruk siste 7 dager, tre bygninger"><line x1="40" x2="608" y1="192" y2="192" stroke="#3e3631" stroke-width="1"/><text x="32" y="196" text-anchor="end" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>0</text><line x1="40" x2="608" y1="132" y2="132" stroke="#3e3631" stroke-width="1"/><text x="32" y="136" text-anchor="end" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>2</text><line x1="40" x2="608" y1="72" y2="72" stroke="#3e3631" stroke-width="1"/><text x="32" y="76" text-anchor="end" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>4</text><line x1="40" x2="608" y1="12" y2="12" stroke="#3e3631" stroke-width="1"/><text x="32" y="16" text-anchor="end" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>6</text><line x1="40" x2="608" y1="192" y2="192" stroke="#b2a99d" stroke-width="1"/><text x="81.06024096385542" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>ma</text><text x="163.18072289156626" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>ti</text><text x="245.3012048192771" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>on</text><text x="327.4216867469879" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>to</text><text x="409.5421686746988" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>fr</text><text x="491.66265060240966" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>lø</text><text x="573.7831325301205" y="212" text-anchor="middle" font-size="11" fill="#b2a99d" font-family='"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace'>sø</text><polyline points="40.0,148.5 46.8,153.6 53.7,149.4 60.5,81.0 67.4,92.7 74.2,97.8 81.1,85.2 87.9,83.4 94.7,114.9 101.6,80.4 108.4,109.8 115.3,110.4 122.1,141.9 129.0,157.5 135.8,152.1 142.7,116.4 149.5,114.9 156.3,92.4 163.2,83.1 170.0,87.6 176.9,90.0 183.7,115.2 190.6,94.5 197.4,99.3 204.2,155.1 211.1,143.7 217.9,157.5 224.8,87.6 231.6,112.2 238.5,116.7 245.3,90.9 252.1,90.0 259.0,85.5 265.8,87.3 272.7,86.4 279.5,90.0 286.4,157.8 293.2,152.7 300.0,156.0 306.9,93.0 313.7,103.2 320.6,106.5 327.4,88.2 334.3,105.9 341.1,85.2 348.0,96.9 354.8,110.1 361.6,100.5 368.5,148.8 375.3,151.5 382.2,153.6 389.0,86.4 395.9,95.4 402.7,104.4 409.5,90.9 416.4,95.7 423.2,102.6 430.1,96.3 436.9,108.9 443.8,114.3 450.6,148.5 457.4,149.7 464.3,150.9 471.1,106.5 478.0,100.8 484.8,114.6 491.7,88.8 498.5,110.1 505.3,113.1 512.2,86.1 519.0,95.1 525.9,94.5 532.7,142.8 539.6,154.5 546.4,150.6 553.3,102.9 560.1,94.2 566.9,92.4 573.8,108.9 580.6,110.4 587.5,94.5 594.3,117.6 601.2,107.1 608.0,88.8" fill="none" stroke="#c06557" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><polyline points="40.0,168.0 46.8,171.0 53.7,171.6 60.5,143.7 67.4,148.8 74.2,147.9 81.1,137.4 87.9,148.2 94.7,142.2 101.6,152.4 108.4,136.8 115.3,140.4 122.1,170.7 129.0,173.1 135.8,167.7 142.7,148.2 149.5,149.4 156.3,144.9 163.2,138.6 170.0,146.7 176.9,153.6 183.7,145.5 190.6,151.5 197.4,134.7 204.2,172.2 211.1,169.8 217.9,169.5 224.8,136.2 231.6,139.8 238.5,135.0 245.3,148.8 252.1,149.1 259.0,144.0 265.8,146.1 272.7,138.6 279.5,144.0 286.4,166.5 293.2,168.0 300.0,170.4 306.9,135.9 313.7,146.1 320.6,142.5 327.4,136.5 334.3,144.6 341.1,147.0 348.0,139.2 354.8,136.2 361.6,136.8 368.5,173.1 375.3,172.5 382.2,171.9 389.0,152.7 395.9,150.9 402.7,141.0 409.5,138.0 416.4,149.1 423.2,143.1 430.1,148.2 436.9,150.0 443.8,142.2 450.6,169.2 457.4,166.8 464.3,166.8 471.1,148.8 478.0,140.4 484.8,151.2 491.7,137.7 498.5,147.3 505.3,147.6 512.2,140.4 519.0,151.5 525.9,137.4 532.7,171.6 539.6,172.2 546.4,169.5 553.3,144.6 560.1,142.8 566.9,135.6 573.8,144.9 580.6,134.7 587.5,152.1 594.3,142.5 601.2,141.0 608.0,150.6" fill="none" stroke="#03a1b5" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><polyline points="40.0,179.4 46.8,178.5 53.7,179.4 60.5,169.8 67.4,160.8 74.2,165.3 81.1,165.6 87.9,161.4 94.7,162.3 101.6,168.6 108.4,160.8 115.3,166.8 122.1,181.8 129.0,181.2 135.8,182.1 142.7,162.3 149.5,162.0 156.3,164.1 163.2,170.4 170.0,165.9 176.9,161.7 183.7,165.6 190.6,168.3 197.4,168.0 204.2,181.5 211.1,179.4 217.9,179.4 224.8,167.1 231.6,163.2 238.5,169.2 245.3,161.1 252.1,169.2 259.0,159.6 265.8,168.9 272.7,167.7 279.5,169.5 286.4,178.8 293.2,180.3 300.0,179.1 306.9,170.1 313.7,169.8 320.6,170.4 327.4,169.2 334.3,165.0 341.1,169.8 348.0,159.6 354.8,167.1 361.6,168.9 368.5,181.2 375.3,180.6 382.2,180.0 389.0,165.0 395.9,159.9 402.7,162.6 409.5,164.1 416.4,168.6 423.2,167.4 430.1,161.7 436.9,162.3 443.8,165.0 450.6,181.8 457.4,178.8 464.3,178.8 471.1,169.8 478.0,169.2 484.8,167.1 491.7,168.0 498.5,167.7 505.3,163.5 512.2,164.4 519.0,161.1 525.9,164.7 532.7,178.2 539.6,179.7 546.4,181.5 553.3,163.5 560.1,165.0 566.9,164.7 573.8,162.0 580.6,159.6 587.5,163.8 594.3,162.9 601.2,160.8 608.0,166.8" fill="none" stroke="#a67110" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <div class="chart-foot">
+      <ul class="legend"><li><i style="background: #c06557;"></i>Hovedhuset</li><li><i style="background: #03a1b5;"></i>Sidebygningen</li><li><i style="background: #a67110;"></i>Låven</li></ul>
+      <button class="btn">Vis datatabell</button>
+    </div>
+  </div>
+</section></div>
+  <div class="palette">
+  <div class="prow" style="background: #faf7f2; color: #2b2620; border: 1px solid #e5ddd0;">
+    <div class="pl">Lys</div>
+    <div class="sw"><i style="background: #faf7f2; color: #2b2620;"></i><span>bakgrunn</span><code>#faf7f2</code></div><div class="sw"><i style="background: #ffffff; color: #2b2620;"></i><span>flate</span><code>#ffffff</code></div><div class="sw"><i style="background: #e5ddd0; color: #2b2620;"></i><span>strek</span><code>#e5ddd0</code></div><div class="sw"><i style="background: #2b2620; color: #faf7f2;"></i><span>tekst</span><code>#2b2620</code></div><div class="sw"><i style="background: #6a6154; color: #faf7f2;"></i><span>dempet</span><code>#6a6154</code></div><div class="sw"><i style="background: #8e3b2f; color: #faf7f2;"></i><span>aksent</span><code>#8e3b2f</code></div>
+    <div class="gap"></div>
+    <div class="sw"><i style="background: #c4685a; color: #fff;"></i><span>serie 1</span><code>#c4685a</code></div><div class="sw"><i style="background: #4c5a01; color: #fff;"></i><span>serie 2</span><code>#4c5a01</code></div><div class="sw"><i style="background: #5d408a; color: #fff;"></i><span>serie 3</span><code>#5d408a</code></div><div class="sw"><i style="background: #008a63; color: #fff;"></i><span>serie 4</span><code>#008a63</code></div><div class="sw"><i style="background: #823564; color: #fff;"></i><span>serie 5</span><code>#823564</code></div><div class="sw"><i style="background: #0897a9; color: #fff;"></i><span>serie 6</span><code>#0897a9</code></div><div class="sw"><i style="background: #7e5403; color: #fff;"></i><span>serie 7</span><code>#7e5403</code></div><div class="sw"><i style="background: #3d73b6; color: #fff;"></i><span>serie 8</span><code>#3d73b6</code></div>
+    <div class="pv">tekst 14.0:1 · dempet 5.7:1 · aksent 7.0:1 · seriepalett validert ✓</div>
+  </div>
+  <div class="prow" style="background: #1d1713; color: #f1e9dc; border: 1px solid #3e3631;">
+    <div class="pl">Mørk</div>
+    <div class="sw"><i style="background: #1d1713; color: #f1e9dc;"></i><span>bakgrunn</span><code>#1d1713</code></div><div class="sw"><i style="background: #29231d; color: #f1e9dc;"></i><span>flate</span><code>#29231d</code></div><div class="sw"><i style="background: #3e3631; color: #f1e9dc;"></i><span>strek</span><code>#3e3631</code></div><div class="sw"><i style="background: #f1e9dc; color: #1d1713;"></i><span>tekst</span><code>#f1e9dc</code></div><div class="sw"><i style="background: #b2a99d; color: #1d1713;"></i><span>dempet</span><code>#b2a99d</code></div><div class="sw"><i style="background: #d57358; color: #1d1713;"></i><span>aksent</span><code>#d57358</code></div>
+    <div class="gap"></div>
+    <div class="sw"><i style="background: #c06557; color: #fff;"></i><span>serie 1</span><code>#c06557</code></div><div class="sw"><i style="background: #03a1b5; color: #fff;"></i><span>serie 2</span><code>#03a1b5</code></div><div class="sw"><i style="background: #a67110; color: #fff;"></i><span>serie 3</span><code>#a67110</code></div><div class="sw"><i style="background: #5d94da; color: #fff;"></i><span>serie 4</span><code>#5d94da</code></div><div class="sw"><i style="background: #a25281; color: #fff;"></i><span>serie 5</span><code>#a25281</code></div><div class="sw"><i style="background: #778a2d; color: #fff;"></i><span>serie 6</span><code>#778a2d</code></div><div class="sw"><i style="background: #987aca; color: #fff;"></i><span>serie 7</span><code>#987aca</code></div><div class="sw"><i style="background: #249c74; color: #fff;"></i><span>serie 8</span><code>#249c74</code></div>
+    <div class="pv">tekst 14.7:1 · dempet 7.6:1 · aksent 5.4:1 · seriepalett validert ✓</div>
+  </div></div>
+</div>
+</x-dc>
+</body>
+</html>

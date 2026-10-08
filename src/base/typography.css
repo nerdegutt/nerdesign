@@ -1,0 +1,54 @@
+/* Typography – the document voice. Element styles are global on purpose: this
+   is the base layer for single-file documents. */
+h1, h2, h3, h4 { font-weight: 500; letter-spacing: 0.01em; line-height: 1.2; margin: 0; text-wrap: balance; }
+h1 { font-size: var(--nd-size-display); margin-bottom: 0.6rem; }
+h2 {
+  font-size: var(--nd-size-xl);
+  margin: var(--nd-space-7) 0 var(--nd-space-4);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--nd-line);
+}
+/* the brick square – Nerdesign's signature */
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  background: var(--nd-accent);
+  margin-right: 0.55em;
+  border-radius: var(--nd-radius-sm);
+  vertical-align: 0.05em;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+h3 { font-size: var(--nd-size-lg); margin: var(--nd-space-5) 0 var(--nd-space-2); }
+h4 { font-size: var(--nd-size-md); margin: var(--nd-space-4) 0 var(--nd-space-2); }
+p { margin: 0 0 var(--nd-space-4); }
+a { color: var(--nd-link); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+strong { font-weight: 600; }
+small { font-size: var(--nd-size-sm); }
+hr { border: 0; border-top: 1px solid var(--nd-line); margin: var(--nd-space-6) 0; }
+code, kbd, samp { font-family: var(--nd-font-numeric); font-size: 0.9em; }
+
+/* centred document header: kicker / h1 / subtitle */
+.nd-header { text-align: center; padding: var(--nd-space-7) var(--nd-space-5) var(--nd-space-6); }
+.nd-header h1 { margin-bottom: 0.6rem; }
+.nd-kicker {
+  text-transform: uppercase;
+  letter-spacing: var(--nd-tracking-kicker);
+  font-size: 0.8rem;
+  color: var(--nd-accent-text);
+  margin: 0 0 0.8rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.nd-subtitle { color: var(--nd-text-muted); font-style: italic; font-size: var(--nd-size-lg); margin: 0; }
+.nd-lead { max-width: var(--nd-measure); margin: var(--nd-space-6) auto; font-size: var(--nd-size-lg); text-align: center; }
+.nd-caption { text-align: center; color: var(--nd-text-muted); font-size: var(--nd-size-sm); font-style: italic; margin-top: var(--nd-space-2); }
+.nd-muted { color: var(--nd-text-muted); }
+.nd-caps { text-transform: uppercase; letter-spacing: var(--nd-tracking-caps); font-size: 0.78rem; color: var(--nd-text-muted); }
+/* data numerals: monospace, tabular – dashboards. Documents keep serif numerals with tabular spacing. */
+.nd-numeric { font-family: var(--nd-font-numeric); font-variant-numeric: tabular-nums; }
+.nd-tabular { font-variant-numeric: tabular-nums; }
+.nd-empty { color: var(--nd-text-empty); }  /* decorative «–» for no value; add aria-label="ikke oppgitt" or visually-hidden text */

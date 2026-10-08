@@ -1,0 +1,29 @@
+/* Contact cards, colophon, footnote, callout, QR, lists. */
+.nd-contact {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--nd-line); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); overflow: hidden;
+  margin: var(--nd-space-5) 0;
+}
+.nd-contact > div { background: var(--nd-surface); padding: var(--nd-space-5) var(--nd-space-5) 1.6rem; text-align: center; }
+.nd-contact-name { margin: 0; font-size: 1.15rem; }
+.nd-contact-name::after { content: ""; display: block; width: 2rem; height: 2px; background: var(--nd-accent); margin: 0.55rem auto 0; border-radius: var(--nd-radius-sm); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.nd-contact-details { margin: 0.7rem 0 0; line-height: 1.9; }
+.nd-contact a { text-decoration: none; }
+.nd-contact a:hover, .nd-contact a:focus-visible { text-decoration: underline; }
+@media (max-width: 540px) { .nd-contact { grid-template-columns: 1fr; } }
+
+.nd-colophon { text-align: center; color: var(--nd-text-muted); font-size: var(--nd-size-sm); padding: var(--nd-space-6) var(--nd-space-5) var(--nd-space-7); border-top: 1px solid var(--nd-line); font-style: italic; }
+.nd-footnote { text-align: center; color: var(--nd-text-muted); font-size: 0.85rem; font-style: italic; margin-top: var(--nd-space-6); padding-top: 0.9rem; border-top: 1px solid var(--nd-line); }
+
+/* callout – the only boxed note */
+.nd-note { border: 1px solid var(--nd-line); border-radius: var(--nd-radius); padding: var(--nd-space-4) 1.2rem; margin: var(--nd-space-5) 0; background: var(--nd-surface); }
+.nd-note > :first-child { margin-top: 0; } .nd-note > :last-child { margin-bottom: 0; }
+.nd-note h3, .nd-note h4 { color: var(--nd-accent-text); font-weight: 600; font-size: var(--nd-size-md); margin: 0 0 0.4rem; }
+.nd-note--warn { border-color: var(--nd-warn); } .nd-note--error { border-color: var(--nd-error); }
+
+.nd-qr { text-align: center; }
+.nd-qr svg, .nd-qr img { width: 24mm; height: 24mm; margin: 0 auto 1.5mm; }
+.nd-qr .nd-qr-url { font-size: 13pt; color: var(--nd-accent-text); letter-spacing: 0.02em; white-space: nowrap; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.nd-list { padding-left: 1.2em; margin: 0 0 var(--nd-space-4); } .nd-list li { margin-bottom: 0.4rem; }
+.nd-list--tight li { margin-bottom: 0.15rem; }

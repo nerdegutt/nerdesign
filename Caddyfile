@@ -1,0 +1,17 @@
+{
+	admin off
+	auto_https off
+}
+
+:3000 {
+	root * /srv
+	respond /healthz "ok" 200
+	header -Server
+	# Cloudflare mellomlagrer ellers CSS og JS i 2 timer når opphavet ikke sier noe. no-cache = lagre,
+	# men spør serveren (ETag) hver gang, så en deploy synes med en gang.
+	header Cache-Control "no-cache"
+	file_server
+	log {
+		output stdout
+	}
+}

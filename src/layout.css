@@ -1,0 +1,77 @@
+/* Layout primitives – a handful, not a grid framework. */
+.nd-page { max-width: var(--nd-page-width); margin: 0 auto; padding: 0 var(--nd-space-5) var(--nd-space-8); }
+.nd-page--narrow { --nd-page-width: 720px; }
+.nd-page--wide { --nd-page-width: 1280px; }
+.nd-measure { max-width: var(--nd-measure); }
+.nd-center { margin-left: auto; margin-right: auto; }
+
+/* auto-fit card grid; set --nd-min per use */
+.nd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(var(--nd-min, 260px), 100%), 1fr)); gap: var(--nd-space-5); margin: var(--nd-space-5) 0; }
+.nd-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--nd-space-5); align-items: center; margin: var(--nd-space-5) 0; }
+@media (max-width: 640px) { .nd-two-col { grid-template-columns: 1fr; } }
+
+/* key facts: a <dl> grid where --nd-line shows through a 1px gap */
+.nd-keyfacts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--nd-line);
+  border: 1px solid var(--nd-line);
+  border-radius: var(--nd-radius);
+  overflow: hidden;
+  margin: var(--nd-space-5) 0;
+}
+.nd-keyfacts > div { background: var(--nd-surface); padding: var(--nd-space-4) 1.2rem; }
+.nd-keyfacts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: var(--nd-tracking-caps); color: var(--nd-text-muted); margin-bottom: 0.2rem; }
+.nd-keyfacts dd { margin: 0; font-size: 1.05rem; }
+.nd-keyfacts--2 { grid-template-columns: repeat(2, 1fr); }
+.nd-keyfacts--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 700px) { .nd-keyfacts, .nd-keyfacts--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 440px) { .nd-keyfacts, .nd-keyfacts--2, .nd-keyfacts--4 { grid-template-columns: 1fr; } }
+
+/* vertical rhythm helpers */
+.nd-stack { display: flex; flex-direction: column; gap: var(--nd-space-4); }
+.nd-stack > * { margin: 0; }
+.nd-row { display: flex; flex-wrap: wrap; gap: var(--nd-space-3); align-items: center; }
+
+/* physical sheets – see print.css for the paged behaviour */
+.nd-sheet {
+  max-width: 800px;
+  margin: var(--nd-space-6) auto;
+  background: var(--nd-surface);
+  border: 1px solid var(--nd-line);
+  border-radius: var(--nd-radius);
+  padding: 3rem 3.2rem 2.5rem;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.nd-sheet .nd-header { padding: 0 0 var(--nd-space-5); }
+.nd-sheet h1 { font-size: var(--nd-size-2xl); }
+.nd-sheet h2 { font-size: 1.25rem; margin: var(--nd-space-6) 0 0.8rem; }
+.nd-sheet--a5 { max-width: 560px; padding: 2rem 2.2rem 1.8rem; font-size: 15px; }
+/* fixed: exactly one page, laid out in mm; children never shrink (clipping is the honest symptom) */
+.nd-sheet--fixed {
+  width: 210mm; height: 296mm; max-width: none;
+  margin: var(--nd-space-6) auto; padding: 11mm 14mm 9mm;
+  border-radius: 0; display: flex; flex-direction: column; overflow: hidden;
+  line-height: 1.45;
+}
+.nd-sheet--fixed > * { flex-shrink: 0; }
+.nd-sheet--fixed.nd-sheet--a5 { width: 148mm; height: 209mm; padding: 9mm 11mm 8mm; }
+.nd-sheet--fixed .nd-bottom { margin-top: auto; border-top: 1px solid var(--nd-line); padding-top: 3.5mm; }
+.nd-page-break { break-before: page; page-break-before: always; }
+
+/* labels: a sheet of fixed-size stickers. Set the geometry per label product. */
+.nd-label-sheet {
+  --nd-label-w: 70mm; --nd-label-h: 37mm; --nd-label-cols: 3; --nd-label-gap-x: 0mm; --nd-label-gap-y: 0mm;
+  display: grid; grid-template-columns: repeat(var(--nd-label-cols), var(--nd-label-w));
+  column-gap: var(--nd-label-gap-x); row-gap: var(--nd-label-gap-y);
+  justify-content: center; margin: var(--nd-space-6) auto; background: var(--nd-surface); padding: 1mm; width: max-content;
+}
+.nd-label {
+  width: var(--nd-label-w); height: var(--nd-label-h); padding: 3mm 4mm; overflow: hidden;
+  border: 1px dashed var(--nd-line); display: flex; flex-direction: column; justify-content: center; gap: 1mm;
+  font-size: 10pt; line-height: 1.25;
+}
+.nd-label .nd-kicker { font-size: 7pt; margin: 0; }
+.nd-label strong { font-size: 13pt; font-weight: 500; }

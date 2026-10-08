@@ -1,0 +1,15 @@
+/* Minimal reset – deliberately small so nd.css coexists with other CSS. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--nd-bg);
+  color: var(--nd-text);
+  font-family: var(--nd-font-text);
+  font-size: 17px;
+  line-height: var(--nd-leading);
+}
+img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+/* the hidden attribute must win over any display rule a page adds */
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }

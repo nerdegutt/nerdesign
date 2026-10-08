@@ -1,0 +1,9 @@
+/* Stat tile: label · value (+unit) · sub. Values in the numeric face. */
+.nd-stat { background: var(--nd-surface); border: 1px solid var(--nd-line); border-radius: 8px; padding: var(--nd-space-4) var(--nd-space-5); display: flex; flex-direction: column; gap: var(--nd-space-1); container-type: inline-size; }
+.nd-stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: var(--nd-tracking-caps); color: var(--nd-text-muted); margin: 0; }
+.nd-stat-value { font-family: var(--nd-font-numeric); font-variant-numeric: tabular-nums; font-size: 2.1rem; line-height: 1.1; margin: 0; display: flex; align-items: baseline; gap: 0.35em; flex-wrap: wrap; }
+.nd-stat-unit { font-family: var(--nd-font-text); font-size: var(--nd-size-md); color: var(--nd-text-muted); }
+.nd-stat-sub { font-size: var(--nd-size-sm); color: var(--nd-text-muted); margin: 0; }
+.nd-stat--hero .nd-stat-value { font-size: 3rem; }
+@container (max-width: 200px) { .nd-stat-value { font-size: 1.6rem; } }
+.nd-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(var(--nd-min, 200px), 100%), 1fr)); gap: var(--nd-space-4); margin: 0 0 var(--nd-space-5); }

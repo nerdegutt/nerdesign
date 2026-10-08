@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Komponenter · Nerdesign</title>
+<script>try{var t=localStorage.getItem('nd-theme');if(t&&t!=='auto')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="dist/nd-fonts.css">
+<link rel="stylesheet" href="dist/nd.css">
+<link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body data-nd-version="1.0.0">
+<a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
+<div class="site-version-banner" id="version-banner" hidden></div>
+<header class="site-header">
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.0</small></a>
+  <nav class="site-nav" aria-label="Hovedmeny">
+    <a href="index.html">Om</a>
+    <a href="kom-i-gang.html">Kom i gang</a>
+    <a href="grunnlag.html">Grunnlag</a>
+    <a href="komponenter.html" aria-current="page">Komponenter</a>
+    <a href="eksempler.html">Eksempler</a>
+    <a href="tilgjengelighet.html">Tilgjengelighet</a>
+    <a href="versjoner.html">Versjoner</a>
+  </nav>
+  <div id="theme" class="site-theme"></div>
+</header>
+<main id="innhold" class="nd-page nd-page--wide">
+<header class="nd-header">
+  <p class="nd-kicker">Nerdesign · komponenter</p>
+  <h1>Komponenter</h1>
+  <p class="nd-subtitle">Klasser og markup-mønstre – kopier det du trenger</p>
+</header>
+<p class="nd-lead">En komponent i Nerdesign er en CSS-klasse og et dokumentert HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
+<ul class="toc nd-list">
+  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#form">Skjema</a></li>
+</ul>
+
+<h2 id="header">Dokumenthode</h2>
+<p>Overtittel i sperret versal, tittel i vekt 500, kursiv undertittel. Sentrert. <code>.nd-header</code> gir luft rundt; <code>.nd-kicker</code>, <code>h1</code>, <code>.nd-subtitle</code> gjør resten. Ingressen <code>.nd-lead</code> følger gjerne etter.</p>
+<div class="demo demo--bg">
+  <header class="nd-header" style="padding-top: 0;">
+    <p class="nd-kicker">Eksempelgården · Kursoversikt</p>
+    <h1>Vaskerom</h1>
+    <p class="nd-subtitle">Sikringsskap · kurs 1–13</p>
+  </header>
+  <p class="nd-lead" style="margin-bottom: 0;">Tretten kurser i skapet ved vaskerommet. Hovedsikringen sitter i teknisk rom.</p>
+</div>
+<pre class="code">&lt;header class="nd-header"&gt;
+  &lt;p class="nd-kicker"&gt;Eksempelgården · Kursoversikt&lt;/p&gt;
+  &lt;h1&gt;Vaskerom&lt;/h1&gt;
+  &lt;p class="nd-subtitle"&gt;Sikringsskap · kurs 1–13&lt;/p&gt;
+&lt;/header&gt;
+&lt;p class="nd-lead"&gt;…&lt;/p&gt;</pre>
+
+<h3>Overskrifter</h3>
+<p><code>h2</code> får det røde kvadratet og en strek under – det er systemets signatur og trenger ingen klasse. <code>h3</code> og <code>h4</code> er stillere.</p>
+<div class="demo demo--bg">
+  <h2 style="margin-top: 0;">Kurser</h2>
+  <h3>Teknisk rom</h3>
+  <p style="margin: 0;">Løpende tekst i Iowan Old Style, 17 px, linjehøyde 1,6.</p>
+</div>
+
+<h2 id="keyfacts">Nøkkelfakta</h2>
+<p>En <code>&lt;dl&gt;</code> i et rutenett der streken skinner gjennom en 1 px-gap. Tre kolonner som standard; <code>.nd-keyfacts--2</code> og <code>--4</code> finnes. Kollapser på smal skjerm.</p>
+<div class="demo demo--bg">
+  <dl class="nd-keyfacts" style="margin: 0;">
+    <div><dt>Hovedsikring</dt><dd>63 A</dd></div>
+    <div><dt>Kurser</dt><dd>14</dd></div>
+    <div><dt>Jordfeilbryter</dt><dd>30 mA</dd></div>
+  </dl>
+</div>
+<pre class="code">&lt;dl class="nd-keyfacts"&gt;
+  &lt;div&gt;&lt;dt&gt;Hovedsikring&lt;/dt&gt;&lt;dd&gt;63 A&lt;/dd&gt;&lt;/div&gt;
+  …
+&lt;/dl&gt;</pre>
+
+<h2 id="table">Tabell</h2>
+<p><code>.nd-table</code>: hvit flate, versal-hoder, tynne streker, <code>tfoot</code> med tykkere toppstrek. <code>.nd-num</code> høyrestiller tall, <code>.nd-key</code> gir fet nøkkelkolonne, <code>.nd-empty</code> demper tankestreken for tomme verdier – husk skjermlesertekst. <code>.nd-table--compact</code> for tette ark, <code>.nd-table--end</code> høyrestiller siste kolonne (beløp).</p>
+<div class="demo demo--bg">
+  <table class="nd-table nd-table--end" style="margin: 0;">
+    <caption>Månedskostnad, eksempel</caption>
+    <thead><tr><th>Post</th><th>Merknad</th><th>Kroner</th></tr></thead>
+    <tbody>
+      <tr><td class="nd-key">Leie</td><td>Inkludert internett</td><td>[PRIS]</td></tr>
+      <tr><td class="nd-key">Strøm</td><td>Etter forbruk, egen måler</td><td class="nd-empty"><span aria-hidden="true">–</span><span class="nd-sr-only">ikke oppgitt</span></td></tr>
+      <tr><td class="nd-key">Parkering</td><td>Én plass på tunet</td><td>0</td></tr>
+    </tbody>
+    <tfoot><tr><td>Sum faste</td><td></td><td>[PRIS]</td></tr></tfoot>
+  </table>
+</div>
+<pre class="code">&lt;table class="nd-table nd-table--end"&gt;
+  &lt;caption&gt;Månedskostnad&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Post&lt;/th&gt;&lt;th&gt;Merknad&lt;/th&gt;&lt;th&gt;Kroner&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td class="nd-key"&gt;Leie&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;&lt;td&gt;12 000&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class="nd-key"&gt;Strøm&lt;/td&gt;&lt;td&gt;…&lt;/td&gt;
+        &lt;td class="nd-empty"&gt;&lt;span aria-hidden="true"&gt;–&lt;/span&gt;&lt;span class="nd-sr-only"&gt;ikke oppgitt&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;&lt;tr&gt;&lt;td&gt;Sum&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;12 000&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;
+&lt;/table&gt;</pre>
+
+<h2 id="figure">Bilder og kort</h2>
+<p>Alle bilder i <code>.nd-hero</code>, <code>.nd-figure-card</code>, <code>.nd-gallery</code> og <code>.nd-two-col</code> åpnes i en lysboks (PhotoSwipe) når <code>nd-lightbox.js</code> er lastet – klikk på et bilde her. Bildeteksten hentes fra <code>figcaption</code>.</p>
+<div class="demo demo--bg">
+  <figure class="nd-hero" style="margin: 0;"><img src="examples/img/gardstunet.jpg" alt="Gårdstunet en sommermorgen, med den røde sidebygningen til høyre og hovedhuset i bakgrunnen" width="1400" height="1050"><figcaption class="nd-caption">Gårdstunet en sommermorgen – <code>.nd-hero</code> med <code>.nd-caption</code>.</figcaption></figure>
+</div>
+<p><code>.nd-hero</code> for et fullbreddebilde med <code>.nd-caption</code> under. <code>.nd-figure-card</code> er et <code>&lt;figure&gt;</code> med ramme, 4:3-bilde og en <code>figcaption</code> der <code>&lt;strong&gt;</code> blir tittel. Legg kortene i <code>.nd-grid</code>. <code>.nd-two-col</code> setter bilde og tekst side om side.</p>
+<div class="demo demo--bg">
+  <div class="nd-grid" style="--nd-min: 220px; margin: 0;">
+    <figure class="nd-figure-card"><img src="examples/img/soverom-1-fra-dor.jpg" alt="Soverom med dobbeltseng, dyp blå vegg og vindu mot tunet"><figcaption><strong>Soverom 1</strong>Mot tunet, plass til dobbeltseng.</figcaption></figure>
+    <figure class="nd-figure-card"><img src="examples/img/soverom-2-fra-dor.jpg" alt="Lyst soverom med seng og to vinduer"><figcaption><strong>Soverom 2</strong>Størst av rommene, lyst og luftig.</figcaption></figure>
+    <figure class="nd-figure-card"><img src="examples/img/kjokken.jpg" alt="Kjøkken med hvite skap, benkeplate og vindu"><figcaption><strong>Kjøkken</strong>Oppvaskmaskin og plass til spisebord.</figcaption></figure>
+  </div>
+</div>
+<pre class="code">&lt;div class="nd-grid" style="--nd-min: 260px"&gt;
+  &lt;figure class="nd-figure-card"&gt;
+    &lt;img src="soverom-1.jpg" alt="Soverom med dobbeltseng og vindu mot tunet"&gt;
+    &lt;figcaption&gt;&lt;strong&gt;Soverom 1&lt;/strong&gt;Mot tunet, plass til dobbeltseng.&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</pre>
+
+<h2 id="gallery">Galleri</h2>
+<p><code>.nd-gallery</code>: to kolonner på skjerm, tre på papir. Et odde siste bilde fyller hele bredden i stedet for å stå alene. Bildetekster er kursive og dempet.</p>
+<div class="demo demo--bg">
+  <div class="nd-gallery" style="margin: 0;">
+    <figure><img src="examples/img/stue-mot-vest.jpg" alt="Stue med sofa og vinduer mot vest"><figcaption>Stuen sett mot vest.</figcaption></figure>
+    <figure><img src="examples/img/bad.jpg" alt="Bad med dusjkabinett og vaskemaskin"><figcaption>Bad med dusj og vaskemaskin.</figcaption></figure>
+    <figure><img src="examples/img/tunet-kveld.jpg" alt="Gårdstunet en sommerkveld med tente lykter"><figcaption>Tunet en sommerkveld – odde siste bilde fyller bredden.</figcaption></figure>
+  </div>
+</div>
+
+<h2 id="note">Merknad</h2>
+<p><code>.nd-note</code> er den eneste innrammede boksen. En <code>h3</code>/<code>h4</code> inni får aksentfargen. <code>--warn</code> og <code>--error</code> farger rammen – og teksten sier alltid hvorfor.</p>
+<div class="demo demo--bg">
+  <div class="nd-note" style="margin: 0 0 var(--nd-space-4);"><h4>Til foresatte</h4><p style="margin: 0;">Leieavtalen signeres av eleven, men vi ber om at en forelder står som medansvarlig.</p></div>
+  <div class="nd-note nd-note--warn" style="margin: 0;"><h4>Advarsel</h4><p style="margin: 0;">Kurs 5 og 6 er reservert varmepumpe og ladeboks – ikke flytt disse uten elektriker.</p></div>
+</div>
+
+<h2 id="contact">Kontakt</h2>
+<p><code>.nd-contact</code>: to sentrerte kort med en kort rød strek under navnet. Lenker uten understrek til de får fokus eller pekeren over.</p>
+<div class="demo demo--bg">
+  <div class="nd-contact" style="margin: 0;">
+    <div><p class="nd-contact-name">[Navn]</p><p class="nd-contact-details"><a href="tel:+4700000000">[telefon]</a><br><a href="mailto:post@eksempel.no">post@eksempel.no</a></p></div>
+    <div><p class="nd-contact-name">Eksempelgården</p><p class="nd-contact-details">[Adresse]<br>Jeløya, Moss</p></div>
+  </div>
+</div>
+
+<h2 id="colophon">Kolofon og fotnote</h2>
+<p><code>footer.nd-colophon</code> avslutter en side; <code>.nd-footnote</code> avslutter et ark. Begge kursive, dempet, med en strek over.</p>
+<div class="demo demo--bg">
+  <p class="nd-footnote" style="margin-top: 0;">Eksempelgården · oppdatert august 2026</p>
+  <footer class="nd-colophon" style="padding-bottom: 0;">Eksempelgården · Jeløya, Moss</footer>
+</div>
+
+<h2 id="sheet">Ark</h2>
+<p><code>.nd-sheet</code> er et fysisk ark: et kort med ramme på skjermen, nøyaktig én side på papir, med sideskift etter. <code>.nd-sheet--a5</code> for A5. <code>.nd-sheet--fixed</code> låser arket til 210 × 296 mm med egne marger og lar ingen barn krympe – blir det for fullt, klippes bunnen synlig, som er et ærligere symptom enn stille krymping. <code>.nd-bottom</code> limer et felt til bunnen av et fast ark. Siste ark får <code>.nd-sheet--last</code> så det ikke kommer en tom side. Faste ark og etikettark er forhåndsvisninger av papir og vises alltid lyse, også i mørkt tema – legg <code>.nd-paper</code> på andre elementer som skal oppføre seg slik.</p>
+<div class="demo demo--bg">
+  <section class="nd-sheet nd-sheet--a5" style="margin: 0 auto;">
+    <header class="nd-header"><p class="nd-kicker">Eksempelgården</p><h1>Slik bruker du varmepumpa</h1><p class="nd-subtitle">Heng i teknisk rom</p></header>
+    <ol class="nd-list"><li>La den stå på «Auto» – den styrer seg selv.</li><li>Ikke skru på panelovnene i tillegg.</li><li>Rødt lys: ring [telefon].</li></ol>
+    <p class="nd-footnote">Oppdatert august 2026</p>
+  </section>
+</div>
+<p>Se <a href="eksempler.html">eksemplene</a> for en fire siders kursoversikt og et fast A4-ark – begge med PDF.</p>
+
+<h2 id="label">Etiketter</h2>
+<p><code>.nd-label-sheet</code> er et ark med klistrelapper i faste mål. Sett <code>--nd-label-w</code>, <code>--nd-label-h</code> og <code>--nd-label-cols</code> etter etikettproduktet (standard 70 × 37 mm, 3 kolonner = 24 per A4). Hver <code>.nd-label</code> har overtittel, en sterk linje og en forklaring. På skjerm vises kanter; på papir er de borte.</p>
+<div class="demo demo--bg" style="overflow-x: auto;">
+  <div class="nd-label-sheet" style="margin: 0 auto; --nd-label-cols: 3;">
+    <div class="nd-label"><p class="nd-kicker">Sikringsskap · vaskerom</p><strong>Kurs 1 · 20 A</strong><span>Platetopp</span></div>
+    <div class="nd-label"><p class="nd-kicker">Teknisk rom</p><strong>Stoppekran · hovedvann</strong><span>Vri med klokka for å stenge</span></div>
+    <div class="nd-label"><p class="nd-kicker">Nettverk</p><strong>Fiber inn</strong><span>Ikke koble fra</span></div>
+  </div>
+</div>
+<pre class="code">&lt;div class="nd-label-sheet" style="--nd-label-w: 70mm; --nd-label-h: 37mm; --nd-label-cols: 3"&gt;
+  &lt;div class="nd-label"&gt;
+    &lt;p class="nd-kicker"&gt;Sikringsskap · vaskerom&lt;/p&gt;
+    &lt;strong&gt;Kurs 1 · 20 A&lt;/strong&gt;
+    &lt;span&gt;Platetopp&lt;/span&gt;
+  &lt;/div&gt;
+  …
+&lt;/div&gt;</pre>
+
+<h2 id="dashboard">Dashboard</h2>
+<p>Dashboardkomponentene bruker de samme rollene som dokumentene, men tall settes i monospace og flatene er panelet. Se alt sammen i <a href="examples/dashboard.html">dashboard-eksempelet</a> med ekte grafer.</p>
+
+<h3 id="topbar">Toppstripe og periodevelger</h3>
+<p><code>.nd-topbar</code> med <code>.nd-brand</code> til venstre og <code>.nd-topbar-actions</code> til høyre. <code>.nd-segmented</code> er en gruppe knapper der den valgte har <code>aria-current="true"</code>.</p>
+<div class="demo demo--bg">
+  <header class="nd-topbar" style="padding: 0;">
+    <p class="nd-brand">Eksempelgården <span>· Hovedhuset</span></p>
+    <div class="nd-topbar-actions">
+      <nav class="nd-segmented" aria-label="Periode"><button type="button">24 t</button><button type="button" aria-current="true">7 d</button><button type="button">28 d</button><button type="button">1 år</button></nav>
+      <button type="button" class="nd-button">↻ Oppdater</button>
+      <button type="button" class="nd-button nd-button--primary">Logg inn</button>
+      <button type="button" class="nd-button nd-button--quiet">Logg ut</button>
+    </div>
+  </header>
+</div>
+<pre class="code">&lt;nav class="nd-segmented" aria-label="Periode"&gt;
+  &lt;button type="button"&gt;24 t&lt;/button&gt;
+  &lt;button type="button" aria-current="true"&gt;7 d&lt;/button&gt;
+  …
+&lt;/nav&gt;
+&lt;button class="nd-button nd-button--primary"&gt;Logg inn&lt;/button&gt;</pre>
+
+<h3 id="stat">Nøkkeltall</h3>
+<p><code>.nd-stat</code> med etikett, verdi (monospace, tabulære siffer) og en dempet underlinje. Legg dem i <code>.nd-stats</code>. <code>--hero</code> for det ene tallet et dashboard leder med.</p>
+<div class="demo demo--bg">
+  <div class="nd-stats" style="margin: 0;">
+    <div class="nd-stat"><p class="nd-stat-label">Effekt nå</p><p class="nd-stat-value">3,8 <span class="nd-stat-unit">kW</span></p><p class="nd-stat-sub">Snitt 7 d · 2,9 kW</p></div>
+    <div class="nd-stat"><p class="nd-stat-label">Vanntemperatur</p><p class="nd-stat-value">27,4 <span class="nd-stat-unit">°C</span></p><p class="nd-stat-sub">Varmepumpe på</p></div>
+    <div class="nd-stat"><p class="nd-stat-label">pH</p><p class="nd-stat-value">7,2</p><p class="nd-stat-sub">Innenfor 7,0–7,4</p></div>
+  </div>
+</div>
+<pre class="code">&lt;div class="nd-stat"&gt;
+  &lt;p class="nd-stat-label"&gt;Effekt nå&lt;/p&gt;
+  &lt;p class="nd-stat-value"&gt;3,8 &lt;span class="nd-stat-unit"&gt;kW&lt;/span&gt;&lt;/p&gt;
+  &lt;p class="nd-stat-sub"&gt;Snitt 7 d · 2,9 kW&lt;/p&gt;
+&lt;/div&gt;</pre>
+
+<h3 id="chart">Graf med datatabell</h3>
+<p><code>section.nd-chart</code> med <code>.nd-chart-header</code> (tittel med kvadrat), <code>.nd-chart-canvas</code> (ECharts tegner her; <code>role="img"</code>, <code>tabindex</code> og <code>aria-label</code> settes av <code>nd.mount</code>), en <code>.nd-chart-footer</code> med <code>.nd-datatable-toggle</code>, og <code>.nd-datatable</code> som fylles fra de samme dataene. Tabellen er ikke valgfri – den er slik grafen leses uten syn, og slik den skrives ut.</p>
+<pre class="code">&lt;section class="nd-chart" aria-labelledby="c1-h"&gt;
+  &lt;div class="nd-chart-header"&gt;&lt;h2 class="nd-chart-title" id="c1-h"&gt;Forbruk siste 7 dager&lt;/h2&gt;&lt;p class="nd-freshness"&gt;kW per time&lt;/p&gt;&lt;/div&gt;
+  &lt;div class="nd-chart-canvas" id="c1" aria-label="Linjediagram: effekt per time siste sju dager"&gt;&lt;/div&gt;
+  &lt;div class="nd-chart-footer"&gt;&lt;button class="nd-button nd-datatable-toggle" aria-expanded="false" aria-controls="c1-t"&gt;Vis datatabell&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="nd-datatable" id="c1-t" hidden tabindex="0"&gt;&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;script src="vendor/echarts.min.js"&gt;&lt;/script&gt;
+&lt;script type="module"&gt;
+  import * as nd from './nd/nd-echarts.js';
+  nd.wireDataTables();
+  nd.mount(echarts, document.getElementById('c1'), (t) =&gt; ({
+    ...nd.base(t), legend: { top: 0 },
+    xAxis: nd.timeAxis(t), yAxis: nd.valueAxis(t, 'kW'),
+    series: [{ type: 'line', name: 'Hovedhuset', data }],
+  }), { table: () =&gt; ({ headers: ['Tid', 'kW'], numeric: [1], rows }) });
+&lt;/script&gt;</pre>
+<p><code>nd.mount</code> registrerer temaet fra tokens, tegner, lytter på temabytte (og tegner på nytt – ECharts binder tema ved <code>init</code>), følger <code>prefers-reduced-motion</code>, og bygger datatabellen med <code>textContent</code>, aldri HTML.</p>
+
+<h3 id="status">Status og ferskhet</h3>
+<p><code>.nd-status--ok/warn/error/info</code> er en prikk pluss et ord. <code>.nd-freshness</code> forteller når data sist ble hentet – bruk <code>&lt;time datetime&gt;</code>.</p>
+<div class="demo demo--bg">
+  <p class="nd-freshness" style="margin-bottom: 0.5rem;">Sist oppdatert <time datetime="2026-08-27T14:00">for 4 min siden</time></p>
+  <p style="margin: 0; display: flex; gap: 1.2rem; flex-wrap: wrap;"><span class="nd-status nd-status--ok">tilkoblet</span><span class="nd-status nd-status--warn">forsinket</span><span class="nd-status nd-status--error">frakoblet</span><span class="nd-status nd-status--info">oppdaterer</span></p>
+</div>
+
+<h3 id="form">Skjema</h3>
+<p><code>.nd-form</code> og <code>.nd-field</code>: etikett over feltet, 40 px høye kontroller, fokusramme i aksentfargen. Feilmelding i <code>.nd-form-error</code> med <code>role="alert"</code>.</p>
+<div class="demo demo--bg">
+  <form class="nd-form" onsubmit="return false">
+    <div class="nd-field"><label for="f-mail">E-post</label><input id="f-mail" type="email" autocomplete="username" placeholder="deg@eksempel.no"></div>
+    <div class="nd-field"><label for="f-pw">Passord</label><input id="f-pw" type="password" autocomplete="current-password"><p class="nd-field-hint">Brukere opprettes av administrator.</p></div>
+    <p class="nd-form-error" role="alert"></p>
+    <div><button type="submit" class="nd-button nd-button--primary">Logg inn</button></div>
+  </form>
+</div>
+
+</main>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.0</footer>
+<script>
+  // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
+  (async () => {
+    try {
+      const mine = document.body.dataset.ndVersion;
+      const base = location.pathname.match(//vd+.d+.d+//) ? '../' : './';
+      const r = await fetch(base + 'versions.json', { cache: 'no-store' }); if (!r.ok) return;
+      const { latest } = await r.json();
+      if (!latest || latest === mine) return;
+      const b = document.getElementById('version-banner');
+      b.innerHTML = mine.endsWith('-dev')
+        ? 'Du ser utviklingsversjonen. Siste utgitte versjon er <a href="' + base + '">v' + latest + '</a>.'
+        : 'Du ser Nerdesign v' + mine + '. Nyeste versjon er <a href="' + base + '">v' + latest + '</a>.';
+      b.hidden = false;
+    } catch {}
+  })();
+</script>
+<script type="module">
+  import { ndTheme } from './dist/nd-theme.js';
+  import { ndLightbox } from './dist/nd-lightbox.js';
+  ndTheme.init(); ndTheme.mount(document.getElementById('theme'));
+  ndLightbox();
+</script>
+
+</body>
+</html>

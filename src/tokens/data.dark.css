@@ -1,0 +1,20 @@
+/* Dark data tokens – DECLARATIONS ONLY. Eight distinct hues stepped for the
+   dark tile (validated), and a single-hue cool ramp for magnitude. */
+--nd-series-1: #028a9b;
+--nd-series-2: #a278e4;
+--nd-series-3: #d95c4b;
+--nd-series-4: #408dea;
+--nd-series-5: #05ac7d;
+--nd-series-6: #a46e01;
+--nd-series-7: #cd5ea2;
+--nd-series-8: #879f03;
+--nd-seq-100: #015259;
+--nd-seq-200: #046972;
+--nd-seq-300: #13808a;
+--nd-seq-400: #3597a1;
+--nd-seq-500: #50afb9;
+--nd-seq-600: #7fc3cb;
+--nd-seq-700: #96dce4;
+--nd-div-neg: #d95c4b;
+--nd-div-mid: #4a4f54;
+--nd-div-pos: #408dea;

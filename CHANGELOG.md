@@ -7,6 +7,18 @@ Release, and the website's «Versjoner» page is generated from it.
 Format: `## vX.Y.Z – YYYY-MM-DD`, then bullet points in Norwegian (they are shown
 on the website). `## Unreleased` collects what is coming.
 
+Choosing the number (semver, from the consumers' point of view – apps pin a version):
+- **Patch** (1.0.x): fixes only; nothing new to adopt, no markup changes.
+- **Minor** (1.x.0): something new that existing pages can ignore – a component, class, token or
+  helper. Existing markup keeps working and looks the same, apart from fixes.
+- **Major** (x.0.0): consumers must change something – a class, token or helper renamed or removed,
+  required markup changed, or a visible default changed on purpose.
+The highest kind of change in `## Unreleased` decides. Collect changes and release when a consumer
+needs them, rather than one release per change.
+
+Note: v1.0.5, v1.0.6 and v1.0.7 (15 Oct 2026) added components and should have been minor releases.
+They stay as published; the next release with something new is v1.1.0.
+
 ## Unreleased
 
 ## v1.0.7 – 2026-10-15

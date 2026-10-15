@@ -588,6 +588,14 @@ a.nd-zoom:focus-visible { outline-offset: 3px; }
 /* compact variant for dense sheets */
 .nd-table--compact th, .nd-table--compact td { padding: 0.5rem 0.8rem; }
 .nd-sheet .nd-table { border: 0; border-radius: 0; background: transparent; margin: 0 0 var(--nd-space-4); }
+/* Wide tables on narrow screens: the wrapper scrolls sideways instead of the page. Give it tabindex="0",
+   role="region" and an aria-label so keyboard users can scroll it. Margins move to the wrapper.
+   position: relative keeps absolutely positioned children (.nd-sr-only texts in off-screen columns)
+   inside the scroll box instead of widening the page. */
+.nd-table-scroll { position: relative; overflow-x: auto; margin: var(--nd-space-5) 0; border-radius: var(--nd-radius); }
+.nd-table-scroll:focus-visible { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-table-scroll > .nd-table { margin: 0; }
+@media print { .nd-table-scroll { overflow: visible; } }
 
 /* ===== components/dashboard/chart.css ===== */
 /* Chart panel: header, canvas, footer with legend/table toggle, data table. */

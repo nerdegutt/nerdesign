@@ -150,6 +150,36 @@
       "fg": "--nd-error",
       "bg": "--nd-error-surface",
       "kind": "graphic"
+    },
+    {
+      "fg": "--nd-ok",
+      "bg": "--nd-warn-surface",
+      "kind": "graphic"
+    },
+    {
+      "fg": "--nd-ok",
+      "bg": "--nd-error-surface",
+      "kind": "graphic"
+    },
+    {
+      "fg": "--nd-warn",
+      "bg": "--nd-ok-surface",
+      "kind": "graphic"
+    },
+    {
+      "fg": "--nd-warn",
+      "bg": "--nd-error-surface",
+      "kind": "graphic"
+    },
+    {
+      "fg": "--nd-error",
+      "bg": "--nd-ok-surface",
+      "kind": "graphic"
+    },
+    {
+      "fg": "--nd-error",
+      "bg": "--nd-warn-surface",
+      "kind": "graphic"
     }
   ]
 }

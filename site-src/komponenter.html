@@ -228,15 +228,16 @@
 </div>
 
 <h3 id="tint">Statusfarge og gruppekort</h3>
-<p><code>.nd-tint--ok/warn/error</code> gir flis, tabellcelle eller kort bakgrunn og kant i statusfargen. Bruk alltid et ord eller <code>.nd-status</code> i tillegg – farge alene bærer ikke informasjon. <code>.nd-group</code> er et kort som kan lukkes (<code>&lt;details&gt;</code>), lukket som standard, med tittel, status og nøkkeltall for hele gruppen (<code>.nd-figures</code>, <code>.nd-figure</code>) i oppsummeringen.</p>
+<p><code>.nd-tint--ok/warn/error</code> gir flis, tabellcelle eller kort bakgrunn og kant i statusfargen. Bruk alltid et ord eller <code>.nd-status</code> i tillegg – farge alene bærer ikke informasjon. <code>.nd-group</code> er et kort som kan lukkes (<code>&lt;details&gt;</code>), lukket som standard, med tittel, status og nøkkeltall for hele gruppen (<code>.nd-figures</code>, <code>.nd-figure</code>) i oppsummeringen. <code>.nd-dots</code> nede i hjørnet viser hvert medlem som en sterk prikk, så ett avvikende rom synes selv om kortets farge (snittet) er grønn. Prikkene er bare farge – gi rekka <code>role="img"</code> og en <code>aria-label</code>.</p>
 <div class="demo demo--bg">
-  <details class="nd-group nd-tint--warn">
+  <details class="nd-group nd-tint--ok">
     <summary>
       <span class="nd-group-head"><span class="nd-group-title">Stuer</span><span class="nd-status nd-status--warn">1 av 6 avviker</span></span>
       <span class="nd-figures">
         <span class="nd-figure nd-tint--ok"><span class="nd-figure-label">Temperatur</span><span class="nd-figure-value">21,4 <span class="nd-figure-unit">°C</span></span><span class="nd-figure-sub">snitt · alle god</span></span>
-        <span class="nd-figure nd-tint--warn"><span class="nd-figure-label">Radon</span><span class="nd-figure-value">96 <span class="nd-figure-unit">Bq/m³</span></span><span class="nd-figure-sub">snitt · 1 middels</span></span>
+        <span class="nd-figure nd-tint--ok"><span class="nd-figure-label">Radon</span><span class="nd-figure-value">86 <span class="nd-figure-unit">Bq/m³</span></span><span class="nd-figure-sub">snitt · 1 middels</span></span>
       </span>
+      <span class="nd-dots" role="img" aria-label="Bibliotek god, Hall god, Havestue middels, Peisestue god, Spisestue god, TV-stue god"><span class="nd-dot nd-dot--ok" title="Bibliotek: god"></span><span class="nd-dot nd-dot--ok" title="Hall: god"></span><span class="nd-dot nd-dot--warn" title="Havestue: middels"></span><span class="nd-dot nd-dot--ok" title="Peisestue: god"></span><span class="nd-dot nd-dot--ok" title="Spisestue: god"></span><span class="nd-dot nd-dot--ok" title="TV-stue: god"></span></span>
     </summary>
     <div class="nd-group-body"><p>Rommene i gruppen.</p></div>
   </details>

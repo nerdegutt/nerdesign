@@ -34,3 +34,14 @@
 .nd-figure-sub { font-size: var(--nd-size-xs); color: var(--nd-text-muted); }
 
 @media (prefers-reduced-motion: reduce) { .nd-group-title::before { transition: none; } }
+
+/* Member dots: one strong dot per member (e.g. one per sensor) in the card's lower right corner, so a
+   single deviating member shows even when the card's own colour (the group average) is fine. The dots
+   are colour only by design; give the row role="img" and an aria-label naming each member and its
+   level, and a title per dot for pointer users. */
+.nd-group > summary { grid-template-columns: 1fr auto; }
+.nd-group > summary > .nd-group-head, .nd-group > summary > .nd-figures { grid-column: 1; }
+.nd-group > summary > .nd-dots { grid-column: 2; grid-row: 1 / span 2; align-self: end; }
+.nd-dots { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-inline-size: 9rem; }
+.nd-dot { inline-size: 0.8rem; block-size: 0.8rem; border-radius: 50%; background: var(--nd-text-muted); }
+.nd-dot--ok { background: var(--nd-ok); } .nd-dot--warn { background: var(--nd-warn); } .nd-dot--error { background: var(--nd-error); }

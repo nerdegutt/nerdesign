@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.6">
+<body data-nd-version="1.0.7">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.6</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.7</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -36,6 +36,11 @@
 <p class="nd-lead">Prosjekter låser seg til én versjon. Hver utgivelse har egne filer og en frossen kopi av nettstedet, lenket under.</p>
 
 
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.7 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-10-15</small></h2>
+  <ul class="nd-list"><li>Statusflater: <code>--nd-ok-surface</code>, <code>--nd-warn-surface</code>, <code>--nd-error-surface</code> i begge temaer, kontrastsjekket for tekst, dempet tekst og statusfarge. Klassene <code>.nd-tint--ok/warn/error</code> gir flis, celle eller kort bakgrunn og kant i statusfargen.</li><li>Ny komponent: gruppekort (<code>.nd-group</code>) som kan lukkes, bygget på <code>&lt;details></code>, med nøkkeltall for hele gruppen (<code>.nd-figures</code>, <code>.nd-figure</code>). Laget for romgruppene i luft-dashbordet.</li><li>Medlemsprikker (<code>.nd-dots</code>, <code>.nd-dot--ok/warn/error</code>) nede i hjørnet av gruppekortet: én sterk prikk per medlem, kontrastsjekket mot alle statusflatene.</li><li>På smale skjermer blir nøkkeltallene i gruppekortet kompakte merkelapper (navn og verdi), og prikkene legger seg under dem.</li><li>Statusprikken (<code>.nd-status</code>) krymper ikke lenger når teksten bryter over flere linjer.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.7/">Se nettstedet for v1.0.7</a><a class="nd-button" href="v1.0.7/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.7">GitHub-release</a></p>
+</section>
 <section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
   <h2 style="margin-top: 0;">v1.0.6 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-10-15</small></h2>
   <ul class="nd-list"><li>Nøkkeltall kan velges: <code>&lt;button class="nd-stat" aria-pressed></code> med <code>&lt;span></code>-innhold. Valgt flis får strek og ramme i fargen <code>--nd-stat-mark</code> (for eksempel grafserien flisen står for). Laget for å velge rom i luft-dashbordet.</li></ul>
@@ -72,7 +77,7 @@
   <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.0/">Se nettstedet for v1.0.0</a><a class="nd-button" href="v1.0.0/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.0">GitHub-release</a></p>
 </section>
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.6</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.7</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {

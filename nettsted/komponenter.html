@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.6">
+<body data-nd-version="1.0.7">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.6</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.7</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -35,7 +35,7 @@
 </header>
 <p class="nd-lead">En komponent er en CSS-klasse og et HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
 <ul class="toc nd-list">
-  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
+  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#tint">Statusfarge og gruppekort</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
 </ul>
 
 <h2 id="header">Dokumenthode</h2>
@@ -257,6 +257,26 @@
   <p style="margin: 0; display: flex; gap: 1.2rem; flex-wrap: wrap;"><span class="nd-status nd-status--ok">tilkoblet</span><span class="nd-status nd-status--warn">forsinket</span><span class="nd-status nd-status--error">frakoblet</span><span class="nd-status nd-status--info">oppdaterer</span></p>
 </div>
 
+<h3 id="tint">Statusfarge og gruppekort</h3>
+<p><code>.nd-tint--ok/warn/error</code> gir flis, tabellcelle eller kort bakgrunn og kant i statusfargen. Bruk alltid et ord eller <code>.nd-status</code> i tillegg – farge alene bærer ikke informasjon. <code>.nd-group</code> er et kort som kan lukkes (<code>&lt;details&gt;</code>), lukket som standard, med tittel, status og nøkkeltall for hele gruppen (<code>.nd-figures</code>, <code>.nd-figure</code>) i oppsummeringen. <code>.nd-dots</code> nede i hjørnet viser hvert medlem som en sterk prikk, så ett avvikende rom synes selv om kortets farge (snittet) er grønn. Prikkene er bare farge – gi rekka <code>role="img"</code> og en <code>aria-label</code>.</p>
+<div class="demo demo--bg">
+  <details class="nd-group nd-tint--ok">
+    <summary>
+      <span class="nd-group-head"><span class="nd-group-title">Stuer</span><span class="nd-status nd-status--warn">1 av 6 avviker</span></span>
+      <span class="nd-figures">
+        <span class="nd-figure nd-tint--ok"><span class="nd-figure-label">Temperatur</span><span class="nd-figure-value">21,4 <span class="nd-figure-unit">°C</span></span><span class="nd-figure-sub">snitt · alle god</span></span>
+        <span class="nd-figure nd-tint--ok"><span class="nd-figure-label">Radon</span><span class="nd-figure-value">86 <span class="nd-figure-unit">Bq/m³</span></span><span class="nd-figure-sub">snitt · 1 middels</span></span>
+      </span>
+      <span class="nd-dots" role="img" aria-label="Bibliotek god, Hall god, Havestue middels, Peisestue god, Spisestue god, TV-stue god"><span class="nd-dot nd-dot--ok" title="Bibliotek: god"></span><span class="nd-dot nd-dot--ok" title="Hall: god"></span><span class="nd-dot nd-dot--warn" title="Havestue: middels"></span><span class="nd-dot nd-dot--ok" title="Peisestue: god"></span><span class="nd-dot nd-dot--ok" title="Spisestue: god"></span><span class="nd-dot nd-dot--ok" title="TV-stue: god"></span></span>
+    </summary>
+    <div class="nd-group-body"><p>Rommene i gruppen.</p></div>
+  </details>
+  <div class="nd-stats" style="margin: 0;">
+    <div class="nd-stat nd-tint--ok"><p class="nd-stat-label">Kjøkken</p><p class="nd-stat-value">48 <span class="nd-stat-unit">Bq/m³</span></p><p class="nd-stat-sub"><span class="nd-status nd-status--ok">god</span></p></div>
+    <div class="nd-stat nd-tint--error"><p class="nd-stat-label">Kjellerstue</p><p class="nd-stat-value">240 <span class="nd-stat-unit">Bq/m³</span></p><p class="nd-stat-sub"><span class="nd-status nd-status--error">dårlig</span></p></div>
+  </div>
+</div>
+
 <h3 id="progress">Fremdrift</h3>
 <p><code>.nd-progress</code> er det vanlige <code>&lt;progress&gt;</code>-elementet, så skjermlesere leser det opp uten ekstra ARIA. Gi det et navn (<code>aria-label</code>), og vis alltid verdien som tekst ved siden av med <code>.nd-progress-row</code> og <code>.nd-progress-value</code>. <code>--ok</code> når jobben er ferdig.</p>
 <div class="demo demo--bg">
@@ -280,7 +300,7 @@
 </div>
 
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.6</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.7</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {

@@ -5,7 +5,7 @@
 </header>
 <p class="nd-lead">En komponent er en CSS-klasse og et HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
 <ul class="toc nd-list">
-  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#form">Skjema</a></li>
+  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
 </ul>
 
 <h2 id="header">Dokumenthode</h2>
@@ -219,6 +219,17 @@
   <p class="nd-freshness" style="margin-bottom: 0.5rem;">Sist oppdatert <time datetime="2026-08-27T14:00">for 4 min siden</time></p>
   <p style="margin: 0; display: flex; gap: 1.2rem; flex-wrap: wrap;"><span class="nd-status nd-status--ok">tilkoblet</span><span class="nd-status nd-status--warn">forsinket</span><span class="nd-status nd-status--error">frakoblet</span><span class="nd-status nd-status--info">oppdaterer</span></p>
 </div>
+
+<h3 id="progress">Fremdrift</h3>
+<p><code>.nd-progress</code> er det vanlige <code>&lt;progress&gt;</code>-elementet, så skjermlesere leser det opp uten ekstra ARIA. Gi det et navn (<code>aria-label</code>), og vis alltid verdien som tekst ved siden av med <code>.nd-progress-row</code> og <code>.nd-progress-value</code>. <code>--ok</code> når jobben er ferdig.</p>
+<div class="demo demo--bg">
+  <div class="nd-progress-row" style="max-width: 22rem; margin-bottom: 0.6rem;"><progress class="nd-progress" value="43" max="100" aria-label="Historikk hentet, kjellerstue"></progress><span class="nd-progress-value">43 %</span></div>
+  <div class="nd-progress-row" style="max-width: 22rem;"><progress class="nd-progress nd-progress--ok" value="100" max="100" aria-label="Historikk hentet, kjøkken"></progress><span class="nd-progress-value">100 %</span></div>
+</div>
+<pre>&lt;div class="nd-progress-row"&gt;
+  &lt;progress class="nd-progress" value="43" max="100" aria-label="Historikk hentet, kjellerstue"&gt;&lt;/progress&gt;
+  &lt;span class="nd-progress-value"&gt;43 %&lt;/span&gt;
+&lt;/div&gt;</pre>
 
 <h3 id="form">Skjema</h3>
 <p><code>.nd-form</code> og <code>.nd-field</code>: etikett over feltet, 40 px høye kontroller, fokusramme i aksentfargen. Feilmelding i <code>.nd-form-error</code> med <code>role="alert"</code>.</p>

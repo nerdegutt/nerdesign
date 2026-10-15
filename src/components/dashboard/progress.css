@@ -1,0 +1,13 @@
+/* Progress bar on the native <progress> element (screen readers announce it without extra ARIA).
+   Give it a name (aria-label or <label>) and always show the value as text next to it with
+   .nd-progress-row + .nd-progress-value – the bar is a graphic, colour never carries meaning alone.
+   --ok when the task is complete. The fill uses --nd-accent / --nd-ok, both checked as graphics (3:1)
+   against --nd-surface in pairs.json; the track is decorative. */
+.nd-progress { -webkit-appearance: none; appearance: none; display: block; inline-size: 100%; min-inline-size: 4rem; block-size: 0.5rem; border: 0; border-radius: 999px; background: var(--nd-line); color: var(--nd-accent); overflow: hidden; }
+.nd-progress::-webkit-progress-bar { background: var(--nd-line); border-radius: 999px; }
+.nd-progress::-webkit-progress-value { background: currentColor; border-radius: 999px; }
+.nd-progress::-moz-progress-bar { background: currentColor; border-radius: 999px; }
+.nd-progress--ok { color: var(--nd-ok); }
+.nd-progress-row { display: flex; align-items: center; gap: var(--nd-space-3); }
+.nd-progress-row .nd-progress { flex: 1; }
+.nd-progress-value { font-family: var(--nd-font-numeric); font-variant-numeric: tabular-nums; font-size: var(--nd-size-sm); color: var(--nd-text-muted); min-inline-size: 5ch; text-align: end; }

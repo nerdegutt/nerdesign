@@ -9,6 +9,8 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+- Statusprikken (`.nd-status`) krymper ikke lenger når teksten bryter over flere linjer.
+
 ## v1.0.6 – 2026-10-15
 
 - Nøkkeltall kan velges: `<button class="nd-stat" aria-pressed>` med `<span>`-innhold. Valgt flis får strek og ramme i fargen `--nd-stat-mark` (for eksempel grafserien flisen står for). Laget for å velge rom i luft-dashbordet.

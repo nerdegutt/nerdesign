@@ -25,7 +25,7 @@
 
 /* status: a dot plus a word – never colour alone */
 .nd-status { display: inline-flex; align-items: center; gap: 0.45em; font-size: var(--nd-size-sm); }
-.nd-status::before { content: ""; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--nd-text-muted); }
+.nd-status::before { content: ""; flex-shrink: 0; width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--nd-text-muted); }
 .nd-status--ok::before { background: var(--nd-ok); } .nd-status--warn::before { background: var(--nd-warn); } .nd-status--error::before { background: var(--nd-error); } .nd-status--info::before { background: var(--nd-info); }
 .nd-freshness { color: var(--nd-text-muted); font-size: var(--nd-size-sm); font-style: italic; margin: 0; }
 

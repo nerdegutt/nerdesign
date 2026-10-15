@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.5">
+<body data-nd-version="1.0.6">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.5</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.6</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -216,6 +216,13 @@
     <div class="nd-stat"><p class="nd-stat-label">pH</p><p class="nd-stat-value">7,2</p><p class="nd-stat-sub">Innenfor 7,0–7,4</p></div>
   </div>
 </div>
+<p>Skal flisen kunne velges, for eksempel for å fremheve et rom i en graf, bruker du <code>&lt;button class="nd-stat" aria-pressed="…"&gt;</code> med <code>&lt;span&gt;</code> i stedet for <code>&lt;p&gt;</code>. <code>--nd-stat-mark</code> gir valgt flis en strek og ramme i fargen den står for.</p>
+<div class="demo demo--bg">
+  <div class="nd-stats" style="margin: 0;">
+    <button type="button" class="nd-stat" aria-pressed="true" style="--nd-stat-mark: var(--nd-series-1);"><span class="nd-stat-label">Kjellerstue</span><span class="nd-stat-value">212 <span class="nd-stat-unit">Bq/m³</span></span><span class="nd-stat-sub"><span class="nd-status nd-status--warn">middels</span></span></button>
+    <button type="button" class="nd-stat" aria-pressed="false"><span class="nd-stat-label">Kjøkken</span><span class="nd-stat-value">48 <span class="nd-stat-unit">Bq/m³</span></span><span class="nd-stat-sub"><span class="nd-status nd-status--ok">god</span></span></button>
+  </div>
+</div>
 <pre class="code">&lt;div class="nd-stat"&gt;
   &lt;p class="nd-stat-label"&gt;Effekt nå&lt;/p&gt;
   &lt;p class="nd-stat-value"&gt;3,8 &lt;span class="nd-stat-unit"&gt;kW&lt;/span&gt;&lt;/p&gt;
@@ -273,7 +280,7 @@
 </div>
 
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.5</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.6</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {

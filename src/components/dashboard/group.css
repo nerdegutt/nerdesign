@@ -45,9 +45,12 @@
 .nd-dots { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-inline-size: 9rem; }
 .nd-dot { inline-size: 0.8rem; block-size: 0.8rem; border-radius: 50%; background: var(--nd-text-muted); }
 .nd-dot--ok { background: var(--nd-ok); } .nd-dot--warn { background: var(--nd-warn); } .nd-dot--error { background: var(--nd-error); }
-/* Narrow screens: the dots move below the figures so the figures keep the full width. */
+/* Narrow screens: less on each card – the dots move below the figures, and the figures shrink to chips. */
 @media (max-width: 40rem) {
   .nd-group > summary { grid-template-columns: 1fr; }
   .nd-group > summary > .nd-dots { grid-column: 1; grid-row: auto; justify-self: end; max-inline-size: none; }
-  .nd-figure { min-inline-size: 5.5rem; }
+  /* Figures become compact chips: label and value on one line, no sub line. */
+  .nd-figure { min-inline-size: 0; flex-direction: row; align-items: baseline; gap: 0.4rem; padding: 0.2rem 0.55rem; }
+  .nd-figure-value { font-size: var(--nd-size-md); }
+  .nd-figure-sub { display: none; }
 }

@@ -1,4 +1,4 @@
-/* Nerdesign v1.0.4 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
+/* Nerdesign v1.0.5 – tokens, base styles and components. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again. */
 
 /* ===== tokens/primitives.css ===== */
 /* Layer 1 – primitive palette. Material names from the farm, with lightness
@@ -588,6 +588,14 @@ a.nd-zoom:focus-visible { outline-offset: 3px; }
 /* compact variant for dense sheets */
 .nd-table--compact th, .nd-table--compact td { padding: 0.5rem 0.8rem; }
 .nd-sheet .nd-table { border: 0; border-radius: 0; background: transparent; margin: 0 0 var(--nd-space-4); }
+/* Wide tables on narrow screens: the wrapper scrolls sideways instead of the page. Give it tabindex="0",
+   role="region" and an aria-label so keyboard users can scroll it. Margins move to the wrapper.
+   position: relative keeps absolutely positioned children (.nd-sr-only texts in off-screen columns)
+   inside the scroll box instead of widening the page. */
+.nd-table-scroll { position: relative; overflow-x: auto; margin: var(--nd-space-5) 0; border-radius: var(--nd-radius); }
+.nd-table-scroll:focus-visible { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-table-scroll > .nd-table { margin: 0; }
+@media print { .nd-table-scroll { overflow: visible; } }
 
 /* ===== components/dashboard/chart.css ===== */
 /* Chart panel: header, canvas, footer with legend/table toggle, data table. */
@@ -668,6 +676,21 @@ a.nd-zoom:focus-visible { outline-offset: 3px; }
 .nd-theme-toggle label:first-of-type span { border-left: 0; }
 .nd-theme-toggle input:checked + span { background: var(--nd-surface); color: var(--nd-text); }
 .nd-theme-toggle input:focus-visible + span { outline: 2px solid var(--nd-focus); outline-offset: -2px; }
+
+/* ===== components/dashboard/progress.css ===== */
+/* Progress bar on the native <progress> element (screen readers announce it without extra ARIA).
+   Give it a name (aria-label or <label>) and always show the value as text next to it with
+   .nd-progress-row + .nd-progress-value – the bar is a graphic, colour never carries meaning alone.
+   --ok when the task is complete. The fill uses --nd-accent / --nd-ok, both checked as graphics (3:1)
+   against --nd-surface in pairs.json; the track is decorative. */
+.nd-progress { -webkit-appearance: none; appearance: none; display: block; inline-size: 100%; min-inline-size: 4rem; block-size: 0.5rem; border: 0; border-radius: 999px; background: var(--nd-line); color: var(--nd-accent); overflow: hidden; }
+.nd-progress::-webkit-progress-bar { background: var(--nd-line); border-radius: 999px; }
+.nd-progress::-webkit-progress-value { background: currentColor; border-radius: 999px; }
+.nd-progress::-moz-progress-bar { background: currentColor; border-radius: 999px; }
+.nd-progress--ok { color: var(--nd-ok); }
+.nd-progress-row { display: flex; align-items: center; gap: var(--nd-space-3); }
+.nd-progress-row .nd-progress { flex: 1; }
+.nd-progress-value { font-family: var(--nd-font-numeric); font-variant-numeric: tabular-nums; font-size: var(--nd-size-sm); color: var(--nd-text-muted); min-inline-size: 5ch; text-align: end; }
 
 /* ===== components/dashboard/stat.css ===== */
 /* Stat tile: label · value (+unit) · sub. Values in the numeric face. */

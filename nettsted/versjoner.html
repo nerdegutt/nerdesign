@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.4">
+<body data-nd-version="1.0.5">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.4</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.5</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -36,6 +36,11 @@
 <p class="nd-lead">Prosjekter låser seg til én versjon. Hver utgivelse har egne filer og en frossen kopi av nettstedet, lenket under.</p>
 
 
+<section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
+  <h2 style="margin-top: 0;">v1.0.5 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-10-15</small></h2>
+  <ul class="nd-list"><li>Ny komponent: fremdriftsstolpe (<code>.nd-progress</code>) på det vanlige <code>&lt;progress></code>-elementet, med verdien som tekst ved siden av (<code>.nd-progress-row</code>, <code>.nd-progress-value</code>). Aksentfarge mens jobben pågår, grønn (<code>--ok</code>) når den er ferdig. Laget for innsamlingssiden i luft-appen.</li><li>Ny innpakning for brede tabeller: <code>.nd-table-scroll</code> ruller tabellen sidelengs på smale skjermer i stedet for hele siden. Kan nås og rulles med tastatur.</li></ul>
+  <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.5/">Se nettstedet for v1.0.5</a><a class="nd-button" href="v1.0.5/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.5">GitHub-release</a></p>
+</section>
 <section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
   <h2 style="margin-top: 0;">v1.0.4 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-10-04</small></h2>
   <ul class="nd-list"><li>Avkrysningsbokser, rullefelt og andre skjemaelementer følger nå temaet siden viser. Før fulgte de operativsystemet når temavelgeren var satt til Lyst eller Mørkt, så et lyst tema på en mørk Mac fikk svarte avkrysningsbokser.</li><li>Versjoner-siden viser igjen punktene fra CHANGELOG. De var tomme fordi seksjonene ble lest med en regex som stoppet på første linjeskift.</li><li><code>tools/dev-server.mjs</code>: felles lokal server for prosjektene (serverer <code>public/</code> eller rota, svarer på <code>/api/config</code> fra <code>.env</code>). Erstatter to nesten like kopier.</li></ul>
@@ -62,7 +67,7 @@
   <p class="nd-row" style="margin: 0;"><a class="nd-button" href="v1.0.0/">Se nettstedet for v1.0.0</a><a class="nd-button" href="v1.0.0/dist/nd.css">nd.css</a><a class="nd-button" href="https://github.com/nerdegutt/nerdesign/releases/tag/v1.0.0">GitHub-release</a></p>
 </section>
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.4</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.5</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {

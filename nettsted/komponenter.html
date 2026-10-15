@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="dist/vendor/photoswipe/photoswipe.min.css">
 <link rel="stylesheet" href="site.css">
 </head>
-<body data-nd-version="1.0.4">
+<body data-nd-version="1.0.5">
 <a class="nd-skip-link" href="#innhold">Hopp til innhold</a>
 <div class="site-version-banner" id="version-banner" hidden></div>
 <header class="site-header">
-  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.4</small></a>
+  <a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true"></span>Nerdesign <small class="nd-numeric">v1.0.5</small></a>
   <nav class="site-nav" aria-label="Hovedmeny">
     <a href="index.html">Om</a>
     <a href="kom-i-gang.html">Kom i gang</a>
@@ -35,7 +35,7 @@
 </header>
 <p class="nd-lead">En komponent er en CSS-klasse og et HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
 <ul class="toc nd-list">
-  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#form">Skjema</a></li>
+  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
 </ul>
 
 <h2 id="header">Dokumenthode</h2>
@@ -78,7 +78,7 @@
 &lt;/dl&gt;</pre>
 
 <h2 id="table">Tabell</h2>
-<p><code>.nd-table</code>: hvit flate, versal-hoder, tynne streker, <code>tfoot</code> med tykkere toppstrek. <code>.nd-num</code> høyrestiller tall, <code>.nd-key</code> gir fet nøkkelkolonne, <code>.nd-empty</code> demper tankestreken for tomme verdier – husk skjermlesertekst. <code>.nd-table--compact</code> for tette ark, <code>.nd-table--end</code> høyrestiller siste kolonne (beløp).</p>
+<p><code>.nd-table</code>: hvit flate, versal-hoder, tynne streker, <code>tfoot</code> med tykkere toppstrek. <code>.nd-num</code> høyrestiller tall, <code>.nd-key</code> gir fet nøkkelkolonne, <code>.nd-empty</code> demper tankestreken for tomme verdier – husk skjermlesertekst. <code>.nd-table--compact</code> for tette ark, <code>.nd-table--end</code> høyrestiller siste kolonne (beløp). Brede tabeller pakkes i <code>&lt;div class="nd-table-scroll" tabindex="0" role="region" aria-label="…"&gt;</code>, så tabellen ruller sidelengs på mobil i stedet for hele siden.</p>
 <div class="demo demo--bg">
   <table class="nd-table nd-table--end" style="margin: 0;">
     <caption>Månedskostnad, eksempel</caption>
@@ -250,6 +250,17 @@
   <p style="margin: 0; display: flex; gap: 1.2rem; flex-wrap: wrap;"><span class="nd-status nd-status--ok">tilkoblet</span><span class="nd-status nd-status--warn">forsinket</span><span class="nd-status nd-status--error">frakoblet</span><span class="nd-status nd-status--info">oppdaterer</span></p>
 </div>
 
+<h3 id="progress">Fremdrift</h3>
+<p><code>.nd-progress</code> er det vanlige <code>&lt;progress&gt;</code>-elementet, så skjermlesere leser det opp uten ekstra ARIA. Gi det et navn (<code>aria-label</code>), og vis alltid verdien som tekst ved siden av med <code>.nd-progress-row</code> og <code>.nd-progress-value</code>. <code>--ok</code> når jobben er ferdig.</p>
+<div class="demo demo--bg">
+  <div class="nd-progress-row" style="max-width: 22rem; margin-bottom: 0.6rem;"><progress class="nd-progress" value="43" max="100" aria-label="Historikk hentet, kjellerstue"></progress><span class="nd-progress-value">43 %</span></div>
+  <div class="nd-progress-row" style="max-width: 22rem;"><progress class="nd-progress nd-progress--ok" value="100" max="100" aria-label="Historikk hentet, kjøkken"></progress><span class="nd-progress-value">100 %</span></div>
+</div>
+<pre>&lt;div class="nd-progress-row"&gt;
+  &lt;progress class="nd-progress" value="43" max="100" aria-label="Historikk hentet, kjellerstue"&gt;&lt;/progress&gt;
+  &lt;span class="nd-progress-value"&gt;43 %&lt;/span&gt;
+&lt;/div&gt;</pre>
+
 <h3 id="form">Skjema</h3>
 <p><code>.nd-form</code> og <code>.nd-field</code>: etikett over feltet, 40 px høye kontroller, fokusramme i aksentfargen. Feilmelding i <code>.nd-form-error</code> med <code>role="alert"</code>.</p>
 <div class="demo demo--bg">
@@ -262,7 +273,7 @@
 </div>
 
 </main>
-<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.4</footer>
+<footer class="nd-colophon">Nerdesign · et designsystem for Helgerød gård, Jeløya · v1.0.5</footer>
 <script>
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {

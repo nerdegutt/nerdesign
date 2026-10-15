@@ -5,7 +5,7 @@
 </header>
 <p class="nd-lead">En komponent er en CSS-klasse og et HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
 <ul class="toc nd-list">
-  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
+  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#tint">Statusfarge og gruppekort</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
 </ul>
 
 <h2 id="header">Dokumenthode</h2>
@@ -225,6 +225,25 @@
 <div class="demo demo--bg">
   <p class="nd-freshness" style="margin-bottom: 0.5rem;">Sist oppdatert <time datetime="2026-08-27T14:00">for 4 min siden</time></p>
   <p style="margin: 0; display: flex; gap: 1.2rem; flex-wrap: wrap;"><span class="nd-status nd-status--ok">tilkoblet</span><span class="nd-status nd-status--warn">forsinket</span><span class="nd-status nd-status--error">frakoblet</span><span class="nd-status nd-status--info">oppdaterer</span></p>
+</div>
+
+<h3 id="tint">Statusfarge og gruppekort</h3>
+<p><code>.nd-tint--ok/warn/error</code> gir flis, tabellcelle eller kort bakgrunn og kant i statusfargen. Bruk alltid et ord eller <code>.nd-status</code> i tillegg – farge alene bærer ikke informasjon. <code>.nd-group</code> er et kort som kan lukkes (<code>&lt;details&gt;</code>), lukket som standard, med tittel, status og nøkkeltall for hele gruppen (<code>.nd-figures</code>, <code>.nd-figure</code>) i oppsummeringen.</p>
+<div class="demo demo--bg">
+  <details class="nd-group nd-tint--warn">
+    <summary>
+      <span class="nd-group-head"><span class="nd-group-title">Stuer</span><span class="nd-status nd-status--warn">1 av 6 avviker</span></span>
+      <span class="nd-figures">
+        <span class="nd-figure nd-tint--ok"><span class="nd-figure-label">Temperatur</span><span class="nd-figure-value">21,4 <span class="nd-figure-unit">°C</span></span><span class="nd-figure-sub">snitt · alle god</span></span>
+        <span class="nd-figure nd-tint--warn"><span class="nd-figure-label">Radon</span><span class="nd-figure-value">96 <span class="nd-figure-unit">Bq/m³</span></span><span class="nd-figure-sub">snitt · 1 middels</span></span>
+      </span>
+    </summary>
+    <div class="nd-group-body"><p>Rommene i gruppen.</p></div>
+  </details>
+  <div class="nd-stats" style="margin: 0;">
+    <div class="nd-stat nd-tint--ok"><p class="nd-stat-label">Kjøkken</p><p class="nd-stat-value">48 <span class="nd-stat-unit">Bq/m³</span></p><p class="nd-stat-sub"><span class="nd-status nd-status--ok">god</span></p></div>
+    <div class="nd-stat nd-tint--error"><p class="nd-stat-label">Kjellerstue</p><p class="nd-stat-value">240 <span class="nd-stat-unit">Bq/m³</span></p><p class="nd-stat-sub"><span class="nd-status nd-status--error">dårlig</span></p></div>
+  </div>
 </div>
 
 <h3 id="progress">Fremdrift</h3>

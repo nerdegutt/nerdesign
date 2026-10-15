@@ -18,6 +18,9 @@ color-scheme: dark; /* native controls (checkboxes, scrollbars) follow the dark 
 --nd-warn: var(--nd-amber-400);
 --nd-error: var(--nd-red-400);
 --nd-info: var(--nd-slate-400);
+--nd-ok-surface: #13251a;
+--nd-warn-surface: #2a210e;
+--nd-error-surface: #2f1714;
 --nd-chart-text: var(--nd-ink-300);
 --nd-chart-axis: var(--nd-ink-700);
 --nd-chart-grid: var(--nd-ink-850);

@@ -78,6 +78,11 @@
   --nd-warn: var(--nd-amber-600);
   --nd-error: var(--nd-red-600);
   --nd-info: var(--nd-slate-600);
+  /* status surfaces – tinted backgrounds for tiles, cells and cards that carry a status; text stays
+     --nd-text, the border uses the status colour. Checked in pairs.json. */
+  --nd-ok-surface: #e6f2ea;
+  --nd-warn-surface: #f8eed6;
+  --nd-error-surface: #f9e2de;
 
   /* chart chrome */
   --nd-chart-text: var(--nd-earth-500);
@@ -197,6 +202,9 @@
     --nd-warn: var(--nd-amber-400);
     --nd-error: var(--nd-red-400);
     --nd-info: var(--nd-slate-400);
+    --nd-ok-surface: #13251a;
+    --nd-warn-surface: #2a210e;
+    --nd-error-surface: #2f1714;
     --nd-chart-text: var(--nd-ink-300);
     --nd-chart-axis: var(--nd-ink-700);
     --nd-chart-grid: var(--nd-ink-850);
@@ -248,6 +256,9 @@
     --nd-warn: var(--nd-amber-400);
     --nd-error: var(--nd-red-400);
     --nd-info: var(--nd-slate-400);
+    --nd-ok-surface: #13251a;
+    --nd-warn-surface: #2a210e;
+    --nd-error-surface: #2f1714;
     --nd-chart-text: var(--nd-ink-300);
     --nd-chart-axis: var(--nd-ink-700);
     --nd-chart-grid: var(--nd-ink-850);
@@ -278,6 +289,10 @@
   --nd-warn: var(--nd-amber-600);
   --nd-error: var(--nd-red-600);
   --nd-info: var(--nd-slate-600);
+  --nd-text, the border uses the status colour. Checked in pairs.json. */
+  --nd-ok-surface: #e6f2ea;
+  --nd-warn-surface: #f8eed6;
+  --nd-error-surface: #f9e2de;
   --nd-chart-text: var(--nd-earth-500);
   --nd-chart-axis: var(--nd-cream-200);
   --nd-chart-grid: var(--nd-line-faint);
@@ -635,6 +650,44 @@ a.nd-zoom:focus-visible { outline-offset: 3px; }
 .nd-field-hint { font-size: var(--nd-size-xs); color: var(--nd-text-muted); margin: 0; }
 .nd-form-error { color: var(--nd-error); font-size: var(--nd-size-sm); margin: 0; }
 .nd-form-error:empty { display: none; }
+
+/* ===== components/dashboard/group.css ===== */
+/* Status tint: background and border in a status colour, for anything that carries a status – stat
+   tiles, table cells, group cards, figures. Always pair it with a word or .nd-status: colour is never the
+   only carrier. Text stays --nd-text; the surfaces are checked in pairs.json. The compound selectors win over
+   the components own background, which is defined later in the build. */
+.nd-tint--ok, .nd-stat.nd-tint--ok, .nd-group.nd-tint--ok, .nd-figure.nd-tint--ok, .nd-table td.nd-tint--ok { background: var(--nd-ok-surface); border-color: var(--nd-ok); }
+.nd-tint--warn, .nd-stat.nd-tint--warn, .nd-group.nd-tint--warn, .nd-figure.nd-tint--warn, .nd-table td.nd-tint--warn { background: var(--nd-warn-surface); border-color: var(--nd-warn); }
+.nd-tint--error, .nd-stat.nd-tint--error, .nd-group.nd-tint--error, .nd-figure.nd-tint--error, .nd-table td.nd-tint--error { background: var(--nd-error-surface); border-color: var(--nd-error); }
+.nd-group.nd-tint--ok, .nd-stat.nd-tint--ok { box-shadow: inset 4px 0 0 var(--nd-ok); }
+.nd-group.nd-tint--warn, .nd-stat.nd-tint--warn { box-shadow: inset 4px 0 0 var(--nd-warn); }
+.nd-group.nd-tint--error, .nd-stat.nd-tint--error { box-shadow: inset 4px 0 0 var(--nd-error); }
+
+/* Group card: a collapsible card on <details>, closed by default. The <summary> holds the head (title +
+   status) and a row of key figures for the whole group; the members go in .nd-group-body.
+   <details class="nd-group nd-tint--warn"><summary><span class="nd-group-head"><h3 class="nd-group-title">…</h3>
+   <span class="nd-status nd-status--warn">…</span></span><span class="nd-figures">…</span></summary>
+   <div class="nd-group-body">…</div></details> */
+.nd-group { background: var(--nd-surface); border: 1px solid var(--nd-line); border-radius: 8px; margin: 0 0 var(--nd-space-4); }
+.nd-group > summary { list-style: none; cursor: pointer; display: grid; gap: var(--nd-space-3); padding: var(--nd-space-4) var(--nd-space-5); border-radius: 8px; }
+.nd-group > summary::-webkit-details-marker { display: none; }
+.nd-group > summary:focus-visible { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-group-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--nd-space-2) var(--nd-space-4); }
+.nd-group-title { margin: 0; font-size: var(--nd-size-lg); }
+.nd-group-title::before { content: "›"; display: inline-block; inline-size: 1em; color: var(--nd-text-muted); transition: transform 0.15s; }
+.nd-group[open] .nd-group-title::before { transform: rotate(90deg); }
+.nd-group-body { padding: 0 var(--nd-space-5) var(--nd-space-5); }
+.nd-group-body > :first-child { margin-top: 0; }
+
+/* Key figures: small label/value boxes in a wrapping row, e.g. a group's averages. Tint them per status. */
+.nd-figures { display: flex; flex-wrap: wrap; gap: var(--nd-space-2); }
+.nd-figure { display: inline-flex; flex-direction: column; gap: 0.1rem; min-inline-size: 6.5rem; padding: var(--nd-space-2) var(--nd-space-3); background: var(--nd-surface); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); }
+.nd-figure-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: var(--nd-tracking-caps); color: var(--nd-text-muted); }
+.nd-figure-value { font-family: var(--nd-font-numeric); font-variant-numeric: tabular-nums; font-size: var(--nd-size-lg); line-height: 1.2; }
+.nd-figure-unit { font-family: var(--nd-font-text); font-size: var(--nd-size-sm); color: var(--nd-text-muted); }
+.nd-figure-sub { font-size: var(--nd-size-xs); color: var(--nd-text-muted); }
+
+@media (prefers-reduced-motion: reduce) { .nd-group-title::before { transition: none; } }
 
 /* ===== components/dashboard/panel.css ===== */
 /* Dashboard chrome: top bar, panel, segmented control, buttons, status. */

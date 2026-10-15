@@ -9,6 +9,8 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+- Statusflater: `--nd-ok-surface`, `--nd-warn-surface`, `--nd-error-surface` i begge temaer, kontrastsjekket for tekst, dempet tekst og statusfarge. Klassene `.nd-tint--ok/warn/error` gir flis, celle eller kort bakgrunn og kant i statusfargen.
+- Ny komponent: gruppekort (`.nd-group`) som kan lukkes, bygget på `<details>`, med nøkkeltall for hele gruppen (`.nd-figures`, `.nd-figure`). Laget for romgruppene i luft-dashbordet.
 - Statusprikken (`.nd-status`) krymper ikke lenger når teksten bryter over flere linjer.
 
 ## v1.0.6 – 2026-10-15

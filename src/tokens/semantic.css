@@ -28,6 +28,11 @@
   --nd-warn: var(--nd-amber-600);
   --nd-error: var(--nd-red-600);
   --nd-info: var(--nd-slate-600);
+  /* status surfaces – tinted backgrounds for tiles, cells and cards that carry a status; text stays
+     --nd-text, the border uses the status colour. Checked in pairs.json. */
+  --nd-ok-surface: #e6f2ea;
+  --nd-warn-surface: #f8eed6;
+  --nd-error-surface: #f9e2de;
 
   /* chart chrome */
   --nd-chart-text: var(--nd-earth-500);

@@ -9,6 +9,8 @@ on the website). `## Unreleased` collects what is coming.
 
 ## Unreleased
 
+## v1.0.5 – 2026-10-15
+
 - Ny komponent: fremdriftsstolpe (`.nd-progress`) på det vanlige `<progress>`-elementet, med verdien som tekst ved siden av (`.nd-progress-row`, `.nd-progress-value`). Aksentfarge mens jobben pågår, grønn (`--ok`) når den er ferdig. Laget for innsamlingssiden i luft-appen.
 - Ny innpakning for brede tabeller: `.nd-table-scroll` ruller tabellen sidelengs på smale skjermer i stedet for hele siden. Kan nås og rulles med tastatur.
 

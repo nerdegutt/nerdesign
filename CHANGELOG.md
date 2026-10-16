@@ -21,6 +21,8 @@ They stay as published; the next release with something new is v1.1.0.
 
 ## Unreleased
 
+## v1.1.0 – 2026-10-16
+
 - Nye ikoner (`.nd-icon`, `.nd-icon--thermometer`, `droplet`, `cloud`, `radiation`, `flask`, `particles`, `snowflake`, `status`): enkle strekikoner som tar tekstfargen og skalerer med skriften. Laget for kolonneoverskrifter i luft-dashbordet.
 
 ## v1.0.7 – 2026-10-15

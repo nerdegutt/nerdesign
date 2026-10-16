@@ -21,6 +21,8 @@ They stay as published; the next release with something new is v1.1.0.
 
 ## Unreleased
 
+## v1.1.1 – 2026-10-16
+
 - Snøkrystall-ikonet (`.nd-icon--snowflake`) er tegnet på nytt med seks armer og grener, så det ser ut som en snøkrystall.
 
 ## v1.1.0 – 2026-10-16

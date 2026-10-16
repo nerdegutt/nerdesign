@@ -1,6 +1,6 @@
 {
   "name": "nerdesign",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Nerdesign – a small design system made for Helgerød gård. Tokens, CSS components and an ECharts theme for printable documents and dashboards.",
   "private": true,
   "type": "module",

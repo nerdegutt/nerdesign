@@ -21,6 +21,8 @@ They stay as published; the next release with something new is v1.1.0.
 
 ## Unreleased
 
+- Snøkrystall-ikonet (`.nd-icon--snowflake`) er tegnet på nytt med seks armer og grener, så det ser ut som en snøkrystall.
+
 ## v1.1.0 – 2026-10-16
 
 - Nye ikoner (`.nd-icon`, `.nd-icon--thermometer`, `droplet`, `cloud`, `radiation`, `flask`, `particles`, `snowflake`, `status`): enkle strekikoner som tar tekstfargen og skalerer med skriften. Laget for kolonneoverskrifter i luft-dashbordet.

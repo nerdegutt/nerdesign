@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Utdelingsark – eksempel</title>
+<link rel="stylesheet" href="../dist/nd.css">
+<style>
+  /* placeholder art instead of photos */
+  .ph { background: var(--nd-line); border-radius: 2mm; display: grid; place-items: center; color: var(--nd-text-muted); font-style: italic; font-size: 9pt; }
+  .hero { display: grid; grid-template-columns: 2fr 1fr; gap: 2mm; } .hero img { height: 62mm; width: 100%; object-fit: cover; border-radius: 2mm; }
+  .rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-top: 4mm; } .rooms img { height: 38mm; width: 100%; object-fit: cover; border-radius: 2mm; }
+  .nd-sheet--fixed h2 { font-size: 12.5pt; margin: 4mm 0 2mm; padding-bottom: 1mm; }
+  .nd-sheet--fixed .nd-kicker { font-size: 9pt; margin-bottom: 2mm; }
+  .nd-sheet--fixed h1 { font-size: 24pt; margin-bottom: 1.5mm; }
+  .nd-sheet--fixed .nd-subtitle { font-size: 11.5pt; margin-bottom: 4mm; }
+  .nd-sheet--fixed .nd-lead { font-size: 11.5pt; margin: 4mm auto; max-width: 165mm; }
+  .nd-sheet--fixed .nd-keyfacts { margin: 0; border-radius: 2mm; } .nd-sheet--fixed .nd-keyfacts > div { padding: 2.5mm 3.5mm; } .nd-sheet--fixed .nd-keyfacts dt { font-size: 7.5pt; } .nd-sheet--fixed .nd-keyfacts dd { font-size: 10.5pt; }
+  .nd-sheet--fixed .nd-list { font-size: 10.5pt; padding-left: 4.5mm; } .nd-sheet--fixed .nd-list li { margin-bottom: 1.6mm; }
+  .nd-bottom { display: grid; grid-template-columns: auto 1fr 1fr; gap: 6mm; align-items: center; }
+  .more { font-size: 10.5pt; } .who { font-size: 10pt; text-align: right; } .who p { margin: 0 0 1.5mm; } .who strong { display: block; }
+</style>
+</head>
+<body>
+<section class="nd-sheet nd-sheet--fixed nd-sheet--last">
+  <header class="nd-header">
+    <p class="nd-kicker">Eksempelgården · Sidebygningen</p>
+    <h1>Leilighet til leie</h1>
+    <p class="nd-subtitle">Tre soverom · 84 m² · ledig fra 1. oktober</p>
+  </header>
+  <div class="hero"><img src="img/leilighet-forfra.jpg" alt="Den røde sidebygningen sett rett forfra i kveldssol"><img src="img/leilighet-fra-tunet.jpg" alt="Sidebygningen sett skrått fra tunet"></div>
+  <p class="nd-caption">Sidebygningen sett fra tunet – inngang på baksiden.</p>
+  <p class="nd-lead">Lys leilighet i andre etasje i sidebygningen på et gammelt gårdstun. Rolig, grønt og ti minutter på sykkel til sentrum.</p>
+  <dl class="nd-keyfacts">
+    <div><dt>Leie</dt><dd>[PRIS] kr/mnd</dd></div>
+    <div><dt>Inkludert</dt><dd>Internett, parkering</dd></div>
+    <div><dt>Ledig</dt><dd>1. oktober</dd></div>
+  </dl>
+  <h2>Rommene</h2>
+  <div class="rooms"><img src="img/stue-mot-vest.jpg" alt="Stue"><img src="img/kjokken.jpg" alt="Kjøkken"><img src="img/soverom-1-fra-dor.jpg" alt="Soverom"></div>
+  <h2>Praktisk</h2>
+  <ul class="nd-list">
+    <li>Egen inngang, vaskemaskin og tørketrommel i boden.</li>
+    <li>Oppvarming med varmepumpe – strøm kommer i tillegg.</li>
+    <li>Sykkelbod og mulighet for elbillading.</li>
+  </ul>
+  <div class="nd-bottom">
+    <div class="nd-qr"><svg viewBox="0 0 24 24" aria-label="QR-kode (plassholder)"><rect width="24" height="24" fill="none" stroke="currentColor" stroke-width="0.4"/><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM11 11h2v2h-2zM15 15h2v2h-2zM19 19h2v2h-2z" fill="currentColor"/></svg><div class="nd-qr-url">eksempel.no/leilighet</div></div>
+    <p class="more">Les mer, se flere bilder og ta kontakt via lenken – eller skann koden.</p>
+    <div class="who"><p><strong>[Navn]</strong>[telefon] · [e-post]</p></div>
+  </div>
+</section>
+</body>
+</html>

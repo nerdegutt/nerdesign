@@ -1,4 +1,4 @@
-// Nerdesign v1.1.1 – popover anchored to a button: placement, Esc and outside click. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again.
+// Nerdesign v1.2.0 – popover anchored to a button: placement, Esc and outside click. Copied from github.com/nerdegutt/nerdesign – do not edit here; change the source and copy again.
 // Popover: a small floating menu or dialog (.nd-popover) anchored to a button. One is open at a time.
 //
 //   <button type="button" class="nd-drop" aria-haspopup="dialog" aria-expanded="false">Kilder: alle</button>

@@ -26,7 +26,8 @@ npm run -s contrast >/dev/null && npm run -s palette >/dev/null && npx playwrigh
 git add -A && git commit -qm "Release $v" && git tag -a "$v" -m "Nerdesign $v"
 tools/deploy.sh --release "$v"
 
-notes="$(awk -v v="## $v" '$0==v{f=1;next} /^## /{if(f)exit} f' CHANGELOG.md)"
+# the heading carries the date («## v1.2.0 – 2026-10-25»), so match its start; v1.1.1 went out with empty notes
+notes="$(awk -v v="## $v" '$0==v || index($0, v" ")==1{f=1;next} /^## /{if(f)exit} f' CHANGELOG.md)"
 tmp="$(mktemp -d)"
 (zip -qrj "$tmp/fonts.zip" fonts 2>/dev/null || true)
 (cd dist && zip -qr "$tmp/vendor.zip" vendor 2>/dev/null || true)

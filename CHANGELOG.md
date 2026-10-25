@@ -21,6 +21,8 @@ They stay as published; the next release with something new is v1.1.0.
 
 ## Unreleased
 
+## v1.2.0 – 2026-10-25
+
 - Ny komponent: verktøylinje (`.nd-toolbar`) – en rad med filtre og verktøy som brytes pent over flere linjer. `.nd-toolbar-end` legger en gruppe helt til høyre (under resten på smale skjermer), og `.nd-toolbar-check` er en avkrysningsboks med etikett i samme høyde som de andre kontrollene.
 - Ny komponent: kompakt nedtrekk for verktøylinjer (`.nd-drop`), like høyt som `.nd-segmented`. Brukes på en knapp som åpner en liste, eller rundt en vanlig `<select>` (`.nd-drop--select`) med samme ▾.
 - Ny komponent: popover (`.nd-popover`) – en liten meny med tittel og rader med avkrysningsboks, navn som kortes av med … og tall eller tastatursnarvei til høyre, og eventuelt et lite skjema (`.nd-popover-form`) og en egen del nederst (`.nd-popover-foot`). Ny hjelper `nd-popover.js` (`ndPopover`, `closePopover`) åpner den under eller over knappen, holder den innenfor vinduet, lukker den med Esc eller et klikk utenfor, og legger den i fullskjermelementet når siden er i fullskjerm.

@@ -1,0 +1,30 @@
+/* Popover: a small floating menu or dialog anchored to a button. Opened, placed and closed by nd-popover.js
+   (role="dialog" and an aria-label are set there). Rows are checkboxes with a name that ends in … when it
+   is too long (put the full name in title) and a muted count (<small>) or key hint (<kbd>) at the right.
+   <div class="nd-popover">
+     <p class="nd-popover-title">Kilder</p>
+     <ul><li><label title="Kamera"><input type="checkbox" checked><span class="nd-popover-name">Kamera</span><small>1 204</small></label></li></ul>
+     <form class="nd-popover-form"><input aria-label="…" placeholder="…"><button class="nd-button">Lag</button></form>   (optional)
+     <div class="nd-popover-foot">…</div>   (optional, separated by a line)
+   </div> */
+.nd-popover { position: fixed; z-index: 60; min-width: 15em; max-width: min(22em, calc(100vw - 16px)); max-height: 60vh; overflow: auto; padding: var(--nd-space-2) var(--nd-space-3); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface-raised); color: var(--nd-text); box-shadow: var(--nd-shadow); font-size: var(--nd-size-sm); line-height: 1.4; }
+.nd-popover > :first-child { margin-top: 0; }
+.nd-popover > :last-child { margin-bottom: 0; }
+.nd-popover-title { display: flex; align-items: baseline; gap: var(--nd-space-2); margin: 0 0 var(--nd-space-1); font-weight: 600; }
+.nd-popover ul { list-style: none; margin: 0; padding: 0; }
+.nd-popover li > label { display: flex; align-items: center; gap: var(--nd-space-2); min-height: 28px; padding: 2px var(--nd-space-1); border-radius: var(--nd-radius-sm); cursor: pointer; }
+.nd-popover li > label:hover { background: var(--nd-line-faint); }
+.nd-popover li input[type="checkbox"] { flex: none; width: 1.05em; height: 1.05em; margin: 0; accent-color: var(--nd-accent); cursor: pointer; }
+.nd-popover-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nd-popover li small, .nd-popover-title small { margin-inline-start: auto; color: var(--nd-text-muted); font-family: var(--nd-font-numeric); font-size: var(--nd-size-xs); font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nd-popover kbd { flex: none; margin-inline-start: auto; padding: 0 0.4em; border: 1px solid var(--nd-line); border-radius: var(--nd-radius-sm); color: var(--nd-text-muted); font-family: var(--nd-font-numeric); font-size: var(--nd-size-xs); }
+
+/* Optional inline form (a new name and a button) and a bottom section, each set off by a line.
+   (Scoped to .nd-popover so a <ul class="nd-popover-foot"> beats the list reset above.) */
+.nd-popover .nd-popover-form, .nd-popover .nd-popover-foot { margin: var(--nd-space-2) 0 0; padding-top: var(--nd-space-2); border-top: 1px solid var(--nd-line); }
+.nd-popover-form { display: flex; gap: var(--nd-space-2); }
+.nd-popover-form input { flex: 1; min-width: 0; min-height: 32px; padding: 0 var(--nd-space-2); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface); color: var(--nd-text); }
+.nd-popover-form input::placeholder { color: var(--nd-text-muted); opacity: 1; }
+.nd-popover-form input:focus-visible { border-color: var(--nd-focus); }
+.nd-popover-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--nd-space-1) var(--nd-space-2); }
+.nd-popover-foot > ul, .nd-popover-foot > li { flex: 1 1 100%; }

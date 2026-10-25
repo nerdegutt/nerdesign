@@ -38,6 +38,7 @@ old_version="$(grep -m1 -o 'Nerdesign v[0-9][^ ]*' "$target/nd/nd.css" 2>/dev/nu
 
 mkdir -p "$target/nd"
 cp "$src_dist"/nd.css "$src_dist"/nd-echarts.js "$src_dist"/nd-theme.js "$src_dist"/nd-lightbox.js "$target/nd/"
+[ -f "$src_dist/nd-popover.js" ] && cp "$src_dist/nd-popover.js" "$target/nd/"   # not in older releases
 [ -d "$src_dist/vendor" ] && { rm -rf "$target/nd/vendor"; cp -R "$src_dist/vendor" "$target/nd/vendor"; }
 if [ "$with_fonts" = 1 ]; then
   cp "$src_dist"/nd-fonts.css "$target/nd/"

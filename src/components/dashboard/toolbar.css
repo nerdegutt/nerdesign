@@ -1,0 +1,33 @@
+/* Toolbar: a row of filters and tools above a list or a grid. Controls keep the height of .nd-segmented
+   (34px buttons inside a 1px border = 36px), so dropdowns, checkboxes and segmented groups line up.
+   <div class="nd-toolbar">
+     <button type="button" class="nd-drop" aria-haspopup="dialog" aria-expanded="false">Kilder: alle</button>
+     <span class="nd-drop nd-drop--select"><select aria-label="Størrelse">…</select></span>
+     <label class="nd-toolbar-check"><input type="checkbox"> Kjente personer</label>
+     <div class="nd-segmented" role="group" aria-label="Retning">…</div>
+     <div class="nd-toolbar-end">…</div>   (pushed to the right; wraps under the rest on narrow screens)
+   </div> */
+.nd-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--nd-space-2) var(--nd-space-4); margin: 0 0 var(--nd-space-3); }
+.nd-toolbar-end { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--nd-space-2); margin-inline-start: auto; }
+@media (max-width: 40rem) {
+  .nd-toolbar { gap: var(--nd-space-2); }
+  .nd-toolbar-end { margin-inline-start: 0; }
+}
+
+/* Checkbox with its label, as tall as the other controls. */
+.nd-toolbar-check { display: inline-flex; align-items: center; gap: var(--nd-space-2); min-height: 36px; font-size: var(--nd-size-sm); cursor: pointer; }
+.nd-toolbar-check input { flex: none; width: 1.1em; height: 1.1em; margin: 0; accent-color: var(--nd-accent); cursor: pointer; }
+
+/* Dropdown for toolbars (outside forms): a <button> that opens a list (see nd-popover.js), or a native
+   <select> in a <span class="nd-drop nd-drop--select"> with its arrow replaced by the same ▾. */
+.nd-drop { position: relative; display: inline-flex; align-items: center; min-height: 36px; padding: 0 2em 0 0.8em; border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface); color: var(--nd-text); font: inherit; font-size: var(--nd-size-sm); line-height: 1.2; text-align: start; cursor: pointer; }
+.nd-drop::after { content: "▾"; content: "▾" / ""; position: absolute; inset-inline-end: 0.7em; pointer-events: none; color: var(--nd-text-muted); }
+.nd-drop:hover, .nd-drop[aria-expanded="true"] { border-color: var(--nd-text-muted); }
+.nd-drop:focus-visible { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-drop--select { padding: 0; }
+.nd-drop--select select { appearance: none; -webkit-appearance: none; min-height: 34px; margin: 0; padding: 0 2em 0 0.8em; border: 0; border-radius: inherit; background: none; color: inherit; font: inherit; cursor: pointer; }
+.nd-drop--select:has(select:hover) { border-color: var(--nd-text-muted); }
+/* The ring goes round the whole control; without :has() the select keeps the global ring. */
+.nd-drop--select:has(select:focus-visible) { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-drop--select:has(select:focus-visible) select { outline: none; }
+@media (forced-colors: active) { .nd-drop::after { color: CanvasText; } }

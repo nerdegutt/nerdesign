@@ -95,6 +95,7 @@ for (const [file, what] of [
   ['nd-echarts.js', 'ECharts theme and option helpers that read nd tokens at runtime'],
   ['nd-theme.js', 'optional light/dark/auto toggle'],
   ['nd-lightbox.js', 'PhotoSwipe lightbox for every image; expects ./vendor/photoswipe/'],
+  ['nd-popover.js', 'popover anchored to a button: placement, Esc and outside click'],
 ]) {
   if (existsSync(src(file))) writeFileSync(join(root, 'dist', file), banner(what, 'js') + read(file));
 }

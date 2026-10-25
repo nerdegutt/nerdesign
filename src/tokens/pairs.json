@@ -72,6 +72,21 @@
       "kind": "graphic"
     },
     {
+      "fg": "--nd-text-muted",
+      "bg": "--nd-surface-raised",
+      "kind": "text"
+    },
+    {
+      "fg": "--nd-accent",
+      "bg": "--nd-surface-raised",
+      "kind": "graphic"
+    },
+    {
+      "fg": "--nd-focus",
+      "bg": "--nd-surface-raised",
+      "kind": "graphic"
+    },
+    {
       "fg": "--nd-line",
       "bg": "--nd-bg",
       "kind": "decorative"

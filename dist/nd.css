@@ -766,6 +766,38 @@ a.nd-zoom:focus-visible { outline-offset: 3px; }
 .nd-theme-toggle input:checked + span { background: var(--nd-surface); color: var(--nd-text); }
 .nd-theme-toggle input:focus-visible + span { outline: 2px solid var(--nd-focus); outline-offset: -2px; }
 
+/* ===== components/dashboard/popover.css ===== */
+/* Popover: a small floating menu or dialog anchored to a button. Opened, placed and closed by nd-popover.js
+   (role="dialog" and an aria-label are set there). Rows are checkboxes with a name that ends in … when it
+   is too long (put the full name in title) and a muted count (<small>) or key hint (<kbd>) at the right.
+   <div class="nd-popover">
+     <p class="nd-popover-title">Kilder</p>
+     <ul><li><label title="Kamera"><input type="checkbox" checked><span class="nd-popover-name">Kamera</span><small>1 204</small></label></li></ul>
+     <form class="nd-popover-form"><input aria-label="…" placeholder="…"><button class="nd-button">Lag</button></form>   (optional)
+     <div class="nd-popover-foot">…</div>   (optional, separated by a line)
+   </div> */
+.nd-popover { position: fixed; z-index: 60; min-width: 15em; max-width: min(22em, calc(100vw - 16px)); max-height: 60vh; overflow: auto; padding: var(--nd-space-2) var(--nd-space-3); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface-raised); color: var(--nd-text); box-shadow: var(--nd-shadow); font-size: var(--nd-size-sm); line-height: 1.4; }
+.nd-popover > :first-child { margin-top: 0; }
+.nd-popover > :last-child { margin-bottom: 0; }
+.nd-popover-title { display: flex; align-items: baseline; gap: var(--nd-space-2); margin: 0 0 var(--nd-space-1); font-weight: 600; }
+.nd-popover ul { list-style: none; margin: 0; padding: 0; }
+.nd-popover li > label { display: flex; align-items: center; gap: var(--nd-space-2); min-height: 28px; padding: 2px var(--nd-space-1); border-radius: var(--nd-radius-sm); cursor: pointer; }
+.nd-popover li > label:hover { background: var(--nd-line-faint); }
+.nd-popover li input[type="checkbox"] { flex: none; width: 1.05em; height: 1.05em; margin: 0; accent-color: var(--nd-accent); cursor: pointer; }
+.nd-popover-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nd-popover li small, .nd-popover-title small { margin-inline-start: auto; color: var(--nd-text-muted); font-family: var(--nd-font-numeric); font-size: var(--nd-size-xs); font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nd-popover kbd { flex: none; margin-inline-start: auto; padding: 0 0.4em; border: 1px solid var(--nd-line); border-radius: var(--nd-radius-sm); color: var(--nd-text-muted); font-family: var(--nd-font-numeric); font-size: var(--nd-size-xs); }
+
+/* Optional inline form (a new name and a button) and a bottom section, each set off by a line.
+   (Scoped to .nd-popover so a <ul class="nd-popover-foot"> beats the list reset above.) */
+.nd-popover .nd-popover-form, .nd-popover .nd-popover-foot { margin: var(--nd-space-2) 0 0; padding-top: var(--nd-space-2); border-top: 1px solid var(--nd-line); }
+.nd-popover-form { display: flex; gap: var(--nd-space-2); }
+.nd-popover-form input { flex: 1; min-width: 0; min-height: 32px; padding: 0 var(--nd-space-2); border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface); color: var(--nd-text); }
+.nd-popover-form input::placeholder { color: var(--nd-text-muted); opacity: 1; }
+.nd-popover-form input:focus-visible { border-color: var(--nd-focus); }
+.nd-popover-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--nd-space-1) var(--nd-space-2); }
+.nd-popover-foot > ul, .nd-popover-foot > li { flex: 1 1 100%; }
+
 /* ===== components/dashboard/progress.css ===== */
 /* Progress bar on the native <progress> element (screen readers announce it without extra ARIA).
    Give it a name (aria-label or <label>) and always show the value as text next to it with
@@ -800,6 +832,41 @@ button.nd-stat > .nd-stat-label, button.nd-stat > .nd-stat-sub { display: block;
 button.nd-stat:hover { border-color: var(--nd-text-muted); }
 button.nd-stat:focus-visible { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
 button.nd-stat[aria-pressed="true"] { border-color: var(--nd-stat-mark, var(--nd-accent)); box-shadow: inset 0 4px 0 var(--nd-stat-mark, var(--nd-accent)); }
+
+/* ===== components/dashboard/toolbar.css ===== */
+/* Toolbar: a row of filters and tools above a list or a grid. Controls keep the height of .nd-segmented
+   (34px buttons inside a 1px border = 36px), so dropdowns, checkboxes and segmented groups line up.
+   <div class="nd-toolbar">
+     <button type="button" class="nd-drop" aria-haspopup="dialog" aria-expanded="false">Kilder: alle</button>
+     <span class="nd-drop nd-drop--select"><select aria-label="Størrelse">…</select></span>
+     <label class="nd-toolbar-check"><input type="checkbox"> Kjente personer</label>
+     <div class="nd-segmented" role="group" aria-label="Retning">…</div>
+     <div class="nd-toolbar-end">…</div>   (pushed to the right; wraps under the rest on narrow screens)
+   </div> */
+.nd-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--nd-space-2) var(--nd-space-4); margin: 0 0 var(--nd-space-3); }
+.nd-toolbar-end { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--nd-space-2); margin-inline-start: auto; }
+@media (max-width: 40rem) {
+  .nd-toolbar { gap: var(--nd-space-2); }
+  .nd-toolbar-end { margin-inline-start: 0; }
+}
+
+/* Checkbox with its label, as tall as the other controls. */
+.nd-toolbar-check { display: inline-flex; align-items: center; gap: var(--nd-space-2); min-height: 36px; font-size: var(--nd-size-sm); cursor: pointer; }
+.nd-toolbar-check input { flex: none; width: 1.1em; height: 1.1em; margin: 0; accent-color: var(--nd-accent); cursor: pointer; }
+
+/* Dropdown for toolbars (outside forms): a <button> that opens a list (see nd-popover.js), or a native
+   <select> in a <span class="nd-drop nd-drop--select"> with its arrow replaced by the same ▾. */
+.nd-drop { position: relative; display: inline-flex; align-items: center; min-height: 36px; padding: 0 2em 0 0.8em; border: 1px solid var(--nd-line); border-radius: var(--nd-radius); background: var(--nd-surface); color: var(--nd-text); font: inherit; font-size: var(--nd-size-sm); line-height: 1.2; text-align: start; cursor: pointer; }
+.nd-drop::after { content: "▾"; content: "▾" / ""; position: absolute; inset-inline-end: 0.7em; pointer-events: none; color: var(--nd-text-muted); }
+.nd-drop:hover, .nd-drop[aria-expanded="true"] { border-color: var(--nd-text-muted); }
+.nd-drop:focus-visible { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-drop--select { padding: 0; }
+.nd-drop--select select { appearance: none; -webkit-appearance: none; min-height: 34px; margin: 0; padding: 0 2em 0 0.8em; border: 0; border-radius: inherit; background: none; color: inherit; font: inherit; cursor: pointer; }
+.nd-drop--select:has(select:hover) { border-color: var(--nd-text-muted); }
+/* The ring goes round the whole control; without :has() the select keeps the global ring. */
+.nd-drop--select:has(select:focus-visible) { outline: 2px solid var(--nd-focus); outline-offset: 2px; }
+.nd-drop--select:has(select:focus-visible) select { outline: none; }
+@media (forced-colors: active) { .nd-drop::after { color: CanvasText; } }
 
 /* ===== print.css ===== */
 /* Print – always last in the build so these overrides win over both dark
@@ -864,7 +931,7 @@ button.nd-stat[aria-pressed="true"] { border-color: var(--nd-stat-mark, var(--nd
   .nd-label { border-color: transparent; }
 
   /* interface that has no meaning on paper */
-  .nd-skip-link, .nd-theme-toggle, .nd-segmented, .nd-button, .nd-datatable-toggle, .nd-no-print { display: none !important; }
+  .nd-skip-link, .nd-theme-toggle, .nd-segmented, .nd-button, .nd-toolbar, .nd-drop, .nd-popover, .nd-datatable-toggle, .nd-no-print { display: none !important; }
   .nd-datatable { display: block !important; }
   .nd-print-only { display: revert !important; }
 }

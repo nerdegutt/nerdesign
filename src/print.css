@@ -60,7 +60,7 @@
   .nd-label { border-color: transparent; }
 
   /* interface that has no meaning on paper */
-  .nd-skip-link, .nd-theme-toggle, .nd-segmented, .nd-button, .nd-datatable-toggle, .nd-no-print { display: none !important; }
+  .nd-skip-link, .nd-theme-toggle, .nd-segmented, .nd-button, .nd-toolbar, .nd-drop, .nd-popover, .nd-datatable-toggle, .nd-no-print { display: none !important; }
   .nd-datatable { display: block !important; }
   .nd-print-only { display: revert !important; }
 }

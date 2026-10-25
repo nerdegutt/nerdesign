@@ -5,7 +5,7 @@
 </header>
 <p class="nd-lead">En komponent er en CSS-klasse og et HTML-mønster. Ingen rammeverk, ingen byggsteg. Dokumentkomponentene først, dashboardkomponentene under.</p>
 <ul class="toc nd-list">
-  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#tint">Statusfarge og gruppekort</a></li><li><a href="#icons">Ikoner</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li>
+  <li><a href="#header">Dokumenthode</a></li><li><a href="#keyfacts">Nøkkelfakta</a></li><li><a href="#table">Tabell</a></li><li><a href="#figure">Bilder og kort</a></li><li><a href="#gallery">Galleri</a></li><li><a href="#note">Merknad</a></li><li><a href="#contact">Kontakt</a></li><li><a href="#colophon">Kolofon og fotnote</a></li><li><a href="#sheet">Ark</a></li><li><a href="#label">Etiketter</a></li><li><a href="#topbar">Toppstripe</a></li><li><a href="#stat">Nøkkeltall</a></li><li><a href="#chart">Graf med datatabell</a></li><li><a href="#status">Status</a></li><li><a href="#tint">Statusfarge og gruppekort</a></li><li><a href="#icons">Ikoner</a></li><li><a href="#progress">Fremdrift</a></li><li><a href="#form">Skjema</a></li><li><a href="#toolbar">Verktøylinje og nedtrekk</a></li><li><a href="#popover">Popover</a></li>
 </ul>
 
 <h2 id="header">Dokumenthode</h2>
@@ -276,3 +276,68 @@
     <div><button type="submit" class="nd-button nd-button--primary">Logg inn</button></div>
   </form>
 </div>
+
+<h3 id="toolbar">Verktøylinje og nedtrekk</h3>
+<p><code>.nd-toolbar</code> er en rad med filtre og verktøy over en liste eller et rutenett. Den brytes over flere linjer når plassen ikke strekker til, med faste mellomrom. <code>.nd-toolbar-end</code> skyver en gruppe helt til høyre – på smale skjermer legger den seg i stedet under resten. Alle kontrollene er like høye som <code>.nd-segmented</code>, så de står på linje.</p>
+<p><code>.nd-drop</code> er en kompakt nedtrekksknapp for verktøylinjer (utenfor skjemaer), med ▾ til høyre. På en <code>&lt;button&gt;</code> åpner den en liste (se <a href="#popover">popover</a> under); gi knappen <code>aria-haspopup="dialog"</code> og <code>aria-expanded</code>. Rundt en vanlig <code>&lt;select&gt;</code> (<code>&lt;span class="nd-drop nd-drop--select"&gt;</code>) ser den lik ut, men tastatur og skjermleser får det innebygde valget. Gi <code>&lt;select&gt;</code> et navn med <code>aria-label</code>. <code>.nd-toolbar-check</code> er en avkrysningsboks med etikett i samme høyde, i aksentfargen.</p>
+<div class="demo demo--bg">
+  <div class="nd-toolbar" id="toolbar-demo" style="margin: 0;">
+    <button type="button" class="nd-drop" id="demo-sources" aria-haspopup="dialog" aria-expanded="false">Kilder: alle</button>
+    <span class="nd-drop nd-drop--select"><select aria-label="Minste oppløsning"><option>Alle størrelser</option><option>Minst 2 MP</option><option>Minst 6 MP</option><option>Minst 12 MP</option></select></span>
+    <label class="nd-toolbar-check"><input type="checkbox"> Kjente personer</label>
+    <div class="nd-segmented" role="group" aria-label="Retning"><button type="button" aria-pressed="true">Alle</button><button type="button" aria-pressed="false">Liggende</button><button type="button" aria-pressed="false">Stående</button></div>
+    <div class="nd-toolbar-end">
+      <span class="nd-drop nd-drop--select"><select aria-label="Sortering"><option>Nyeste først</option><option>Eldste først</option></select></span>
+      <div class="nd-segmented" role="group" aria-label="Visning"><button type="button" aria-pressed="true">Tidslinje</button><button type="button" aria-pressed="false">Samlet</button></div>
+    </div>
+  </div>
+</div>
+<pre class="code">&lt;div class="nd-toolbar"&gt;
+  &lt;button type="button" class="nd-drop" aria-haspopup="dialog" aria-expanded="false"&gt;Kilder: alle&lt;/button&gt;
+  &lt;span class="nd-drop nd-drop--select"&gt;
+    &lt;select aria-label="Minste oppløsning"&gt;&lt;option&gt;Alle størrelser&lt;/option&gt; …&lt;/select&gt;
+  &lt;/span&gt;
+  &lt;label class="nd-toolbar-check"&gt;&lt;input type="checkbox"&gt; Kjente personer&lt;/label&gt;
+  &lt;div class="nd-segmented" role="group" aria-label="Retning"&gt;
+    &lt;button type="button" aria-pressed="true"&gt;Alle&lt;/button&gt; …
+  &lt;/div&gt;
+  &lt;div class="nd-toolbar-end"&gt;
+    &lt;span class="nd-drop nd-drop--select"&gt;&lt;select aria-label="Sortering"&gt;…&lt;/select&gt;&lt;/span&gt;
+    &lt;div class="nd-segmented" role="group" aria-label="Visning"&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<h3 id="popover">Popover</h3>
+<p><code>.nd-popover</code> er en liten meny som svever over siden, festet til knappen som åpnet den. Den har en tittel (<code>.nd-popover-title</code>) og en liste med rader: avkrysningsboks, navn og et dempet tall (<code>&lt;small&gt;</code>) eller en tastatursnarvei (<code>&lt;kbd&gt;</code>) helt til høyre. Lange navn slutter med … – legg hele navnet i <code>title</code> på raden. Under kan det komme et lite skjema (<code>.nd-popover-form</code>) og en egen del nederst (<code>.nd-popover-foot</code>), hver skilt fra resten med en strek.</p>
+<p><code>nd-popover.js</code> åpner den: under knappen, eller over når det ikke er plass under, og alltid innenfor vinduet. Den lukkes med Esc (fokus går tilbake til knappen), med et klikk utenfor og når fokus flyttes til noe annet. I fullskjerm legges den i fullskjermelementet, så den synes der også. Prøv «Kilder: alle» i verktøylinja over.</p>
+<div class="demo demo--bg">
+  <div class="nd-popover" role="group" aria-label="Eksempel: Legg i album" style="position: static; width: 17em;">
+    <p class="nd-popover-title">Legg i album</p>
+    <ul>
+      <li><label title="Sommer"><input type="checkbox" checked><span class="nd-popover-name">Sommer</span><kbd>A</kbd></label></li>
+      <li><label title="Turer i skog og mark gjennom hele året"><input type="checkbox"><span class="nd-popover-name">Turer i skog og mark gjennom hele året</span></label></li>
+      <li><label title="Bursdager"><input type="checkbox" checked><span class="nd-popover-name">Bursdager</span></label></li>
+    </ul>
+    <form class="nd-popover-form" onsubmit="return false"><input placeholder="Nytt album …" aria-label="Navn på nytt album"><button type="submit" class="nd-button">Lag</button></form>
+    <ul class="nd-popover-foot"><li><label title="Foreslå for sletting"><input type="checkbox"><span class="nd-popover-name">Foreslå for sletting</span><kbd>X</kbd></label></li></ul>
+  </div>
+</div>
+<pre class="code">&lt;button type="button" class="nd-drop" id="kilder" aria-haspopup="dialog" aria-expanded="false"&gt;Kilder: alle&lt;/button&gt;
+
+&lt;script type="module"&gt;
+  import { ndPopover } from './nd/nd-popover.js';
+  const button = document.getElementById('kilder');
+  button.addEventListener('click', () =&gt; {
+    const pop = ndPopover(button, `
+      &lt;p class="nd-popover-title"&gt;Kilder&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;label title="Kamera"&gt;&lt;input type="checkbox" checked&gt;
+          &lt;span class="nd-popover-name"&gt;Kamera&lt;/span&gt;&lt;small&gt;1 204 filer&lt;/small&gt;&lt;/label&gt;&lt;/li&gt; …
+      &lt;/ul&gt;
+      &lt;div class="nd-popover-foot"&gt;&lt;button type="button" class="nd-button nd-button--quiet"&gt;Alle&lt;/button&gt; …&lt;/div&gt;`,
+      { label: 'Kilder' });
+    pop?.el.addEventListener('change', (e) =&gt; { /* … */ });
+  });
+&lt;/script&gt;</pre>
+<p><code>ndPopover(knapp, innhold, { label, onClose })</code> gir <code>{ el, close }</code>. Innholdet er en HTML-tekst (escape dataene dine – den settes som <code>innerHTML</code>) eller et element. Én popover er åpen om gangen; kalles den igjen for samme knapp, lukkes den. Hjelperen setter <code>role="dialog"</code>, <code>aria-label</code> og <code>aria-expanded</code> på knappen, og flytter fokus til første kontroll. <code>closePopover()</code> lukker den som er åpen.</p>
+

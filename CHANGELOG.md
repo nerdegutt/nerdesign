@@ -21,6 +21,7 @@ They stay as published; the next release with something new is v1.1.0.
 
 ## Unreleased
 
+- Rettet: bildeteksten i lysboksen (`.pswp__nd-caption`) har samme avrunding som resten av systemet (`--nd-radius`, 6 px), ikke 4 px.
 - Rettet: `vendor/photoswipe/LICENSE.txt` har nå PhotoSwipes MIT-lisens ord for ord, med copyright-linja og hele
   ansvarsfraskrivelsen (den var forkortet). Rettet også i de publiserte versjonene på nettstedet.
 

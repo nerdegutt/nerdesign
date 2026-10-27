@@ -21,6 +21,9 @@ They stay as published; the next release with something new is v1.1.0.
 
 ## Unreleased
 
+- Rettet: `vendor/photoswipe/LICENSE.txt` har nå PhotoSwipes MIT-lisens ord for ord, med copyright-linja og hele
+  ansvarsfraskrivelsen (den var forkortet). Rettet også i de publiserte versjonene på nettstedet.
+
 ## v1.2.0 – 2026-10-25
 
 - Ny komponent: verktøylinje (`.nd-toolbar`) – en rad med filtre og verktøy som brytes pent over flere linjer. `.nd-toolbar-end` legger en gruppe helt til høyre (under resten på smale skjermer), og `.nd-toolbar-check` er en avkrysningsboks med etikett i samme høyde som de andre kontrollene.

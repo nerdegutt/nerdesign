@@ -58,7 +58,7 @@ npm run test:print   # PDF of examples/*, asserts page counts
 tools/copy-to.sh ../my-project --with-fonts [--release vX.Y.Z]   # vendor into a project
 tools/publish.sh vX.Y.Z   # bump, build, test, commit + tag, deploy (root + /vX.Y.Z/), GitHub Release
 tools/deploy.sh      # build the site into nettsted/, commit, push → https://nerdesign.offline.no/
-tools/dev-server.mjs # copy into a project for local preview (serves public/ or the root, answers /api/config)
+tools/dev-server.mjs # copy into a project for local preview (serves public/ or the root on 127.0.0.1, never dotfiles)
 docker build -t nerdesign . && docker run --rm -p 3000:3000 nerdesign   # the website as it runs on the server
 ```
 

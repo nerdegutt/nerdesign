@@ -57,7 +57,7 @@ See `references/release.md` for what to check if a step fails.
 
 ## Local preview of a consumer project
 `cp ~/dev/nerdegutt/nerdesign/tools/dev-server.mjs .` then `node dev-server.mjs`
-(`PORT=3111` to change port). Serves `public/` when it exists, else the project root, and
-answers `/api/config` with SUPABASE_URL / SUPABASE_ANON_KEY from `.env`/`.env.local`.
+(`PORT=3111` to change port). Serves `public/` when it exists, else the project root, on
+127.0.0.1 only (not the network), and never serves dotfiles (`.env`, `.git/`).
 Erlend tests locally, not on Vercel previews – and his system runs light mode, so send
 screenshots when a dark-theme change needs review.

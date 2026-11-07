@@ -4,7 +4,7 @@ export default defineConfig({
   testMatch: /.*\.spec\.mjs/,
   fullyParallel: true,
   reporter: [['list']],
-  use: { browserName: 'chromium', viewport: { width: 1280, height: 900 }, baseURL: 'http://localhost:4173/' },
-  webServer: { command: 'node tools/serve.mjs 4173', url: 'http://localhost:4173/site/index.html', reuseExistingServer: true },
+  use: { browserName: 'chromium', viewport: { width: 1280, height: 900 }, baseURL: 'http://127.0.0.1:4173/' },
+  webServer: { command: 'node tools/serve.mjs 4173', url: 'http://127.0.0.1:4173/site/index.html', reuseExistingServer: true },
   outputDir: 'test-results',
 });

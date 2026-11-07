@@ -24,6 +24,9 @@ They stay as published; the next release with something new is v1.1.0.
 - Rettet: bildeteksten i lysboksen (`.pswp__nd-caption`) har samme avrunding som resten av systemet (`--nd-radius`, 6 px), ikke 4 px.
 - Rettet: `vendor/photoswipe/LICENSE.txt` har nå PhotoSwipes MIT-lisens ord for ord, med copyright-linja og hele
   ansvarsfraskrivelsen (den var forkortet). Rettet også i de publiserte versjonene på nettstedet.
+- Rettet: `tools/dev-server.mjs` og `tools/serve.mjs` svarer bare på 127.0.0.1, ikke på nettverket, og serverer
+  aldri filer og mapper som starter med punktum (`.env`, `.git/`). `/api/config` (Supabase fra `.env`) er fjernet.
+  Prosjekter med en kopi av `dev-server.mjs` bør kopiere den på nytt.
 
 ## v1.2.0 – 2026-10-25
 

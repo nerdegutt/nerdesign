@@ -19,6 +19,9 @@ for f in "$here"/test/screenshots/*.pdf; do [ -f "$f" ] && cp "$f" "$site/exampl
 # never delete the frozen snapshots (v*/) when syncing the root
 rsync -a --delete --exclude '.DS_Store' --exclude '/v[0-9]*/' "$site/" "$dest"
 [ -n "$release" ] && rsync -a --delete --exclude '.DS_Store' "$site/" "${dest}${release}/"
+# no camera metadata (GPS position, phone model, time) in any published image, frozen snapshots included
+# (AGENTS.md «Public hygiene»); pixels and colour profile stay byte for byte. Stops the deploy if one can't be stripped.
+node "$here/tools/strip-image-metadata.mjs" "$dest"
 
 git -C "$here" add nettsted
 if git -C "$here" diff --cached --quiet; then

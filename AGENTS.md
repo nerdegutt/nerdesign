@@ -44,8 +44,11 @@ The website is the app `nerdesign` in Dokploy on the family home server (project
 
 Everything in this repo and on the website is public. Use synthetic data and never mention, link to or include
 material from the private projects that use the system; the website talks about «dokumenter» and «dashboards»
-generically. Photos of the farm are allowed in examples (downsized to ≤1400 px), but no addresses, names or
-contact details. Notes about a consumer project belong in that project's own repo, not here.
+generically. Photos of the farm are allowed in examples (downsized to ≤1400 px, and without camera metadata: a phone
+photo carries its GPS position), but no addresses, names or contact details. `node tools/strip-image-metadata.mjs
+examples` strips EXIF, XMP and IPTC without touching the pixels; `npm test` fails while an example image has any,
+and `tools/deploy.sh` strips every image in `nettsted/`, frozen snapshots included. Notes about a consumer project
+belong in that project's own repo, not here.
 
 ## Commands
 
@@ -58,6 +61,7 @@ npm run test:print   # PDF of examples/*, asserts page counts
 tools/copy-to.sh ../my-project --with-fonts [--release vX.Y.Z]   # vendor into a project
 tools/publish.sh vX.Y.Z   # bump, build, test, commit + tag, deploy (root + /vX.Y.Z/), GitHub Release
 tools/deploy.sh      # build the site into nettsted/, commit, push → https://nerdesign.offline.no/
+node tools/strip-image-metadata.mjs examples   # remove GPS/camera metadata from new photos (--check to list)
 tools/dev-server.mjs # copy into a project for local preview (serves public/ or the root on 127.0.0.1, never dotfiles)
 docker build -t nerdesign . && docker run --rm -p 3000:3000 nerdesign   # the website as it runs on the server
 ```

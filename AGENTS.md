@@ -79,8 +79,9 @@ docker build -t nerdesign . && docker run --rm -p 3000:3000 nerdesign   # the we
 ## Releases and vendoring
 
 Semver; `package.json` version is the truth and ends up in the banner of every dist file
-(`/* Nerdesign v1.2.0 – … */`). A release is a git tag + GitHub Release with `dist/` attached. Consumers pin a
-release and copy with `tools/copy-to.sh`; they never edit `nd/` locally. Optional pinned URL for non-print use:
+(`/* Nerdesign v1.2.0 – … */`). A release is a GPG-signed git tag + GitHub Release with `dist/` attached. Consumers
+pin a release and copy with `tools/copy-to.sh --release vX.Y.Z`, which checks the tag's signature (`git verify-tag`)
+and copies `dist/` and `fonts/` from the tag in this clone, not from GitHub; they never edit `nd/` locally. Optional pinned URL for non-print use:
 `https://cdn.jsdelivr.net/gh/nerdegutt/nerdesign@vX.Y.Z/dist/nd.css`.
 
 ## Versioning on the website

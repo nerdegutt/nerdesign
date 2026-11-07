@@ -17,7 +17,9 @@ tools/copy-to.sh ../my-project --with-fonts --release v1.0.0
 ```
 
 This places `nd.css`, `nd-echarts.js`, `nd-theme.js` (and optionally
-`nd-fonts.css` + `fonts/`) in `my-project/nd/`. Include them like any static file:
+`nd-fonts.css` + `fonts/`) in `my-project/nd/`, taken from the release's signed git
+tag in your clone (the copy stops if `git verify-tag` fails). Include them like any
+static file:
 
 ```html
 <link rel="stylesheet" href="nd/nd-fonts.css">

@@ -12,4 +12,6 @@ nerdegutt/nerdesign with dist files + fonts.zip + vendor.zip.
 If it stops halfway: check `git status`, `git log origin/main..`, `gh release view vX.Y.Z -R nerdegutt/nerdesign`, and
 `curl -s https://nerdesign.offline.no/versions.json`. Re-run only the missing step by hand (the script is not idempotent
 across the tag step – delete a half-made local tag with `git tag -d vX.Y.Z` before retrying).
-Consumers: `tools/copy-to.sh <project> --with-fonts --release vX.Y.Z` prints the CHANGELOG entries between their version and the new one.
+Consumers: `tools/copy-to.sh <project> --with-fonts --release vX.Y.Z` checks the tag's GPG signature (`git verify-tag`),
+copies `dist/` and `fonts/` from the tag in the local clone (not from GitHub) and prints the CHANGELOG entries between
+their version and the new one.

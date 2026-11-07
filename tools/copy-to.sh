@@ -3,7 +3,7 @@
 #
 #   tools/copy-to.sh <target-dir> [--with-fonts] [--release vX.Y.Z]
 #
-# Copies dist/ (local build, or the assets of a GitHub Release) into
+# Copies dist/ (local build, or a release: dist/ and fonts/ from the signed git tag) into
 # <target-dir>/nd/, reports the version jump and prints the CHANGELOG entries
 # in between. Consumers must never edit nd/ locally – change nerdesign and copy again.
 set -euo pipefail
@@ -24,11 +24,16 @@ done
 
 src_dist="$here/dist"; src_fonts="$here/fonts"
 if [ -n "$release" ]; then
-  tmp="$(mktemp -d)"
-  gh release download "$release" -R nerdegutt/nerdesign -D "$tmp" --clobber
-  src_dist="$tmp"; src_fonts="$tmp/fonts"
-  [ -d "$src_fonts" ] || { mkdir -p "$src_fonts"; (cd "$src_fonts" && for z in "$tmp"/fonts*.zip; do [ -f "$z" ] && unzip -qo "$z"; done); }
-  [ -f "$tmp/vendor.zip" ] && (cd "$tmp" && unzip -qo vendor.zip)   # → $tmp/vendor/
+  # A release is the signed tag in this clone, not the files on GitHub: git verify-tag checks Erlend's GPG
+  # signature (the private key is not on GitHub), and git archive takes dist/ and fonts/ exactly as tagged.
+  # A tag that is missing here is fetched; a tag that was moved on GitHub is never overwritten here.
+  git -C "$here" rev-parse -q --verify "refs/tags/$release" >/dev/null ||
+    git -C "$here" fetch -q origin "refs/tags/$release:refs/tags/$release"
+  git -C "$here" verify-tag "$release" 2>/dev/null ||
+    { echo "$release: the tag's signature does not verify (git verify-tag $release) – nothing copied" >&2; exit 1; }
+  tmp="$(mktemp -d)"; trap 'rm -rf "$tmp"' EXIT
+  git -C "$here" archive "$release" dist fonts | tar -x -C "$tmp"
+  src_dist="$tmp/dist"; src_fonts="$tmp/fonts"
 else
   (cd "$here" && npm run -s build)
 fi

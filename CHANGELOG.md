@@ -28,7 +28,9 @@ They stay as published; the next release with something new is v1.1.0.
   aldri filer og mapper som starter med punktum (`.env`, `.git/`). `/api/config` (Supabase fra `.env`) er fjernet.
   Prosjekter med en kopi av `dev-server.mjs` bør kopiere den på nytt.
 - Rettet: nettstedet: frosne versjoner viser igjen en lenke til nyeste versjon øverst. Skriptet hadde en
-  syntaksfeil (skråstrekene i et regulært uttrykk forsvant i byggingen) og ga en JS-feil på hver side.
+  syntaksfeil (de omvendte skråstrekene i et regulært uttrykk forsvant i byggingen) og ga en JS-feil på hver side.
+- `tools/copy-to.sh --release vX.Y.Z` kopierer fra den signerte git-taggen i den lokale klonen, ikke fra filene i
+  GitHub-releasen, og stopper hvis signaturen ikke kan verifiseres (`git verify-tag`). Krever ikke lenger `gh` og `unzip`.
 
 ## v1.2.0 – 2026-10-25
 

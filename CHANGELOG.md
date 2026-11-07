@@ -31,6 +31,9 @@ They stay as published; the next release with something new is v1.1.0.
   syntaksfeil (de omvendte skråstrekene i et regulært uttrykk forsvant i byggingen) og ga en JS-feil på hver side.
 - `tools/copy-to.sh --release vX.Y.Z` kopierer fra den signerte git-taggen i den lokale klonen, ikke fra filene i
   GitHub-releasen, og stopper hvis signaturen ikke kan verifiseres (`git verify-tag`). Krever ikke lenger `gh` og `unzip`.
+- `tools/copy-to.sh` uten `--release`: når det lokale bygget ikke er likt utgivelsen det har nummeret til, står det i
+  banneret i kopiene (`Nerdesign v1.2.0+ad54f83`, `.dirty` med ucommittede endringer). Lista over endringer siden
+  forrige versjon tar igjen bare med de nye seksjonene (overskriftene med dato ble ikke gjenkjent).
 
 ## v1.2.0 – 2026-10-25
 

@@ -9,7 +9,7 @@ received releases. Its history and checkpoint log stay there.
 
 ## Where things stand
 
-**Released: v1.0.4.** Website https://nerdesign.offline.no/ (root = latest; frozen snapshots at `/vX.Y.Z/`).
+**Released: v1.2.0.** Website https://nerdesign.offline.no/ (root = latest; frozen snapshots at `/vX.Y.Z/`).
 Old links to https://offline.no/nerdesign/… are redirected there (301).
 
 ## Platform (the website)
@@ -81,7 +81,9 @@ docker build -t nerdesign . && docker run --rm -p 3000:3000 nerdesign   # the we
 Semver; `package.json` version is the truth and ends up in the banner of every dist file
 (`/* Nerdesign v1.2.0 – … */`). A release is a GPG-signed git tag + GitHub Release with `dist/` attached. Consumers
 pin a release and copy with `tools/copy-to.sh --release vX.Y.Z`, which checks the tag's signature (`git verify-tag`)
-and copies `dist/` and `fonts/` from the tag in this clone, not from GitHub; they never edit `nd/` locally. Optional pinned URL for non-print use:
+and copies `dist/` and `fonts/` from the tag in this clone, not from GitHub; they never edit `nd/` locally. Without
+`--release` it copies a local build, and when that differs from the tagged release its banners say so
+(`Nerdesign v1.2.0+ad54f83`, `.dirty` with uncommitted changes). Optional pinned URL for non-print use:
 `https://cdn.jsdelivr.net/gh/nerdegutt/nerdesign@vX.Y.Z/dist/nd.css`.
 
 ## Versioning on the website

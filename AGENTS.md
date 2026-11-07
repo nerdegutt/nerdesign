@@ -47,8 +47,8 @@ material from the private projects that use the system; the website talks about 
 generically. Photos of the farm are allowed in examples (downsized to ≤1400 px, and without camera metadata: a phone
 photo carries its GPS position), but no addresses, names or contact details. `node tools/strip-image-metadata.mjs
 examples` strips EXIF, XMP and IPTC without touching the pixels; `npm test` fails while an example image has any,
-and `tools/deploy.sh` strips every image in `nettsted/`, frozen snapshots included. Notes about a consumer project
-belong in that project's own repo, not here.
+and `tools/deploy.sh` strips every image in `nettsted/` and the photos embedded in its PDFs, frozen snapshots
+included. Notes about a consumer project belong in that project's own repo, not here.
 
 ## Commands
 

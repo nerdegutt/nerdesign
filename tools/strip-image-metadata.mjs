@@ -6,6 +6,7 @@
 //   node tools/strip-image-metadata.mjs --check <dir|file>...   list files with metadata, exit 1 if any
 //
 // JPEG: drops APP1 (EXIF, XMP) and APP13 (IPTC/Photoshop) segments. PNG: drops eXIf, tEXt, iTXt, zTXt and tIME.
+// PDF: blanks those segments in the JPEGs it embeds (the example PDFs carry the photos with their GPS position).
 // A JPEG whose EXIF orientation is not «normal» is refused: without the tag it would show rotated.
 // Used by test/images.spec.mjs (examples/) and tools/deploy.sh (all of nettsted/, snapshots included).
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
@@ -65,7 +66,38 @@ function png(buf) {
   return { found, out: Buffer.concat(parts) };
 }
 
-const HANDLERS = { '.jpg': jpeg, '.jpeg': jpeg, '.png': png };
+// PDF (Chromium's print of an example): a photo is embedded as the original JPEG, metadata included. Each APP1/APP13
+// segment in a DCTDecode stream is blanked in place – turned into a comment segment of spaces with the same length –
+// so every /Length and xref offset stays valid. A PDF viewer ignores EXIF orientation, so nothing is refused here.
+function pdf(buf) {
+  if (buf.subarray(0, 5).toString('latin1') !== '%PDF-') throw new Error('not a PDF');
+  const found = []; const out = Buffer.from(buf);
+  for (let at = out.indexOf('/DCTDecode'); at >= 0; at = out.indexOf('/DCTDecode', at + 1)) {
+    const kw = out.indexOf('stream', at);
+    if (kw < 0 || out.subarray(at, kw).includes('endobj')) continue;
+    const start = kw + 6 + (out[kw + 6] === 0x0d ? 2 : 1);    // «stream» + CRLF or LF
+    const stop = out.indexOf('endstream', start);
+    if (out[start] !== 0xff || out[start + 1] !== 0xd8 || stop < 0) continue;
+    let i = start + 2;
+    while (i + 4 <= stop && out[i] === 0xff) {
+      const marker = out[i + 1];
+      if (marker === 0xff) { i++; continue; }
+      if (marker === 0xda || marker === 0xd9) break;
+      const end = i + 2 + out.readUInt16BE(i + 2);
+      if (JPEG_DROP.has(marker)) {
+        found.push(marker === 0xed ? 'IPTC/Photoshop' : out.subarray(i + 4, i + 8).toString('latin1') === 'Exif' ? 'EXIF' : 'XMP');
+        out[i + 1] = 0xfe;                                       // COM
+        out.fill(0x20, i + 4, end);
+      }
+      i = end;
+    }
+    const jpg = out.subarray(start, stop);
+    if (jpg.includes('Exif\0\0') || jpg.includes('x:xmpmeta')) throw new Error('metadata outside the header segments of an embedded JPEG');
+  }
+  return { found, out };
+}
+
+const HANDLERS = { '.jpg': jpeg, '.jpeg': jpeg, '.png': png, '.pdf': pdf };
 
 function* files(path) {
   if (statSync(path).isDirectory()) {

@@ -80,7 +80,7 @@
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {
     try {
-      if (!location.pathname.match(//vd+.d+.d+//)) return;   // only frozen snapshots get a banner
+      if (!location.pathname.match(/\/v\d+\.\d+\.\d+\//)) return;   // only frozen snapshots get a banner (backslashes doubled: this is a template literal)
       const mine = document.body.dataset.ndVersion;
       const r = await fetch('../versions.json', { cache: 'no-store' }); if (!r.ok) return;
       const { latest } = await r.json();

@@ -34,7 +34,7 @@
   <p class="nd-subtitle">Utgivelser, endringer og frosne kopier av nettstedet</p>
 </header>
 <p class="nd-lead">Prosjekter låser seg til én versjon. Hver utgivelse har egne filer og en frossen kopi av nettstedet, lenket under.</p>
-
+<section class="nd-note"><h4>Endringer siden v1.2.0</h4><ul class="nd-list" style="margin: 0;"><li>Rettet: bildeteksten i lysboksen (<code>.pswp__nd-caption</code>) har samme avrunding som resten av systemet (<code>--nd-radius</code>, 6 px), ikke 4 px.</li><li>Rettet: <code>vendor/photoswipe/LICENSE.txt</code> har nå PhotoSwipes MIT-lisens ord for ord, med copyright-linja og hele</li><li>Rettet: <code>tools/dev-server.mjs</code> og <code>tools/serve.mjs</code> svarer bare på 127.0.0.1, ikke på nettverket, og serverer</li><li>Rettet: nettstedet: skriptet som viser en lenke til nyeste versjon øverst på frosne versjoner, hadde en</li><li><code>tools/copy-to.sh --release vX.Y.Z</code> kopierer fra den signerte git-taggen i den lokale klonen, ikke fra filene i</li><li><code>tools/copy-to.sh</code> uten <code>--release</code>: når det lokale bygget ikke er likt utgivelsen det har nummeret til, står det i</li></ul></section>
 
 <section class="nd-panel" style="margin-bottom: var(--nd-space-4);">
   <h2 style="margin-top: 0;">v1.2.0 <small class="nd-muted" style="font-size: 0.6em; font-weight: 400;">2026-10-25</small></h2>
@@ -97,7 +97,7 @@
   // Snapshot banner: tell the reader when a newer release exists. versions.json lives at the site root.
   (async () => {
     try {
-      if (!location.pathname.match(//vd+.d+.d+//)) return;   // only frozen snapshots get a banner
+      if (!location.pathname.match(/\/v\d+\.\d+\.\d+\//)) return;   // only frozen snapshots get a banner (backslashes doubled: this is a template literal)
       const mine = document.body.dataset.ndVersion;
       const r = await fetch('../versions.json', { cache: 'no-store' }); if (!r.ok) return;
       const { latest } = await r.json();

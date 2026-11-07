@@ -3,14 +3,31 @@
 	auto_https off
 }
 
+# Sikkerhetsheadere, like i alle Caddy-appene. HSTS settes i Cloudflare, ikke her. Importeres både i site-blokken
+# og i handle_errors, ellers mister feilsvar (404, 403) headerne og får «Server: Caddy» tilbake.
+(sikkerhet) {
+	header {
+		-Server
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "SAMEORIGIN"
+		Content-Security-Policy "frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+	}
+}
+
 :3000 {
+	import sikkerhet
 	root * /srv
 	respond /healthz "ok" 200
-	header -Server
 	# Cloudflare mellomlagrer ellers CSS og JS i 2 timer når opphavet ikke sier noe. no-cache = lagre,
 	# men spør serveren (ETag) hver gang, så en deploy synes med en gang.
 	header Cache-Control "no-cache"
 	file_server
+	handle_errors {
+		import sikkerhet
+		respond "{err.status_code} {err.status_text}" {err.status_code}
+	}
 	log {
 		output stdout
 	}

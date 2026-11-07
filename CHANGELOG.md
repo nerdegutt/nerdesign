@@ -27,6 +27,8 @@ They stay as published; the next release with something new is v1.1.0.
 - Rettet: `tools/dev-server.mjs` og `tools/serve.mjs` svarer bare på 127.0.0.1, ikke på nettverket, og serverer
   aldri filer og mapper som starter med punktum (`.env`, `.git/`). `/api/config` (Supabase fra `.env`) er fjernet.
   Prosjekter med en kopi av `dev-server.mjs` bør kopiere den på nytt.
+- Rettet: nettstedet: frosne versjoner viser igjen en lenke til nyeste versjon øverst. Skriptet hadde en
+  syntaksfeil (skråstrekene i et regulært uttrykk forsvant i byggingen) og ga en JS-feil på hver side.
 
 ## v1.2.0 – 2026-10-25
 
